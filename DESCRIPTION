@@ -1,12 +1,12 @@
 Package: evabic
-Title: What the Package Does (One Line, Title Case)
+Title: Evaluation of binary classifiers
 Version: 0.0.0.9000
 Authors@R: 
-    person(given = "First",
-           family = "Last",
+    person(given = "Antoine",
+           family = "Bichat",
            role = c("aut", "cre"),
-           email = "first.last@example.com")
-Description: What the package does (one paragraph).
-License: What license it uses
+           email = "a.bichat@yahoo.fr")
+Description: Provides functions to measure the performance of a classifier or predictor.
+License: CC0
 Encoding: UTF-8
 LazyData: true
