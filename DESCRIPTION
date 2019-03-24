@@ -5,12 +5,15 @@ Authors@R:
     person(given = "Antoine",
            family = "Bichat",
            role = c("aut", "cre"),
-           email = "a.bichat@yahoo.fr")
+           email = "a.bichat@yahoo.fr",
+           comment = c(ORCID = "0000-0001-6599-7081"))
 Description: Provides functions to measure the performance of a
     classifier or predictor.
 License: CC0
 URL: https://github.com/abichat/evabic
 BugReports: https://github.com/abichat/evabic/issues
+Suggests: 
+    testthat
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
