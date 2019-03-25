@@ -31,3 +31,16 @@ ebc_FDR <- function(detected, true){
 ebc_ACC <- function(detected, true, all, m = length(all)){
   (ebc_TP(detected, true) + ebc_TN(detected, true, m = m)) / m
 }
+
+#' @rdname ebc_TPR
+#' @export
+ebc_PPV <- function(detected, true){
+  ebc_TP(detected, true) / (ebc_TP(detected, true) + ebc_FP(detected, true))
+}
+
+#' @rdname ebc_TPR
+#' @export
+ebc_F1 <- function(detected, true){
+  2 * ebc_TP(detected, true) /
+    (2*ebc_TP(detected, true) + ebc_FP(detected, true) + ebc_FN(detected, true))
+}

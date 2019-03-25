@@ -5,6 +5,8 @@
 \alias{ebc_TNR}
 \alias{ebc_FDR}
 \alias{ebc_ACC}
+\alias{ebc_PPV}
+\alias{ebc_F1}
 \title{Derived measures.}
 \usage{
 ebc_TPR(detected, true)
@@ -14,6 +16,10 @@ ebc_TNR(detected, true, all, m = length(all))
 ebc_FDR(detected, true)
 
 ebc_ACC(detected, true, all, m = length(all))
+
+ebc_PPV(detected, true)
+
+ebc_F1(detected, true)
 }
 \arguments{
 \item{detected}{Vector of elements that are detected.}
