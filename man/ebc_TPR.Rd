@@ -36,3 +36,8 @@ A numeric.
 \description{
 Measures derived from confusion matrix.
 }
+\examples{
+ebc_TPR(detected = c("A", "C", "D"), true = c("A", "B", "C"))
+ebc_ACC(detected = c("A", "C", "D"), true = c("A", "B", "C"),
+       all = LETTERS[1:6])
+}
