@@ -3,9 +3,9 @@
 \name{ebc_TPR}
 \alias{ebc_TPR}
 \alias{ebc_TNR}
+\alias{ebc_PPV}
 \alias{ebc_FDR}
 \alias{ebc_ACC}
-\alias{ebc_PPV}
 \alias{ebc_F1}
 \title{Derived measures.}
 \usage{
@@ -13,11 +13,11 @@ ebc_TPR(detected, true)
 
 ebc_TNR(detected, true, all, m = length(all))
 
+ebc_PPV(detected, true)
+
 ebc_FDR(detected, true)
 
 ebc_ACC(detected, true, all, m = length(all))
-
-ebc_PPV(detected, true)
 
 ebc_F1(detected, true)
 }
@@ -35,6 +35,19 @@ A numeric.
 }
 \description{
 Measures derived from confusion matrix.
+}
+\details{
+TPR: True Positive Rate, also known as Sensitivity and Recall.
+
+TNR: True Negative Rate, also known as Specificity and Selectivity.
+
+PPV: Positive Predictive Value, also known as Precision.
+
+FDR: False Discovery Rate.
+
+ACC: Accuracy.
+
+F1: F1 score.
 }
 \examples{
 ebc_TPR(detected = c("A", "C", "D"), true = c("A", "B", "C"))
