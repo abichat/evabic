@@ -11,14 +11,14 @@ measures_wo_m <- c("TP", "FP", "FN", "TPR", "PPV", "FDR", "F1")
 
 test_that("ebc_tidy() has the correct format", {
   expect_is(ebc_tidy(detectedH1, trueH1, elements), "data.frame")
-  expect_equal(1, nrow(ebc_tidy(detectedH1, trueH1, elements)))
-  expect_equal(2, ncol(ebc_tidy(detectedH1, trueH1, elements,
-                                measures = c("ACC", "FDR"))))
-  expect_equal(10, ncol(ebc_tidy(detectedH1, trueH1, elements,
-                                measures = all_measures)))
-  expect_equal(c("TN", "F1", "TPR"),
-               colnames(ebc_tidy(detectedH1, trueH1, elements,
-                                 measures = c("TN", "F1", "TPR"))))
+  expect_equal(nrow(ebc_tidy(detectedH1, trueH1, elements)), 1)
+  expect_equal(ncol(ebc_tidy(detectedH1, trueH1, elements,
+                             measures = c("ACC", "FDR"))), 2)
+  expect_equal(ncol(ebc_tidy(detectedH1, trueH1, elements,
+                             measures = all_measures)), 10)
+  expect_equal(colnames(ebc_tidy(detectedH1, trueH1, elements,
+                                 measures = c("TN", "F1", "TPR"))),
+               c("TN", "F1", "TPR"))
 })
 
 test_that("arguments are correct", {
