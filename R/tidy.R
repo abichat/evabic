@@ -18,6 +18,15 @@
 #'          all = LETTERS[1:6], measures = c("ACC", "FDR"))
 ebc_tidy <- function(detected, true, all, m = length(all),
                      measures = c("TPR", "FDR", "ACC", "F1")){
+  ebc_allmeasures <-
+    c("TP", "FP", "FN", "TN", "TPR", "TNR", "PPV", "FDR", "ACC", "F1")
+
+  if(length(setdiff(measures, ebc_allmeasures)) > 0){
+    warning("Some measure are not available, they won't be used.")
+  }
+
+  measures <- intersect(measures, ebc_allmeasures)
+
   df <- data.frame(row.names = 1)
 
   if ("TP"  %in% measures) df$TP  <- ebc_TP(detected, true)

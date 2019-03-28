@@ -27,3 +27,11 @@ test_that("arguments are correct", {
   expect_error(ebc_tidy(detectedH1, trueH1, measures = c("TN", "ACC")))
 })
 
+
+test_that("checking mesaures", {
+  expect_warning(ebc_tidy(detectedH1, trueH1, elements,
+                          measures = c("TN", "ZZ", "TPR")))
+  expect_equal(ncol(suppressWarnings(ebc_tidy(detectedH1, trueH1, elements,
+                                              measures = c("TN", "ZZ", "F1")))),
+               2)
+})

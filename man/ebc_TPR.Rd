@@ -52,5 +52,5 @@ F1: F1 score.
 \examples{
 ebc_TPR(detected = c("A", "C", "D"), true = c("A", "B", "C"))
 ebc_ACC(detected = c("A", "C", "D"), true = c("A", "B", "C"),
-       all = LETTERS[1:6])
+        all = LETTERS[1:6])
 }
