@@ -1,6 +1,6 @@
 Package: evabic
 Title: Evaluation of binary classifiers
-Version: 0.0.0.9000
+Version: 0.0.0.9001
 Authors@R: 
     person(given = "Antoine",
            family = "Bichat",
@@ -9,7 +9,7 @@ Authors@R:
            comment = c(ORCID = "0000-0001-6599-7081"))
 Description: Provides functions to measure the performance of a
     classifier or predictor.
-License: CC0
+License: GPL-3
 URL: https://github.com/abichat/evabic
 BugReports: https://github.com/abichat/evabic/issues
 Suggests: 

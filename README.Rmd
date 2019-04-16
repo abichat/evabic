@@ -1,0 +1,70 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+# evabic
+
+```{r, echo = FALSE}
+version <- as.vector(read.dcf('DESCRIPTION')[, 'Version'])                                                              
+version <- gsub('-', '.', version)
+```
+
+<!-- badges: start -->
+[![license](https://img.shields.io/badge/license-GPL--3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0.en.html)
+[![lifecycle](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
+[![packageversion](https://img.shields.io/badge/Package%20version-`r version`-orange.svg?style=flat-square)](commits/master)
+[![Last-changedate](https://img.shields.io/badge/last%20change-`r gsub('-', '--', Sys.Date())`-yellowgreen.svg)](/commits/master)
+<!-- badges: end -->
+
+The goal of evabic is to provide handy functions to evaluate binary classifiers.
+
+## Installation
+
+
+You can install the development version from [GitHub](https://github.com/) with:
+
+``` r
+# install.packages("devtools")
+devtools::install_github("abichat/evabic")
+```
+## Example
+
+Suppose that you are testing 10 conditions: `A, B, C, D, E, F, G, H, I, & J`.
+
+Conditions `A` to `E` are in H0 and conditions `F` to `J` are in H1.
+
+Your model detect `D` and `G` to `I` in H1.
+
+```{r}
+conditions <- LETTERS[1:10]
+trueH1 <- LETTERS[6:10]
+detectedH1 <- c("D", LETTERS[7:9])
+```
+
+```{r example}
+library(evabic)
+```
+
+```{r}
+ebc_TP(detectedH1, trueH1)
+ebc_TPR(detectedH1, trueH1)
+ebc_ACC(detectedH1, trueH1, all = conditions)
+```
+
+```{r}
+ebc_tidy(detectedH1, trueH1, m = 10, measures = c("ACC", "TPR", "FDR", "F1"))
+```
+
+
+
+
