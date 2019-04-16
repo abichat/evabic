@@ -39,7 +39,7 @@ Suppose that you are testing 10 conditions: `A, B, C, D, E, F, G, H, I,
 
 Conditions `A` to `E` are in H0 and conditions `F` to `J` are in H1.
 
-Your model detect `D` and `G` to `I` in H1.
+Your model detects `D` and `G` to `I` as H1.
 
 ``` r
 conditions <- LETTERS[1:10]
