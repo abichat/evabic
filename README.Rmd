@@ -23,10 +23,14 @@ version <- gsub('-', '.', version)
 [![license](https://img.shields.io/badge/license-GPL--3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0.en.html)
 [![lifecycle](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
 [![packageversion](https://img.shields.io/badge/Package%20version-`r version`-orange.svg?style=flat-square)](commits/master)
+[![Travis build status](https://travis-ci.org/abichat/evabic.svg?branch=master)](https://travis-ci.org/abichat/evabic)
+[![AppVeyor build status](https://ci.appveyor.com/api/projects/status/github/abichat/evabic?branch=master&svg=true)](https://ci.appveyor.com/project/abichat/evabic)
+[![Codecov test coverage](https://codecov.io/gh/abichat/evabic/branch/master/graph/badge.svg)](https://codecov.io/gh/abichat/evabic?branch=master)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/c32dcc4c1c3f40a5950e1c10ea6dfb18)](https://www.codacy.com/app/abichat/evabic?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=abichat/evabic&amp;utm_campaign=Badge_Grade)
 [![Last-changedate](https://img.shields.io/badge/last%20change-`r gsub('-', '--', Sys.Date())`-yellowgreen.svg)](/commits/master)
 <!-- badges: end -->
 
-The goal of evabic is to provide handy functions to evaluate binary classifiers.
+The goal of evabic is to evaluate binary classifiers without dependancies.
 
 ## Installation
 
@@ -55,11 +59,16 @@ detectedH1 <- c("D", LETTERS[7:9])
 library(evabic)
 ```
 
+__evabic__ provides handy functions to computes different measures. Each function begins with `ebc_*`.
+
+
 ```{r}
 ebc_TP(detectedH1, trueH1)
 ebc_TPR(detectedH1, trueH1)
 ebc_ACC(detectedH1, trueH1, all = conditions)
 ```
+
+You can also asks for results in a single row summary format.
 
 ```{r}
 ebc_tidy(detectedH1, trueH1, m = 10, measures = c("ACC", "TPR", "FDR", "F1"))
