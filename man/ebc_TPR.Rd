@@ -6,6 +6,7 @@
 \alias{ebc_PPV}
 \alias{ebc_FDR}
 \alias{ebc_ACC}
+\alias{ebc_BACC}
 \alias{ebc_F1}
 \title{Derived measures.}
 \usage{
@@ -18,6 +19,8 @@ ebc_PPV(detected, true)
 ebc_FDR(detected, true)
 
 ebc_ACC(detected, true, all, m = length(all))
+
+ebc_BACC(detected, true, all, m = length(all))
 
 ebc_F1(detected, true)
 }
@@ -46,6 +49,8 @@ PPV: Positive Predictive Value, also known as Precision.
 FDR: False Discovery Rate.
 
 ACC: Accuracy.
+
+BACC: Balanced Accuracy.
 
 F1: F1 score.
 }

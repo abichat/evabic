@@ -38,3 +38,15 @@ ebc_FN <- function(detected, true){
 ebc_TN <- function(detected, true, all, m = length(all)){
   m - length(union(detected, true))
 }
+
+#' @rdname ebc_TP
+#' @export
+ebc_P <- function(detected){
+  length(detected)
+}
+
+#' @rdname ebc_TP
+#' @export
+ebc_N <- function(detected, all, m = length(all)){
+  m - length(detected)
+}

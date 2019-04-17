@@ -12,6 +12,8 @@
 #'
 #' ACC: Accuracy.
 #'
+#' BACC: Balanced Accuracy.
+#'
 #' F1: F1 score.
 #'
 #' @param detected Vector of elements that are detected.
@@ -51,6 +53,13 @@ ebc_FDR <- function(detected, true){
 #' @export
 ebc_ACC <- function(detected, true, all, m = length(all)){
   (ebc_TP(detected, true) + ebc_TN(detected, true, m = m)) / m
+}
+
+#' @rdname ebc_TPR
+#' @export
+ebc_BACC <- function(detected, true, all, m = length(all)){
+  (ebc_TP(detected, true) / ebc_P(detected) +
+     ebc_TN(detected, true, m = m) / ebc_N(detected, m = m)) / 2
 }
 
 #' @rdname ebc_TPR

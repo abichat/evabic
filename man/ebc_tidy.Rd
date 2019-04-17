@@ -26,7 +26,7 @@ Construct a single row summary of the classifier.
 }
 \details{
 Supported measures are \code{c("TP", "FP", "FN",
-"TN", "TPR", "TNR", "PPV", "FDR", "ACC", "F1")}
+"TN", "TPR", "TNR", "PPV", "FDR", "ACC", "BACC", "F1")}
 }
 \examples{
 ebc_tidy(detected = c("A", "C", "D"), true = c("A", "B", "C"),

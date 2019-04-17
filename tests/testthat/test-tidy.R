@@ -4,8 +4,8 @@ elements <- 1:10
 detectedH1 <- c(1:4, 8,9)
 trueH1 <- 1:5
 
-all_measures <- c("TP", "FP", "FN", "TN", "TPR",
-                  "TNR", "PPV", "FDR", "ACC", "F1")
+all_measures <- c("TP", "FP", "FN", "TN", "TPR", "TNR",
+                  "PPV", "FDR", "BACC", "ACC", "F1")
 
 measures_wo_m <- c("TP", "FP", "FN", "TPR", "PPV", "FDR", "F1")
 
@@ -15,7 +15,7 @@ test_that("ebc_tidy() has the correct format", {
   expect_equal(ncol(ebc_tidy(detectedH1, trueH1, elements,
                              measures = c("ACC", "FDR"))), 2)
   expect_equal(ncol(ebc_tidy(detectedH1, trueH1, elements,
-                             measures = all_measures)), 10)
+                             measures = all_measures)), length(all_measures))
   expect_equal(colnames(ebc_tidy(detectedH1, trueH1, elements,
                                  measures = c("TN", "F1", "TPR"))),
                c("TN", "F1", "TPR"))
@@ -28,7 +28,7 @@ test_that("arguments are correct", {
 })
 
 
-test_that("checking mesaures", {
+test_that("checking mesaures works", {
   expect_warning(ebc_tidy(detectedH1, trueH1, elements,
                           measures = c("TN", "ZZ", "TPR")))
   expect_equal(ncol(suppressWarnings(ebc_tidy(detectedH1, trueH1, elements,
