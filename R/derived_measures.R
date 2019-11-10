@@ -57,6 +57,12 @@ ebc_FDR <- function(detected, true){
 
 #' @rdname ebc_TPR
 #' @export
+ebc_FNR <- function(detected, true){
+  ebc_FN(detected, true) / length(true)
+}
+
+#' @rdname ebc_TPR
+#' @export
 ebc_ACC <- function(detected, true, all, m = length(all)){
   (ebc_TP(detected, true) + ebc_TN(detected, true, m = m)) / m
 }

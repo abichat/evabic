@@ -19,7 +19,8 @@ ebc_tidy(detected, true, all, m = length(all), measures = c("TPR",
 \item{measures}{Desired measures of performance.}
 }
 \value{
-A single-row data.frame with one column per element in \code{measures}.
+A single-row data.frame with one column per
+element in \code{measures}.
 }
 \description{
 Construct a single row summary of the classifier.

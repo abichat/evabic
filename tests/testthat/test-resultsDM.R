@@ -13,6 +13,7 @@ test_that("derived statistics are correct", {
   expect_equal(ebc_FPR(detectedH1, trueH1, m = total), 2 / 5)
   expect_equal(ebc_FPR(detectedH1, trueH1, elements), 2 / 5)
   expect_equal(ebc_FDR(detectedH1, trueH1), 1 / 3)
+  expect_equal(ebc_FNR(detectedH1, trueH1), 1 / 5)
   expect_equal(ebc_ACC(detectedH1, trueH1, elements), 7 / 10)
   expect_equal(ebc_ACC(detectedH1, trueH1, m = total), 7 / 10)
   expect_equal(ebc_BACC(detectedH1, trueH1, elements), 7 / 10)
