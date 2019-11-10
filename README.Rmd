@@ -22,7 +22,7 @@ version <- gsub('-', '.', version)
 <!-- badges: start -->
 [![license](https://img.shields.io/badge/license-GPL--3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0.en.html)
 [![lifecycle](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
-[![packageversion](https://img.shields.io/badge/Package%20version-`r version`-orange.svg?style=flat-square)](commits/master)
+[![packageversion](https://img.shields.io/badge/package%20version-`r version`-orange.svg)](commits/master)
 [![Travis build status](https://travis-ci.org/abichat/evabic.svg?branch=master)](https://travis-ci.org/abichat/evabic)
 [![AppVeyor build status](https://ci.appveyor.com/api/projects/status/github/abichat/evabic?branch=master&svg=true)](https://ci.appveyor.com/project/abichat/evabic)
 [![Codecov test coverage](https://codecov.io/gh/abichat/evabic/branch/master/graph/badge.svg)](https://codecov.io/gh/abichat/evabic?branch=master)
@@ -30,10 +30,9 @@ version <- gsub('-', '.', version)
 [![Last-changedate](https://img.shields.io/badge/last%20change-`r gsub('-', '--', Sys.Date())`-yellowgreen.svg)](/commits/master)
 <!-- badges: end -->
 
-The goal of evabic is to evaluate binary classifiers without dependancies.
+The goal of evabic is to evaluate binary classifiers. It has no dependancies.
 
 ## Installation
-
 
 You can install the development version from [GitHub](https://github.com/) with:
 
@@ -41,6 +40,16 @@ You can install the development version from [GitHub](https://github.com/) with:
 # install.packages("devtools")
 devtools::install_github("abichat/evabic")
 ```
+
+## Measures
+
+__evabic__ provides `r length(evabic::ebc_allmeasures)` handy functions to computes different measures. Each function begins with `ebc_*`.
+
+Available measures includes True Positive Rate (Sensitivity or Recall), True Negative Rate (Specificity), Positive Predictive Value (Precision), False Discovery Rate, Accuracy, F1... and can be accessed with `ebc_allmeasures`.
+
+
+
+
 ## Example
 
 Suppose that you are testing 10 conditions: `A, B, C, D, E, F, G, H, I, & J`.
@@ -59,7 +68,7 @@ detectedH1 <- c("D", LETTERS[7:9])
 library(evabic)
 ```
 
-__evabic__ provides handy functions to computes different measures. Each function begins with `ebc_*`.
+
 
 
 ```{r}
