@@ -41,12 +41,12 @@ ebc_TN <- function(detected, true, all, m = length(all)){
 
 #' @rdname ebc_TP
 #' @export
-ebc_P <- function(detected){
-  length(detected)
+ebc_P <- function(true){
+  length(true)
 }
 
 #' @rdname ebc_TP
 #' @export
-ebc_N <- function(detected, all, m = length(all)){
-  m - length(detected)
+ebc_N <- function(true, all, m = length(all)){
+  m - length(true)
 }

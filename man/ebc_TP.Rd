@@ -17,9 +17,9 @@ ebc_FN(detected, true)
 
 ebc_TN(detected, true, all, m = length(all))
 
-ebc_P(detected)
+ebc_P(true)
 
-ebc_N(detected, all, m = length(all))
+ebc_N(true, all, m = length(all))
 }
 \arguments{
 \item{detected}{Vector of elements that are detected.}
