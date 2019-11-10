@@ -45,6 +45,12 @@ ebc_PPV <- function(detected, true){
 
 #' @rdname ebc_TPR
 #' @export
+ebc_FNR <- function(detected, true){
+  ebc_FN(detected, true) / length(true)
+}
+
+#' @rdname ebc_TPR
+#' @export
 ebc_FPR <- function(detected, true, all, m = length(all)){
   ebc_FP(detected, true) / (m - length(true))
 }
@@ -53,12 +59,6 @@ ebc_FPR <- function(detected, true, all, m = length(all)){
 #' @export
 ebc_FDR <- function(detected, true){
   ebc_FP(detected, true) / max(length(detected), 1)
-}
-
-#' @rdname ebc_TPR
-#' @export
-ebc_FNR <- function(detected, true){
-  ebc_FN(detected, true) / length(true)
 }
 
 #' @rdname ebc_TPR

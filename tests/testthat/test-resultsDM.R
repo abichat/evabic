@@ -20,3 +20,16 @@ test_that("derived statistics are correct", {
   expect_equal(ebc_BACC(detectedH1, trueH1, m = total), 7 / 10)
   expect_equal(ebc_F1(detectedH1, trueH1), 8 / 11)
 })
+
+
+detectedH1 <- sample(letters, 14)
+trueH1 <- sample(letters, 15)
+
+test_that("relations between statistics are correct", {
+  expect_equal(ebc_TPR(detectedH1, trueH1),
+               1 - ebc_FNR(detectedH1, trueH1))
+  expect_equal(ebc_TNR(detectedH1, trueH1, letters),
+               1 - ebc_FPR(detectedH1, trueH1, letters))
+  expect_equal(ebc_PPV(detectedH1, trueH1),
+               1 - ebc_FDR(detectedH1, trueH1))
+})

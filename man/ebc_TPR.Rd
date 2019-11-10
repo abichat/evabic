@@ -4,9 +4,9 @@
 \alias{ebc_TPR}
 \alias{ebc_TNR}
 \alias{ebc_PPV}
+\alias{ebc_FNR}
 \alias{ebc_FPR}
 \alias{ebc_FDR}
-\alias{ebc_FNR}
 \alias{ebc_ACC}
 \alias{ebc_BACC}
 \alias{ebc_F1}
@@ -18,11 +18,11 @@ ebc_TNR(detected, true, all, m = length(all))
 
 ebc_PPV(detected, true)
 
+ebc_FNR(detected, true)
+
 ebc_FPR(detected, true, all, m = length(all))
 
 ebc_FDR(detected, true)
-
-ebc_FNR(detected, true)
 
 ebc_ACC(detected, true, all, m = length(all))
 

@@ -5,9 +5,9 @@ detectedH1 <- c(1:4, 8,9)
 trueH1 <- 1:5
 
 all_measures <- c("TP", "FP", "FN", "TN", "P", "N", "TPR", "TNR",
-                  "PPV", "FDR", "FNR", "ACC", "BACC", "F1")
+                  "PPV", "FNR", "FPR", "FDR", "ACC", "BACC", "F1")
 
-measures_wo_m <- c("TP", "FP", "FN", "P", "TPR", "PPV", "FDR", "FNR", "F1")
+measures_wo_m <- c("TP", "FP", "FN", "P", "TPR", "PPV", "FNR", "FDR", "F1")
 
 test_that("ebc_tidy() has the correct format", {
   expect_is(ebc_tidy(detectedH1, trueH1, elements), "data.frame")
