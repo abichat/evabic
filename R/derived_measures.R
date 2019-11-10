@@ -45,6 +45,12 @@ ebc_PPV <- function(detected, true){
 
 #' @rdname ebc_TPR
 #' @export
+ebc_FPR <- function(detected, true, all, m = length(all)){
+  ebc_FP(detected, true) / (m - length(true))
+}
+
+#' @rdname ebc_TPR
+#' @export
 ebc_FDR <- function(detected, true){
   ebc_FP(detected, true) / max(length(detected), 1)
 }
@@ -58,8 +64,8 @@ ebc_ACC <- function(detected, true, all, m = length(all)){
 #' @rdname ebc_TPR
 #' @export
 ebc_BACC <- function(detected, true, all, m = length(all)){
-  (ebc_TP(detected, true) / ebc_P(detected) +
-     ebc_TN(detected, true, m = m) / ebc_N(detected, m = m)) / 2
+  (ebc_TP(detected, true) / length(true) +
+     ebc_TN(detected, true, m = m) / (m - length(true))) / 2
 }
 
 #' @rdname ebc_TPR
@@ -68,3 +74,4 @@ ebc_F1 <- function(detected, true){
   2 * ebc_TP(detected, true) /
     (2*ebc_TP(detected, true) + ebc_FP(detected, true) + ebc_FN(detected, true))
 }
+

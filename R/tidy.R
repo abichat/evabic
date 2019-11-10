@@ -10,7 +10,8 @@
 #' @param m Total number of element.
 #' @param measures Desired measures of performance.
 #'
-#' @return A single-row data.frame with one column per element in \code{measures}.
+#' @return A single-row data.frame with one column per
+#' element in \code{measures}.
 #' @export
 #'
 #' @examples
