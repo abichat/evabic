@@ -4,9 +4,6 @@ elements <- 1:10
 detectedH1 <- c(1:4, 8,9)
 trueH1 <- 1:5
 
-all_measures <- c("TP", "FP", "FN", "TN", "P", "N", "TPR", "TNR",
-                  "PPV", "FNR", "FPR", "FDR", "ACC", "BACC", "F1")
-
 measures_wo_m <- c("TP", "FP", "FN", "P", "TPR", "PPV", "FNR", "FDR", "F1")
 
 test_that("ebc_tidy() has the correct format", {
@@ -15,7 +12,8 @@ test_that("ebc_tidy() has the correct format", {
   expect_equal(ncol(ebc_tidy(detectedH1, trueH1, elements,
                              measures = c("ACC", "FDR"))), 2)
   expect_equal(ncol(ebc_tidy(detectedH1, trueH1, elements,
-                             measures = all_measures)), length(all_measures))
+                             measures = ebc_allmeasures)),
+               length(ebc_allmeasures))
   expect_equal(colnames(ebc_tidy(detectedH1, trueH1, elements,
                                  measures = c("TN", "F1", "TPR"))),
                c("TN", "F1", "TPR"))

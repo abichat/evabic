@@ -1,9 +1,15 @@
+#' Supported measures
+#'
+#' @export
+ebc_allmeasures <- c("TP", "FP", "FN", "TN", "P", "N", "TPR", "TNR",
+                     "PPV", "FNR", "FPR", "FDR", "ACC", "BACC", "F1")
+
+
 #' Tidy output for confusion measures
 #'
 #' Construct a single row summary of the classifier.
 #'
-#' Supported measures are \code{c("TP", "FP", "FN",
-#' "TN", "TPR", "TNR", "PPV", "FDR", "ACC", "BACC", "F1")}
+#' Supported measures are available in \code{ebc_allmeasures}
 #' @param detected Vector of elements that are detected.
 #' @param true Vector of element that are supposed to be detected (\eqn{H1}).
 #' @param all Vector of all elements.
@@ -19,8 +25,6 @@
 #'          all = LETTERS[1:6], measures = c("ACC", "FDR"))
 ebc_tidy <- function(detected, true, all, m = length(all),
                      measures = c("TPR", "FDR", "ACC", "F1")){
-  ebc_allmeasures <- c("TP", "FP", "FN", "TN", "P", "N", "TPR", "TNR",
-                       "PPV", "FNR", "FPR", "FDR", "ACC", "BACC", "F1")
 
   if(length(setdiff(measures, ebc_allmeasures)) > 0){
     warning("Some measure are not available, they won't be used.")
