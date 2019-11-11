@@ -1,5 +1,5 @@
 Package: evabic
-Title: Evaluation of binary classifiers
+Title: Evaluation of Binary Classifiers
 Version: 0.0.0.9002
 Authors@R: 
     person(given = "Antoine",
