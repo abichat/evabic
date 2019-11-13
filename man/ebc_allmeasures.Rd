@@ -4,7 +4,7 @@
 \name{ebc_allmeasures}
 \alias{ebc_allmeasures}
 \title{Available measures}
-\format{An object of class \code{character} of length 13.}
+\format{An object of class \code{character} of length 15.}
 \usage{
 ebc_allmeasures
 }
@@ -21,14 +21,18 @@ Available measures in \code{evabic}
 \deqn{TPR = \frac{TP}{TP + FN} = 1 - FNR}}
 \item{TNR}{True Negative Rate or Specificity
 \deqn{TNR = \frac{TN}{FP + TN} =  1 - FPR}}
-\item{PPV}{Positive Predictive Value
+\item{PPV}{Positive Predictive Value or Precision
 \deqn{PPV = \frac{TP}{TP + FP} = 1 - FDR}}
+\item{NPV}{Negative Predictive Value
+\deqn{NPV = \frac{TN}{TN + FN} = 1 - FOR}}
 \item{FNR}{False Negative Rate or Miss Rate
 \deqn{FNR = \frac{FN}{FN + TP} = 1 - TPR}}
 \item{FPR}{False Positive Rate or Fall-out
 \deqn{FPR = \frac{FP}{FP + TN} = 1 - TNR}}
 \item{FDR}{False Discovery Rate
 \deqn{FDR = \frac{FP}{FP + TP} = 1 - PPV}}
+\item{FOR}{False Omission Rate
+\deqn{FOR = \frac{FN}{TN + FN} = 1 - NPV}}
 \item{ACC}{Accuracy
 \deqn{ACC = \frac{TP + TN}{TP + FP + FN + TN}}}
 \item{BACC}{Balanced Accuracy

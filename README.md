@@ -14,7 +14,7 @@ status](https://ci.appveyor.com/api/projects/status/github/abichat/evabic?branch
 coverage](https://codecov.io/gh/abichat/evabic/branch/master/graph/badge.svg)](https://codecov.io/gh/abichat/evabic?branch=master)
 [![Codacy
 Badge](https://api.codacy.com/project/badge/Grade/c32dcc4c1c3f40a5950e1c10ea6dfb18)](https://www.codacy.com/app/abichat/evabic?utm_source=github.com&utm_medium=referral&utm_content=abichat/evabic&utm_campaign=Badge_Grade)
-[![Last-changedate](https://img.shields.io/badge/last%20change-2019--11--11-yellowgreen.svg)](/commits/master)
+[![Last-changedate](https://img.shields.io/badge/last%20change-2019--11--13-yellowgreen.svg)](/commits/master)
 <!-- badges: end -->
 
 The goal of **evabic** is to **eva**luate **bi**nary **c**lassifiers by
