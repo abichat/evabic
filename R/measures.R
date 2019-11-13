@@ -1,5 +1,37 @@
-#' Supported measures
+#' Available measures
 #'
+#' Availables measures in \code{evabic}
+#'
+#' @details
+#'
+#' \describe{
+#'   \item{TP}{True Positive}
+#'   \item{FP}{False Positive}
+#'   \item{FN}{False Negative}
+#'   \item{TN}{True Negative}
+#'   \item{TPR}{True Positive Rate or Sensitivity or Recall
+#'              \deqn{TPR = \frac{TP}{TP + FN} = 1 - FNR}}
+#'   \item{TNR}{True Negative Rate or Specificity
+#'              \deqn{TNR = \frac{TN}{FP + TN} =  1 - FPR}}
+#'   \item{PPV}{Positive Predictive Value
+#'              \deqn{PPV = \frac{TP}{TP + FP} = 1 - FDR}}
+#'   \item{FNR}{False Negative Rate or Miss Rate
+#'              \deqn{FNR = \frac{FN}{FN + TP} = 1 - TPR}}
+#'   \item{FPR}{False Positive Rate or Fall-out
+#'              \deqn{FPR = \frac{FP}{FP + TN} = 1 - TNR}}
+#'   \item{FDR}{False Discovery Rate
+#'              \deqn{FDR = \frac{FP}{FP + TP} = 1 - PPV}}
+#'   \item{ACC}{Accuracy
+#'              \deqn{ACC = \frac{TP + TN}{TP + FP + FN + TN}}}
+#'   \item{BACC}{Balanced Accuracy
+#'              \deqn{BACC = \frac{\frac{TP}{TP + FN} + \frac{TN}{FP + TN}}{2}}}
+#'   \item{F1}{F1 Score
+#'              \deqn{F1 = \frac{2 TP}{2TP + FP + FN}
+#'                       = \frac{2}{\frac{1}{TPR} + \frac{1}{PPV}}}}
+#' }
+#'
+#' @references
+#' \url{https://en.wikipedia.org/wiki/Evaluation_of_binary_classifiers}
 #' @export
 ebc_allmeasures <- c("TP", "FP", "FN", "TN", "P", "N", "TPR", "TNR",
                      "PPV", "FNR", "FPR", "FDR", "ACC", "BACC", "F1")

@@ -34,3 +34,7 @@ goodpractice::gp()
 install(upgrade = "never")
 rmarkdown::render("README.Rmd", output_format = "md_document")
 install(upgrade = "never")
+
+
+# chameleon::build_pkgdown()
+
