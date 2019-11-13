@@ -1,6 +1,6 @@
 #' Available measures
 #'
-#' Availables measures in \code{evabic}
+#' Available measures in \code{evabic}
 #'
 #' @details
 #'
@@ -33,5 +33,7 @@
 #' @references
 #' \url{https://en.wikipedia.org/wiki/Evaluation_of_binary_classifiers}
 #' @export
-ebc_allmeasures <- c("TP", "FP", "FN", "TN", "P", "N", "TPR", "TNR",
-                     "PPV", "FNR", "FPR", "FDR", "ACC", "BACC", "F1")
+ebc_allmeasures <- c("TP", "FP", "FN", "TN",
+                     "TPR", "TNR", "PPV",
+                     "FNR", "FPR", "FDR",
+                     "ACC", "BACC", "F1")

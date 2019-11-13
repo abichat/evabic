@@ -31,8 +31,6 @@ ebc_tidy <- function(detected, true, all, m = length(all),
   if ("FP"   %in% measures) df$FP   <- ebc_FP(detected, true)
   if ("FN"   %in% measures) df$FN   <- ebc_FN(detected, true)
   if ("TN"   %in% measures) df$TN   <- ebc_TN(detected, true, m = m)
-  if ("P"    %in% measures) df$P    <- ebc_P(true)
-  if ("N"    %in% measures) df$N    <- ebc_N(true, m = m)
   if ("TPR"  %in% measures) df$TPR  <- ebc_TPR(detected, true)
   if ("TNR"  %in% measures) df$TNR  <- ebc_TNR(detected, true, m = m)
   if ("PPV"  %in% measures) df$PPV  <- ebc_PPV(detected, true)

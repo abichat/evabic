@@ -4,12 +4,12 @@
 \name{ebc_allmeasures}
 \alias{ebc_allmeasures}
 \title{Available measures}
-\format{An object of class \code{character} of length 15.}
+\format{An object of class \code{character} of length 13.}
 \usage{
 ebc_allmeasures
 }
 \description{
-Availables measures in \code{evabic}
+Available measures in \code{evabic}
 }
 \details{
 \describe{

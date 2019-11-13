@@ -12,8 +12,6 @@ test_that("confusion matrix is correct for numeric", {
   expect_equal(ebc_FN(detectedH1, trueH1), 1)
   expect_equal(ebc_TN(detectedH1, trueH1, elements), 3)
   expect_equal(ebc_TN(detectedH1, trueH1, m = total), 3)
-  expect_equal(ebc_P(trueH1), 5)
-  expect_equal(ebc_N(trueH1, m = total), 5)
 })
 
 elements_str <- letters[elements]
@@ -26,6 +24,4 @@ test_that("confusion matrix is correct for characters", {
   expect_equal(ebc_FN(detectedH1_str, trueH1_str), 1)
   expect_equal(ebc_TN(detectedH1_str, trueH1_str, elements_str), 3)
   expect_equal(ebc_TN(detectedH1_str, trueH1_str, m = total), 3)
-  expect_equal(ebc_P(trueH1), 5)
-  expect_equal(ebc_N(trueH1, m = total), 5)
 })

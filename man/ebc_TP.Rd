@@ -5,8 +5,6 @@
 \alias{ebc_FP}
 \alias{ebc_FN}
 \alias{ebc_TN}
-\alias{ebc_P}
-\alias{ebc_N}
 \title{Confusion measures.}
 \usage{
 ebc_TP(detected, true)
@@ -16,10 +14,6 @@ ebc_FP(detected, true)
 ebc_FN(detected, true)
 
 ebc_TN(detected, true, all, m = length(all))
-
-ebc_P(true)
-
-ebc_N(true, all, m = length(all))
 }
 \arguments{
 \item{detected}{Vector of elements that are detected.}
