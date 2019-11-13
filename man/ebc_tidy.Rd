@@ -2,7 +2,7 @@
 % Please edit documentation in R/tidy.R
 \name{ebc_tidy}
 \alias{ebc_tidy}
-\title{Tidy output for confusion measures}
+\title{Tidy output for measures}
 \usage{
 ebc_tidy(detected, true, all, m = length(all), measures = c("TPR",
   "FDR", "ACC", "F1"))

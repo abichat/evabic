@@ -31,7 +31,7 @@ version <- gsub('-', '.', version)
 [![Last-changedate](https://img.shields.io/badge/last%20change-`r gsub('-', '--', Sys.Date())`-yellowgreen.svg)](/commits/master)
 <!-- badges: end -->
 
-The goal of **evabic** is to **eva**luate **bi**nary **c**lassifiers by specifying what is detected as true and what is actually true. It has no dependancies.
+**evabic** aims to **eva**luate **bi**nary **c**lassifiers by specifying what is detected as true and what is actually true. It has no dependancies.
 
 ## Installation
 
@@ -44,9 +44,14 @@ remotes::install_github("abichat/evabic")
 
 ## Measures
 
-__evabic__ provides `r length(evabic::ebc_allmeasures)` handy functions to computes different measures. Each function begins with `ebc_*`.
+__evabic__ provides handy functions to computes `r length(evabic::ebc_allmeasures)` different measures. Each function begins with `ebc_*`.
 
-Available measures includes True Positive Rate (Sensitivity or Recall), True Negative Rate (Specificity), Positive Predictive Value (Precision), False Discovery Rate, Accuracy, F1... and can be accessed with `ebc_allmeasures`.
+Available measures includes True Positive Rate (Sensitivity or Recall), True Negative Rate (Specificity), Positive Predictive Value (Precision), False Discovery Rate, Accuracy, F1... 
+
+```{r allmeasures}
+evabic::ebc_allmeasures
+```
+
 
 
 ## Example
@@ -57,7 +62,7 @@ Let's use **evabic** on a toy example.
 library(evabic)
 ```
 
-Consider `X1`, `X2` and `X3`, `Y` a variable predicted by this three variables, and 4 more conditionally independent variables. 
+Consider three variables `X1`, `X2` and `X3`, `Y` a variable predicted by this three variables, and 4 more conditionally independent variables `X4` to `X7`. 
 
 ```{r data}
 set.seed(42)
@@ -81,13 +86,14 @@ model <- lm(Y ~ ., data = df_lm)
 summary(model)
 pvalues <- summary(model)$coefficients[-1, 4]
 detected_var <- names(pvalues[pvalues < 0.05])
+detected_var
 ```
 
 Singles measures are available with `ebc_*()` functions. 
 
 ```{r measures}
 ebc_TPR(detected = detected_var, true = predictors)
-ebc_ACC(detected = detected_var, true = predictors, m = 7)
+ebc_ACC(detected = detected_var, true = predictors, m = 7) # the total size of the set is 7
 ```
 
 You can also asks for several measures in a single row summary format with `ebc_tidy()`.

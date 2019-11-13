@@ -1,4 +1,4 @@
-#' Tidy output for confusion measures
+#' Tidy output for measures
 #'
 #' Construct a single row summary of the classifier.
 #'
