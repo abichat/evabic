@@ -33,7 +33,10 @@ goodpractice::gp()
 
 install(upgrade = "never")
 rmarkdown::render("README.Rmd", output_format = "md_document")
+pkgdown::build_site()
+unlink(c("pkgdown/", "docs/"), recursive = TRUE)
 install(upgrade = "never")
+
 
 
 

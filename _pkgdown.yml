@@ -1,0 +1,38 @@
+url: https://abichat.github.io/evabic
+
+template:
+  params:
+    bootswatch: simplex
+    ganalytics: "UA-131161788-01"
+
+authors:
+  Antoine Bichat:
+    href: https://abichat.github.io
+
+navbar:
+  title: "evabic"
+  left:
+    - icon: fas fa-home fa-lg
+      href: index.html
+    - text: Reference
+      href: reference/index.html
+    - text: Description of measures
+      href: reference/ebc_allmeasures.html
+  right:
+    - icon: fab fa-github fa-lg
+      href: https://github.com/abichat/evabic
+
+reference:
+- title: Available measures
+  desc: ~
+  contents:
+  - '`ebc_allmeasures`'
+- title: Confusion and derived measures
+  desc: ~
+  contents:
+  - '`ebc_TP`'
+  - '`ebc_TPR`'
+- title: One-row summary
+  desc: ~
+  contents:
+  - '`ebc_tidy`'
