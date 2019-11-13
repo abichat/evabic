@@ -39,7 +39,7 @@ ebc_F1(detected, true)
 \arguments{
 \item{detected}{Vector of elements that are detected.}
 
-\item{true}{Vector of element that are supposed to be detected (\eqn{H1}).}
+\item{true}{Vector of element that are supposed to be detected.}
 
 \item{all}{Vector of all elements.}
 
@@ -52,22 +52,14 @@ A numeric.
 Measures derived from confusion matrix.
 }
 \details{
-TPR: True Positive Rate, also known as Sensitivity and Recall.
-
-TNR: True Negative Rate, also known as Specificity and Selectivity.
-
-PPV: Positive Predictive Value, also known as Precision.
-
-FDR: False Discovery Rate.
-
-ACC: Accuracy.
-
-BACC: Balanced Accuracy.
-
-F1: F1 score.
+See \code{\link{ebc_allmeasures}} for the description of the measures
 }
 \examples{
 ebc_TPR(detected = c("A", "C", "D"), true = c("A", "B", "C"))
 ebc_ACC(detected = c("A", "C", "D"), true = c("A", "B", "C"),
         all = LETTERS[1:6])
+}
+\seealso{
+\code{\link{ebc_TP}}, \code{\link{ebc_tidy}},
+\code{\link{ebc_allmeasures}}
 }

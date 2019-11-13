@@ -2,16 +2,18 @@
 #'
 #' Construct a single row summary of the classifier.
 #'
-#' Supported measures are available in \code{ebc_allmeasures}
-#' @param detected Vector of elements that are detected.
-#' @param true Vector of element that are supposed to be detected (\eqn{H1}).
-#' @param all Vector of all elements.
-#' @param m Total number of element.
+#' See \code{\link{ebc_allmeasures}} for the available measures and
+#' their descriptions.
+#'
+#' @inheritParams ebc_TP
 #' @param measures Desired measures of performance.
 #'
 #' @return A single-row data.frame with one column per
 #' element in \code{measures}.
 #' @export
+#'
+#' @seealso \code{\link{ebc_TP}}, \code{\link{ebc_TPR}},
+#' \code{\link{ebc_allmeasures}}
 #'
 #' @examples
 #' ebc_tidy(detected = c("A", "C", "D"), true = c("A", "B", "C"),

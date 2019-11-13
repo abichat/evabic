@@ -2,26 +2,14 @@
 #'
 #' Measures derived from confusion matrix.
 #'
-#' TPR: True Positive Rate, also known as Sensitivity and Recall.
+#' See \code{\link{ebc_allmeasures}} for the description of the measures
 #'
-#' TNR: True Negative Rate, also known as Specificity and Selectivity.
-#'
-#' PPV: Positive Predictive Value, also known as Precision.
-#'
-#' FDR: False Discovery Rate.
-#'
-#' ACC: Accuracy.
-#'
-#' BACC: Balanced Accuracy.
-#'
-#' F1: F1 score.
-#'
-#' @param detected Vector of elements that are detected.
-#' @param true Vector of element that are supposed to be detected (\eqn{H1}).
-#' @param all Vector of all elements.
-#' @param m Total number of element.
+#' @inheritParams ebc_TP
 #' @return A numeric.
 #' @export
+#'
+#' @seealso \code{\link{ebc_TP}}, \code{\link{ebc_tidy}},
+#'  \code{\link{ebc_allmeasures}}
 #'
 #' @examples
 #' ebc_TPR(detected = c("A", "C", "D"), true = c("A", "B", "C"))

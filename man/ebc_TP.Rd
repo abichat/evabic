@@ -18,7 +18,7 @@ ebc_TN(detected, true, all, m = length(all))
 \arguments{
 \item{detected}{Vector of elements that are detected.}
 
-\item{true}{Vector of element that are supposed to be detected (\eqn{H1}).}
+\item{true}{Vector of element that are supposed to be detected.}
 
 \item{all}{Vector of all elements.}
 
@@ -30,6 +30,9 @@ An integer.
 \description{
 Basic measures from the confusion matrix.
 }
+\details{
+See \code{\link{ebc_allmeasures}} for the description of the measures
+}
 \examples{
 ebc_TP(detected = c("A", "C", "D"), true = c("A", "B", "C"))
 ebc_FP(detected = c("A", "C", "D"), true = c("A", "B", "C"))
@@ -38,4 +41,8 @@ ebc_TN(detected = c("A", "C", "D"), true = c("A", "B", "C"),
        all = LETTERS[1:6])
 ebc_TN(detected = c("A", "C", "D"), true = c("A", "B", "C"),
        m = 6)
+}
+\seealso{
+\code{\link{ebc_TPR}}, \code{\link{ebc_tidy}},
+\code{\link{ebc_allmeasures}}
 }

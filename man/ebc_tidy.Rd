@@ -10,7 +10,7 @@ ebc_tidy(detected, true, all, m = length(all), measures = c("TPR",
 \arguments{
 \item{detected}{Vector of elements that are detected.}
 
-\item{true}{Vector of element that are supposed to be detected (\eqn{H1}).}
+\item{true}{Vector of element that are supposed to be detected.}
 
 \item{all}{Vector of all elements.}
 
@@ -26,9 +26,14 @@ element in \code{measures}.
 Construct a single row summary of the classifier.
 }
 \details{
-Supported measures are available in \code{ebc_allmeasures}
+See \code{\link{ebc_allmeasures}} for the available measures and
+their descriptions.
 }
 \examples{
 ebc_tidy(detected = c("A", "C", "D"), true = c("A", "B", "C"),
          all = LETTERS[1:6], measures = c("ACC", "FDR"))
+}
+\seealso{
+\code{\link{ebc_TP}}, \code{\link{ebc_TPR}},
+\code{\link{ebc_allmeasures}}
 }

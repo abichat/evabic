@@ -34,6 +34,9 @@
 #'                       = \frac{2}{\frac{1}{TPR} + \frac{1}{PPV}}}}
 #' }
 #'
+#' @examples
+#' ebc_allmeasures
+#'
 #' @references
 #' \url{https://en.wikipedia.org/wiki/Evaluation_of_binary_classifiers}
 #' @export

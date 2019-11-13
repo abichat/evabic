@@ -2,12 +2,17 @@
 #'
 #' Basic measures from the confusion matrix.
 #'
+#' See \code{\link{ebc_allmeasures}} for the description of the measures
+#'
 #' @param detected Vector of elements that are detected.
-#' @param true Vector of element that are supposed to be detected (\eqn{H1}).
+#' @param true Vector of element that are supposed to be detected.
 #' @param all Vector of all elements.
 #' @param m Total number of element.
 #' @return An integer.
 #' @export
+#'
+#' @seealso \code{\link{ebc_TPR}}, \code{\link{ebc_tidy}},
+#' \code{\link{ebc_allmeasures}}
 #'
 #' @examples
 #' ebc_TP(detected = c("A", "C", "D"), true = c("A", "B", "C"))

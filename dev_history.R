@@ -8,6 +8,15 @@ library(testthat)
 
 # use_r("measures")
 
+# Did this outside the project
+# # git checkout --orphan gh-pages
+# # git rm -rf .
+# # git commit --allow-empty -m 'Initial gh-pages commit'
+# # git push origin gh-pages
+# # git checkout master
+
+# travis::use_travis_deploy()
+
 
 #### Repeated ####
 
