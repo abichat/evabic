@@ -45,6 +45,11 @@ False Discovery Rate, Accuracy, F1…
     #>  [1] "TP"   "FP"   "FN"   "TN"   "TPR"  "TNR"  "PPV"  "NPV"  "FNR"  "FPR" 
     #> [11] "FDR"  "FOR"  "ACC"  "BACC" "F1"
 
+All measures are computed from confusion matrix:
+
+<center>
+<img src="man/figures/confusionmatrix.png" width="50%"/>
+</center>
 Example
 -------
 
