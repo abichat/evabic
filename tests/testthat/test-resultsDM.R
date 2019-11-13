@@ -32,4 +32,7 @@ test_that("relations between statistics are correct", {
                1 - ebc_FPR(detectedH1, trueH1, letters))
   expect_equal(ebc_PPV(detectedH1, trueH1),
                1 - ebc_FDR(detectedH1, trueH1))
+  expect_equal(ebc_F1(detectedH1, trueH1),
+               2 / ((1 / ebc_TPR(detectedH1, trueH1)) +
+                      1 / ebc_PPV(detectedH1, trueH1)))
 })
