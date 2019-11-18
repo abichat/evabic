@@ -17,6 +17,8 @@ library(testthat)
 
 # travis::use_travis_deploy()
 
+# use_r("helpers")
+
 
 #### Repeated ####
 

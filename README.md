@@ -5,7 +5,7 @@ evabic <a href='https://abichat.github.io/evabic'><img src='man/figures/logo.png
 <!-- badges: start -->
 [![license](https://img.shields.io/badge/license-GPL--3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0.en.html)
 [![lifecycle](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
-[![packageversion](https://img.shields.io/badge/package%20version-0.0.0.9002-orange.svg)](commits/master)
+[![packageversion](https://img.shields.io/badge/package%20version-0.0.0.9003-orange.svg)](commits/master)
 [![Travis build
 status](https://travis-ci.org/abichat/evabic.svg?branch=master)](https://travis-ci.org/abichat/evabic)
 [![AppVeyor build
@@ -14,7 +14,7 @@ status](https://ci.appveyor.com/api/projects/status/github/abichat/evabic?branch
 coverage](https://codecov.io/gh/abichat/evabic/branch/master/graph/badge.svg)](https://codecov.io/gh/abichat/evabic?branch=master)
 [![Codacy
 Badge](https://api.codacy.com/project/badge/Grade/c32dcc4c1c3f40a5950e1c10ea6dfb18)](https://www.codacy.com/app/abichat/evabic?utm_source=github.com&utm_medium=referral&utm_content=abichat/evabic&utm_campaign=Badge_Grade)
-[![Last-changedate](https://img.shields.io/badge/last%20change-2019--11--13-yellowgreen.svg)](/commits/master)
+[![Last-changedate](https://img.shields.io/badge/last%20change-2019--11--18-yellowgreen.svg)](/commits/master)
 [![Documentation](https://img.shields.io/badge/documentation-pkgdown-E91E63.svg)](https://abichat.github.io/evabic/)
 <!-- badges: end -->
 
@@ -120,6 +120,17 @@ You can also asks for several measures in a single row summary format
 with `ebc_tidy()`.
 
     ebc_tidy(detected = detected_var, true = predictors, m = 7, 
+             measures = c("TPR", "TNR", "FDR", "ACC", "BACC", "F1"))
+    #>         TPR TNR FDR       ACC      BACC  F1
+    #> 1 0.6666667   1   0 0.8571429 0.8333333 0.8
+
+Note that **evabic** also supports named logicals for `detected` and
+`true` arguments.
+
+    pvalues < 0.05
+    #>    X1    X2    X3    X4    X5    X6    X7 
+    #>  TRUE FALSE  TRUE FALSE FALSE FALSE FALSE
+    ebc_tidy(detected = pvalues < 0.05, true = predictors, m = 7, 
              measures = c("TPR", "TNR", "FDR", "ACC", "BACC", "F1"))
     #>         TPR TNR FDR       ACC      BACC  F1
     #> 1 0.6666667   1   0 0.8571429 0.8333333 0.8

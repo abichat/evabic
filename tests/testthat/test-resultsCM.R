@@ -37,3 +37,28 @@ test_that("confusion matrix is correct for factors", {
   expect_equal(ebc_TN(detectedH1_fct, trueH1_fct, elements_fct), 3)
   expect_equal(ebc_TN(detectedH1_fct, trueH1_fct, m = total), 3)
 })
+
+detectedH1_lgl <- elements_str %in% detectedH1_str
+names(detectedH1_lgl) <- elements_str
+trueH1_lgl <- elements_str %in% trueH1_str
+names(trueH1_lgl) <- elements_str
+
+
+test_that("confusion matrix is correct for logicals", {
+  expect_equal(ebc_TP(detectedH1_lgl, trueH1_lgl), 4)
+  expect_equal(ebc_FP(detectedH1_lgl, trueH1_lgl), 2)
+  expect_equal(ebc_FN(detectedH1_lgl, trueH1_lgl), 1)
+  expect_equal(ebc_TN(detectedH1_lgl, trueH1_lgl, elements_str), 3)
+  expect_equal(ebc_TN(detectedH1_lgl, trueH1_lgl, m = total), 3)
+})
+
+test_that("confusion matrix is correct for mixed types", {
+  expect_equal(ebc_TP(detectedH1_lgl, trueH1_fct), 4)
+  expect_equal(ebc_FP(detectedH1_str, trueH1_lgl), 2)
+  expect_equal(ebc_FN(detectedH1_str, trueH1_fct), 1)
+  expect_equal(ebc_TN(detectedH1_fct, trueH1_lgl, elements_str), 3)
+  expect_equal(ebc_TN(detectedH1_fct, trueH1_str, m = total), 3)
+})
+
+
+

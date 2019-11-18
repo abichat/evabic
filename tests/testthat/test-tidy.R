@@ -29,7 +29,21 @@ test_that("arguments are correct", {
 test_that("checking mesaures works", {
   expect_warning(ebc_tidy(detectedH1, trueH1, elements,
                           measures = c("TN", "ZZ", "TPR")))
-  expect_equal(ncol(suppressWarnings(ebc_tidy(detectedH1, trueH1, elements,
-                                              measures = c("TN", "ZZ", "F1")))),
-               2)
+  expect_equal(
+    ncol(suppressWarnings(ebc_tidy(detectedH1, trueH1,
+                                   elements,measures = c("TN", "ZZ", "F1")))),
+    2)
+})
+
+
+detectedH1_lgl <- elements %in% detectedH1
+names(detectedH1_lgl) <- elements
+trueH1_lgl <- elements %in% trueH1
+names(trueH1_lgl) <- elements
+
+test_that("All measures works with logical", {
+  expect_equal(ebc_tidy(detectedH1, trueH1, all = elements,
+                        measures = ebc_allmeasures),
+               ebc_tidy(detectedH1_lgl, trueH1_lgl, m = 10,
+                        measures = ebc_allmeasures))
 })

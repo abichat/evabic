@@ -23,23 +23,31 @@
 #' ebc_TN(detected = c("A", "C", "D"), true = c("A", "B", "C"),
 #'        m = 6)
 ebc_TP <- function(detected, true){
+  detected <- nl2c(detected)
+  true <- nl2c(true)
   length(intersect(detected, true))
 }
 
 #' @rdname ebc_TP
 #' @export
 ebc_FP <- function(detected, true){
+  detected <- nl2c(detected)
+  true <- nl2c(true)
   length(setdiff(detected, true))
 }
 
 #' @rdname ebc_TP
 #' @export
 ebc_FN <- function(detected, true){
+  detected <- nl2c(detected)
+  true <- nl2c(true)
   length(setdiff(true, detected))
 }
 
 #' @rdname ebc_TP
 #' @export
 ebc_TN <- function(detected, true, all, m = length(all)){
+  detected <- nl2c(detected)
+  true <- nl2c(true)
   m - length(union(detected, true))
 }

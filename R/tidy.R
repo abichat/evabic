@@ -25,6 +25,9 @@ ebc_tidy <- function(detected, true, all, m = length(all),
     warning("Some measure are not available, they won't be used.")
   }
 
+  detected <- nl2c(detected)
+  true <- nl2c(true)
+
   measures <- intersect(measures, ebc_allmeasures)
 
   df <- data.frame(row.names = 1)
