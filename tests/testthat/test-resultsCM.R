@@ -25,3 +25,15 @@ test_that("confusion matrix is correct for characters", {
   expect_equal(ebc_TN(detectedH1_str, trueH1_str, elements_str), 3)
   expect_equal(ebc_TN(detectedH1_str, trueH1_str, m = total), 3)
 })
+
+elements_fct <- as.factor(elements_str)
+detectedH1_fct <- as.factor(detectedH1_str)
+trueH1_fct <- as.factor(trueH1_str)
+
+test_that("confusion matrix is correct for factors", {
+  expect_equal(ebc_TP(detectedH1_fct, trueH1_fct), 4)
+  expect_equal(ebc_FP(detectedH1_fct, trueH1_fct), 2)
+  expect_equal(ebc_FN(detectedH1_fct, trueH1_fct), 1)
+  expect_equal(ebc_TN(detectedH1_fct, trueH1_fct, elements_fct), 3)
+  expect_equal(ebc_TN(detectedH1_fct, trueH1_fct, m = total), 3)
+})
