@@ -45,7 +45,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">evabic</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.0.9002</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.0.9003</span>
       </span>
     </div>
 
@@ -169,6 +169,14 @@
 <a class="sourceLine" id="cb7-2" data-line-number="2">         <span class="dt">measures =</span> <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"TPR"</span>, <span class="st">"TNR"</span>, <span class="st">"FDR"</span>, <span class="st">"ACC"</span>, <span class="st">"BACC"</span>, <span class="st">"F1"</span>))</a>
 <a class="sourceLine" id="cb7-3" data-line-number="3"><span class="co">#&gt;         TPR TNR FDR       ACC      BACC  F1</span></a>
 <a class="sourceLine" id="cb7-4" data-line-number="4"><span class="co">#&gt; 1 0.6666667   1   0 0.8571429 0.8333333 0.8</span></a></code></pre></div>
+<p>Note that <strong>evabic</strong> also supports named logicals for <code>detected</code> and <code>true</code> arguments.</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode R"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" data-line-number="1">pvalues <span class="op">&lt;</span><span class="st"> </span><span class="fl">0.05</span></a>
+<a class="sourceLine" id="cb8-2" data-line-number="2"><span class="co">#&gt;    X1    X2    X3    X4    X5    X6    X7 </span></a>
+<a class="sourceLine" id="cb8-3" data-line-number="3"><span class="co">#&gt;  TRUE FALSE  TRUE FALSE FALSE FALSE FALSE</span></a>
+<a class="sourceLine" id="cb8-4" data-line-number="4"><span class="kw"><a href="reference/ebc_tidy.html">ebc_tidy</a></span>(<span class="dt">detected =</span> pvalues <span class="op">&lt;</span><span class="st"> </span><span class="fl">0.05</span>, <span class="dt">true =</span> predictors, <span class="dt">m =</span> <span class="dv">7</span>, </a>
+<a class="sourceLine" id="cb8-5" data-line-number="5">         <span class="dt">measures =</span> <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"TPR"</span>, <span class="st">"TNR"</span>, <span class="st">"FDR"</span>, <span class="st">"ACC"</span>, <span class="st">"BACC"</span>, <span class="st">"F1"</span>))</a>
+<a class="sourceLine" id="cb8-6" data-line-number="6"><span class="co">#&gt;         TPR TNR FDR       ACC      BACC  F1</span></a>
+<a class="sourceLine" id="cb8-7" data-line-number="7"><span class="co">#&gt; 1 0.6666667   1   0 0.8571429 0.8333333 0.8</span></a></code></pre></div>
 </div>
 </div>
   </div>
@@ -203,12 +211,12 @@
 <ul class="list-unstyled">
 <li><a href="https://www.gnu.org/licenses/gpl-3.0.en.html"><img src="https://img.shields.io/badge/license-GPL--3-blue.svg" alt="license"></a></li>
 <li><a href="https://www.tidyverse.org/lifecycle/#experimental"><img src="https://img.shields.io/badge/lifecycle-experimental-orange.svg" alt="lifecycle"></a></li>
-<li><a href="commits/master"><img src="https://img.shields.io/badge/package%20version-0.0.0.9002-orange.svg" alt="packageversion"></a></li>
+<li><a href="commits/master"><img src="https://img.shields.io/badge/package%20version-0.0.0.9003-orange.svg" alt="packageversion"></a></li>
 <li><a href="https://travis-ci.org/abichat/evabic"><img src="https://travis-ci.org/abichat/evabic.svg?branch=master" alt="Travis build status"></a></li>
 <li><a href="https://ci.appveyor.com/project/abichat/evabic"><img src="https://ci.appveyor.com/api/projects/status/github/abichat/evabic?branch=master&amp;svg=true" alt="AppVeyor build status"></a></li>
 <li><a href="https://codecov.io/gh/abichat/evabic?branch=master"><img src="https://codecov.io/gh/abichat/evabic/branch/master/graph/badge.svg" alt="Codecov test coverage"></a></li>
 <li><a href="https://www.codacy.com/app/abichat/evabic?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=abichat/evabic&amp;utm_campaign=Badge_Grade"><img src="https://api.codacy.com/project/badge/Grade/c32dcc4c1c3f40a5950e1c10ea6dfb18" alt="Codacy Badge"></a></li>
-<li><a href="/commits/master"><img src="https://img.shields.io/badge/last%20change-2019--11--13-yellowgreen.svg" alt="Last-changedate"></a></li>
+<li><a href="/commits/master"><img src="https://img.shields.io/badge/last%20change-2019--11--18-yellowgreen.svg" alt="Last-changedate"></a></li>
 <li><a href="https://abichat.github.io/evabic/"><img src="https://img.shields.io/badge/documentation-pkgdown-E91E63.svg" alt="Documentation"></a></li>
 </ul>
 </div>

@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Available measures — ebc_allmeasures • evabic</title>
+<title>Named logical to character — nl2c • evabic</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -42,8 +42,8 @@
 
 
 
-<meta property="og:title" content="Available measures — ebc_allmeasures" />
-<meta property="og:description" content="Available measures in evabic" />
+<meta property="og:title" content="Named logical to character — nl2c" />
+<meta property="og:description" content="Extracts names of x where x is TRUE" />
 <meta property="og:image" content="https://abichat.github.io/evabic/logo.png" />
 <meta name="twitter:card" content="summary" />
 
@@ -126,69 +126,40 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Available measures</h1>
-    <small class="dont-index">Source: <a href='https://github.com/abichat/evabic/blob/master/R/measures.R'><code>R/measures.R</code></a></small>
-    <div class="hidden name"><code>ebc_allmeasures.Rd</code></div>
+    <h1>Named logical to character</h1>
+    <small class="dont-index">Source: <a href='https://github.com/abichat/evabic/blob/master/R/helpers.R'><code>R/helpers.R</code></a></small>
+    <div class="hidden name"><code>nl2c.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Available measures in <code>evabic</code></p>
+    <p>Extracts names of <code>x</code> where <code>x</code> is <code>TRUE</code></p>
     </div>
 
-    <pre class="usage"><span class='no'>ebc_allmeasures</span></pre>
+    <pre class="usage"><span class='fu'>nl2c</span>(<span class='no'>x</span>)</pre>
 
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>x</th>
+      <td><p>vector</p></td>
+    </tr>
+    </table>
 
-    <h2 class="hasAnchor" id="format"><a class="anchor" href="#format"></a>Format</h2>
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>An object of class <code>character</code> of length 15.</p>
-    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
-
-    <p><img src='figures/confusionmatrix.png' width="50%" align="middle" /></p><dl class='dl-horizontal'>
-<dt>TP</dt><dd><p>True Positive</p></dd>
-<dt>FP</dt><dd><p>False Positive</p></dd>
-<dt>FN</dt><dd><p>False Negative</p></dd>
-<dt>TN</dt><dd><p>True Negative</p></dd>
-<dt>TPR</dt><dd><p>True Positive Rate or Sensitivity or Recall
-$$TPR = \frac{TP}{TP + FN} = 1 - FNR$$</p></dd>
-<dt>TNR</dt><dd><p>True Negative Rate or Specificity
-$$TNR = \frac{TN}{FP + TN} =  1 - FPR$$</p></dd>
-<dt>PPV</dt><dd><p>Positive Predictive Value or Precision
-$$PPV = \frac{TP}{TP + FP} = 1 - FDR$$</p></dd>
-<dt>NPV</dt><dd><p>Negative Predictive Value
-$$NPV = \frac{TN}{TN + FN} = 1 - FOR$$</p></dd>
-<dt>FNR</dt><dd><p>False Negative Rate or Miss Rate
-$$FNR = \frac{FN}{FN + TP} = 1 - TPR$$</p></dd>
-<dt>FPR</dt><dd><p>False Positive Rate or Fall-out
-$$FPR = \frac{FP}{FP + TN} = 1 - TNR$$</p></dd>
-<dt>FDR</dt><dd><p>False Discovery Rate
-$$FDR = \frac{FP}{FP + TP} = 1 - PPV$$</p></dd>
-<dt>FOR</dt><dd><p>False Omission Rate
-$$FOR = \frac{FN}{TN + FN} = 1 - NPV$$</p></dd>
-<dt>ACC</dt><dd><p>Accuracy
-$$ACC = \frac{TP + TN}{TP + FP + FN + TN}$$</p></dd>
-<dt>BACC</dt><dd><p>Balanced Accuracy
-$$BACC = \frac{\frac{TP}{TP + FN} + \frac{TN}{FP + TN}}{2}$$</p></dd>
-<dt>F1</dt><dd><p>F1 Score
-$$F1 = \frac{2 TP}{2TP + FP + FN}
-                      = \frac{2}{\frac{1}{TPR} + \frac{1}{PPV}}$$</p></dd>
-
-</dl>
-
-    <h2 class="hasAnchor" id="references"><a class="anchor" href="#references"></a>References</h2>
-
-    <p><a href='https://en.wikipedia.org/wiki/Evaluation_of_binary_classifiers'>https://en.wikipedia.org/wiki/Evaluation_of_binary_classifiers</a></p>
+    <p>a vector of the same size</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='no'>ebc_allmeasures</span></div><div class='output co'>#&gt;  [1] "TP"   "FP"   "FN"   "TN"   "TPR"  "TNR"  "PPV"  "NPV"  "FNR"  "FPR" 
-#&gt; [11] "FDR"  "FOR"  "ACC"  "BACC" "F1"  </div><div class='input'>
+    <pre class="examples"><div class='input'><span class='no'>x</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='kw'>a</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>b</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>c</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>d</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
+<span class='kw pkg'>evabic</span><span class='kw ns'>:::</span><span class='fu'><a href='https://rdrr.io/pkg/evabic/man/nl2c.html'>nl2c</a></span>(<span class='no'>x</span>)</div><div class='output co'>#&gt; [1] "a" "d"</div><div class='input'>
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
-      <li><a href="#format">Format</a></li>
-      <li><a href="#details">Details</a></li>
-      <li><a href="#references">References</a></li>
+      <li><a href="#arguments">Arguments</a></li>
+      <li><a href="#value">Value</a></li>
       <li><a href="#examples">Examples</a></li>
     </ul>
 
