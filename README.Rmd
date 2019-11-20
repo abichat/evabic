@@ -51,14 +51,14 @@ Available measures includes True Positive Rate (Sensitivity or Recall), True Neg
 
 ```{r allmeasures}
 evabic::ebc_allmeasures
-
 ```
 
 All measures are computed from confusion matrix:
 
 <center>
-<img src="man/figures/confusionmatrix.png" width="50%"/>
+  <img src="man/figures/confusionmatrix.png" width="50%"/>
 </center>
+
 
 ## Example
 

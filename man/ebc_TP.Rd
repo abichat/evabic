@@ -31,7 +31,7 @@ An integer.
 Basic measures from the confusion matrix.
 }
 \details{
-See \code{\link{ebc_allmeasures}} for the description of the measures
+See \code{\link{ebc_allmeasures}} for the description of the measures.
 }
 \examples{
 ebc_TP(detected = c("A", "C", "D"), true = c("A", "B", "C"))
@@ -39,8 +39,7 @@ ebc_FP(detected = c("A", "C", "D"), true = c("A", "B", "C"))
 ebc_FN(detected = c("A", "C", "D"), true = c("A", "B", "C"))
 ebc_TN(detected = c("A", "C", "D"), true = c("A", "B", "C"),
        all = LETTERS[1:6])
-ebc_TN(detected = c("A", "C", "D"), true = c("A", "B", "C"),
-       m = 6)
+ebc_TN(detected = c("A", "C", "D"), true = c("A", "B", "C"), m = 6)
 }
 \seealso{
 \code{\link{ebc_TPR}}, \code{\link{ebc_tidy}},

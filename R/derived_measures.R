@@ -2,7 +2,7 @@
 #'
 #' Measures derived from confusion matrix.
 #'
-#' See \code{\link{ebc_allmeasures}} for the description of the measures
+#' See \code{\link{ebc_allmeasures}} for the description of the measures.
 #'
 #' @inheritParams ebc_TP
 #' @return A numeric.

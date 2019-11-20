@@ -32,7 +32,9 @@ reference:
   contents:
   - '`ebc_TP`'
   - '`ebc_TPR`'
-- title: One-row summary
+- title: Multiple measures
   desc: ~
   contents:
+  - '`ebc_confusion`'
   - '`ebc_tidy`'
+

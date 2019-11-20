@@ -52,7 +52,7 @@ A numeric.
 Measures derived from confusion matrix.
 }
 \details{
-See \code{\link{ebc_allmeasures}} for the description of the measures
+See \code{\link{ebc_allmeasures}} for the description of the measures.
 }
 \examples{
 ebc_TPR(detected = c("A", "C", "D"), true = c("A", "B", "C"))

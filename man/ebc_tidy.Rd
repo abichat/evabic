@@ -4,8 +4,13 @@
 \alias{ebc_tidy}
 \title{Tidy output for measures}
 \usage{
-ebc_tidy(detected, true, all, m = length(all), measures = c("TPR",
-  "FDR", "ACC", "F1"))
+ebc_tidy(
+  detected,
+  true,
+  all,
+  m = length(all),
+  measures = c("TPR", "FDR", "ACC", "F1")
+)
 }
 \arguments{
 \item{detected}{Vector of elements that are detected.}
