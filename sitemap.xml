@@ -13,7 +13,13 @@
     <loc>https://abichat.github.io/evabic/reference/ebc_allmeasures.html</loc>
   </url>
   <url>
+    <loc>https://abichat.github.io/evabic/reference/ebc_confusion.html</loc>
+  </url>
+  <url>
     <loc>https://abichat.github.io/evabic/reference/ebc_tidy.html</loc>
+  </url>
+  <url>
+    <loc>https://abichat.github.io/evabic/reference/ebc_tidy_by_threshold.html</loc>
   </url>
   <url>
     <loc>https://abichat.github.io/evabic/reference/nl2c.html</loc>

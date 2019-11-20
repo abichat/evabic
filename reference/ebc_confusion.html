@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Function reference • evabic</title>
+<title>Confusion matrix — ebc_confusion • evabic</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -42,7 +42,8 @@
 
 
 
-<meta property="og:title" content="Function reference" />
+<meta property="og:title" content="Confusion matrix — ebc_confusion" />
+<meta property="og:description" content="Compute the four components of the confusion matrix" />
 <meta property="og:image" content="https://abichat.github.io/evabic/logo.png" />
 <meta name="twitter:card" content="summary" />
 
@@ -73,7 +74,7 @@
   </head>
 
   <body>
-    <div class="container template-reference-index">
+    <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -123,90 +124,65 @@
       </header>
 
 <div class="row">
-  <div class="contents col-md-9">
+  <div class="col-md-9 contents">
     <div class="page-header">
-      <h1>Reference</h1>
+    <h1>Confusion matrix</h1>
+    <small class="dont-index">Source: <a href='https://github.com/abichat/evabic/blob/master/R/confusion_measures.R'><code>R/confusion_measures.R</code></a></small>
+    <div class="hidden name"><code>ebc_confusion.Rd</code></div>
     </div>
 
-    <table class="ref-index">
+    <div class="ref-description">
+    <p>Compute the four components of the confusion matrix</p>
+    </div>
 
-    <colgroup>
-      
-      <col class="alias" />
-      <col class="title" />
-    </colgroup>
+    <pre class="usage"><span class='fu'>ebc_confusion</span>(<span class='no'>detected</span>, <span class='no'>true</span>, <span class='no'>all</span>, <span class='kw'>m</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/length.html'>length</a></span>(<span class='no'>all</span>), <span class='kw'>prop</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</pre>
 
-    <tbody>
-      <tr>
-        <th colspan="2">
-          <h2 id="section-available-measures" class="hasAnchor"><a href="#section-available-measures" class="anchor"></a>Available measures</h2>
-          <p class="section-desc"></p>
-        </th>
-      </tr>
-      <tr>
-        
-        <td>
-          <p><code><a href="ebc_allmeasures.html">ebc_allmeasures</a></code> </p>
-        </td>
-        <td><p>Available measures</p></td>
-      </tr>
-    </tbody><tbody>
-      <tr>
-        <th colspan="2">
-          <h2 id="section-confusion-and-derived-measures" class="hasAnchor"><a href="#section-confusion-and-derived-measures" class="anchor"></a>Confusion and derived measures</h2>
-          <p class="section-desc"></p>
-        </th>
-      </tr>
-      <tr>
-        
-        <td>
-          <p><code><a href="ebc_TP.html">ebc_TP()</a></code> <code><a href="ebc_TP.html">ebc_FP()</a></code> <code><a href="ebc_TP.html">ebc_FN()</a></code> <code><a href="ebc_TP.html">ebc_TN()</a></code> </p>
-        </td>
-        <td><p>Confusion measures.</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="ebc_TPR.html">ebc_TPR()</a></code> <code><a href="ebc_TPR.html">ebc_TNR()</a></code> <code><a href="ebc_TPR.html">ebc_PPV()</a></code> <code><a href="ebc_TPR.html">ebc_NPV()</a></code> <code><a href="ebc_TPR.html">ebc_FNR()</a></code> <code><a href="ebc_TPR.html">ebc_FPR()</a></code> <code><a href="ebc_TPR.html">ebc_FDR()</a></code> <code><a href="ebc_TPR.html">ebc_FOR()</a></code> <code><a href="ebc_TPR.html">ebc_ACC()</a></code> <code><a href="ebc_TPR.html">ebc_BACC()</a></code> <code><a href="ebc_TPR.html">ebc_F1()</a></code> </p>
-        </td>
-        <td><p>Derived measures.</p></td>
-      </tr>
-    </tbody><tbody>
-      <tr>
-        <th colspan="2">
-          <h2 id="section-multiple-measures" class="hasAnchor"><a href="#section-multiple-measures" class="anchor"></a>Multiple measures</h2>
-          <p class="section-desc"></p>
-        </th>
-      </tr>
-      <tr>
-        
-        <td>
-          <p><code><a href="ebc_confusion.html">ebc_confusion()</a></code> </p>
-        </td>
-        <td><p>Confusion matrix</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="ebc_tidy.html">ebc_tidy()</a></code> </p>
-        </td>
-        <td><p>Tidy output for measures</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="ebc_tidy_by_threshold.html">ebc_tidy_by_threshold()</a></code> </p>
-        </td>
-        <td><p>Computes measures by threshold</p></td>
-      </tr>
-    </tbody>
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>detected</th>
+      <td><p>Vector of elements that are detected.</p></td>
+    </tr>
+    <tr>
+      <th>true</th>
+      <td><p>Vector of element that are supposed to be detected.</p></td>
+    </tr>
+    <tr>
+      <th>all</th>
+      <td><p>Vector of all elements.</p></td>
+    </tr>
+    <tr>
+      <th>m</th>
+      <td><p>Total number of element.</p></td>
+    </tr>
+    <tr>
+      <th>prop</th>
+      <td><p>Logical, default to <code>FALSE</code>. Should the matrix sum to one?</p></td>
+    </tr>
     </table>
-  </div>
 
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+
+    <p>A 2*2 named matrix.</p>
+    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
+
+    <p>See <code><a href='ebc_allmeasures.html'>ebc_allmeasures</a></code> for the description of the measures.</p>
+
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'><span class='fu'>ebc_confusion</span>(<span class='kw'>detected</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"A"</span>, <span class='st'>"C"</span>, <span class='st'>"D"</span>), <span class='kw'>true</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"A"</span>, <span class='st'>"B"</span>, <span class='st'>"C"</span>), <span class='kw'>m</span> <span class='kw'>=</span> <span class='fl'>6</span>)</div><div class='output co'>#&gt;                   Condition positive Condition negative
+#&gt; Detected positive                  2                  1
+#&gt; Detected negative                  1                  2</div></pre>
+  </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
-      <li><a href="#section-available-measures">Available measures</a></li>
-      <li><a href="#section-confusion-and-derived-measures">Confusion and derived measures</a></li>
-      <li><a href="#section-multiple-measures">Multiple measures</a></li>
+      <li><a href="#arguments">Arguments</a></li>
+      <li><a href="#value">Value</a></li>
+      <li><a href="#details">Details</a></li>
+      <li><a href="#examples">Examples</a></li>
     </ul>
+
   </div>
 </div>
 
