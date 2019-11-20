@@ -42,8 +42,7 @@ True Negative Rate (Specificity), Positive Predictive Value (Precision),
 False Discovery Rate, Accuracy, F1…
 
     evabic::ebc_allmeasures
-    #>  [1] "TP"   "FP"   "FN"   "TN"   "TPR"  "TNR"  "PPV"  "NPV"  "FNR"  "FPR"  "FDR"  "FOR"  "ACC"  "BACC"
-    #> [15] "F1"
+    #>  [1] "TP"   "FP"   "FN"   "TN"   "TPR"  "TNR"  "PPV"  "NPV"  "FNR"  "FPR"  "FDR"  "FOR"  "ACC"  "BACC" "F1"
 
 All measures are computed from confusion matrix:
 
@@ -146,7 +145,7 @@ the threshold).
                           measures = c("TPR", "TNR", "FDR", "ACC", "BACC", "F1"), 
                           direction = "leq", sup_threshold = 0)
     #>     threshold       TPR  TNR       FDR       ACC      BACC        F1
-    #> 1 0.000000000 0.0000000 1.00 0.0000000 0.5714286 0.5000000 0.0000000
+    #> 1 0.000000000 0.0000000 1.00       NaN 0.5714286 0.5000000 0.0000000
     #> 2 0.003469737 0.3333333 1.00 0.0000000 0.7142857 0.6666667 0.5000000
     #> 3 0.004366456 0.6666667 1.00 0.0000000 0.8571429 0.8333333 0.8000000
     #> 4 0.173677616 1.0000000 1.00 0.0000000 1.0000000 1.0000000 1.0000000
