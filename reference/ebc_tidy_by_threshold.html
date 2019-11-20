@@ -204,7 +204,7 @@ their descriptions.</p>
 <span class='no'>model</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/lm.html'>lm</a></span>(<span class='no'>Y</span> ~ <span class='no'>.</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>df_lm</span>)
 <span class='no'>pvalues</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span>(<span class='no'>model</span>)$<span class='no'>coefficients</span>[-<span class='fl'>1</span>, <span class='fl'>4</span>]
 <span class='fu'>ebc_tidy_by_threshold</span>(<span class='no'>pvalues</span>, <span class='no'>predictors</span>, <span class='kw'>m</span> <span class='kw'>=</span> <span class='fl'>7</span>, <span class='kw'>sup_threshold</span> <span class='kw'>=</span> <span class='fl'>0</span>)</div><div class='output co'>#&gt;     threshold       TPR  FPR       FDR       ACC        F1
-#&gt; 1 0.000000000 0.0000000 0.00 0.0000000 0.5714286 0.0000000
+#&gt; 1 0.000000000 0.0000000 0.00       NaN 0.5714286 0.0000000
 #&gt; 2 0.003469737 0.3333333 0.00 0.0000000 0.7142857 0.5000000
 #&gt; 3 0.004366456 0.6666667 0.00 0.0000000 0.8571429 0.8000000
 #&gt; 4 0.173677616 1.0000000 0.00 0.0000000 1.0000000 1.0000000
