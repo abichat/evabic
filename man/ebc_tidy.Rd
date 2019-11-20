@@ -9,7 +9,7 @@ ebc_tidy(
   true,
   all,
   m = length(all),
-  measures = c("TPR", "FDR", "ACC", "F1")
+  measures = c("TPR", "FPR", "FDR", "ACC", "F1")
 )
 }
 \arguments{

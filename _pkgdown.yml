@@ -37,4 +37,4 @@ reference:
   contents:
   - '`ebc_confusion`'
   - '`ebc_tidy`'
-
+  - '`ebc_tidy_by_threshold`'

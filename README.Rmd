@@ -91,6 +91,7 @@ We use a linear regression to detect the actual predictors (do not select signif
 model <- lm(Y ~ ., data = df_lm)
 summary(model)
 pvalues <- summary(model)$coefficients[-1, 4]
+pvalues
 detected_var <- names(pvalues[pvalues < 0.05])
 detected_var
 ```
@@ -109,7 +110,6 @@ ebc_tidy(detected = detected_var, true = predictors, m = 7,
          measures = c("TPR", "TNR", "FDR", "ACC", "BACC", "F1"))
 ```
 
-
 Note that **evabic** also supports named logicals for `detected` and `true` arguments.
 
 ```{r}
@@ -117,6 +117,18 @@ pvalues < 0.05
 ebc_tidy(detected = pvalues < 0.05, true = predictors, m = 7, 
          measures = c("TPR", "TNR", "FDR", "ACC", "BACC", "F1"))
 ```
+
+Finally, you can ask one row of measures per threshold if you provide the vector of p-values 
+(by default, detected elements are on the left of the threshold).
+
+```{r}
+ebc_tidy_by_threshold(detection_values = pvalues, true = predictors, m = 7, 
+                      measures = c("TPR", "TNR", "FDR", "ACC", "BACC", "F1"), 
+                      direction = "leq", sup_threshold = 0)
+```
+
+
+
 
 
 

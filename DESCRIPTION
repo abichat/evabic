@@ -1,6 +1,6 @@
 Package: evabic
 Title: Evaluation of Binary Classifiers
-Version: 0.0.0.9003
+Version: 0.0.0.9004
 Authors@R: 
     person(given = "Antoine",
            family = "Bichat",
@@ -15,7 +15,7 @@ URL: https://abichat.github.io/evabix,
 BugReports: https://github.com/abichat/evabic/issues
 Suggests: 
     spelling,
-    testthat
+    testthat (>= 2.1.0)
 Encoding: UTF-8
 Language: en-US
 LazyData: true

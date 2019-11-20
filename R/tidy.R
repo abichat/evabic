@@ -19,7 +19,7 @@
 #' ebc_tidy(detected = c("A", "C", "D"), true = c("A", "B", "C"),
 #'          all = LETTERS[1:6], measures = c("ACC", "FDR"))
 ebc_tidy <- function(detected, true, all, m = length(all),
-                     measures = c("TPR", "FDR", "ACC", "F1")){
+                     measures = c("TPR", "FPR", "FDR", "ACC", "F1")){
 
   if(length(setdiff(measures, ebc_allmeasures)) > 0){
     warning("Some measure are not available, they won't be used.")
