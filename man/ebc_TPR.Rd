@@ -12,6 +12,9 @@
 \alias{ebc_ACC}
 \alias{ebc_BACC}
 \alias{ebc_F1}
+\alias{ebc_PLR}
+\alias{ebc_NLR}
+\alias{ebc_DOR}
 \title{Derived measures.}
 \usage{
 ebc_TPR(detected, true)
@@ -35,6 +38,12 @@ ebc_ACC(detected, true, all, m = length(all))
 ebc_BACC(detected, true, all, m = length(all))
 
 ebc_F1(detected, true)
+
+ebc_PLR(detected, true, all, m = length(all))
+
+ebc_NLR(detected, true, all, m = length(all))
+
+ebc_DOR(detected, true, all, m = length(all))
 }
 \arguments{
 \item{detected}{Vector of elements that are detected.}

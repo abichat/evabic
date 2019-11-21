@@ -47,6 +47,9 @@ ebc_tidy <- function(detected, true, all, m = length(all),
   if ("ACC"  %in% measures) df$ACC  <- ebc_ACC(detected, true, m = m)
   if ("BACC" %in% measures) df$BACC <- ebc_BACC(detected, true, m = m)
   if ("F1"   %in% measures) df$F1   <- ebc_F1(detected, true)
+  if ("PLR"  %in% measures) df$PLR  <- ebc_PLR(detected, true, m = m)
+  if ("NLR"  %in% measures) df$NLR  <- ebc_NLR(detected, true, m = m)
+  if ("DOR"  %in% measures) df$DOR  <- ebc_DOR(detected, true, m = m)
 
   df[, measures]
 }

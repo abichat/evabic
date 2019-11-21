@@ -4,7 +4,7 @@
 \name{ebc_allmeasures}
 \alias{ebc_allmeasures}
 \title{Available measures}
-\format{An object of class \code{character} of length 15.}
+\format{An object of class \code{character} of length 18.}
 \usage{
 ebc_allmeasures
 }
@@ -42,6 +42,15 @@ Available measures in \code{evabic}
 \item{F1}{F1 Score
 \deqn{F1 = \frac{2 TP}{2TP + FP + FN}
                       = \frac{2}{\frac{1}{TPR} + \frac{1}{PPV}}}}
+\item{PLR}{Positive Likelihood Ratio or LR+ or likelihood Ratio for
+Positive Results
+\deqn{LRP = \frac{TPR}{1 - TNR}}}
+\item{NLR}{Negative Likelihood Ratio or LR- or likelihood Ratio for
+Negative Results
+\deqn{LRP = \frac{1 - TPR}{TNR}}}
+\item{DOR}{Diagnostic Odds Ratio
+\deqn{LRP = \frac{\frac{TP}{FP}}{\frac{FN}{TN}}
+                       = \frac{PLR}{NLR}}}
 }
 }
 \examples{

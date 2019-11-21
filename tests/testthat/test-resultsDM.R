@@ -23,6 +23,12 @@ test_that("derived statistics are correct", {
   expect_equal(ebc_BACC(detectedH1, trueH1, elements), 7 / 10)
   expect_equal(ebc_BACC(detectedH1, trueH1, m = total), 7 / 10)
   expect_equal(ebc_F1(detectedH1, trueH1), 8 / 11)
+  expect_equal(ebc_PLR(detectedH1, trueH1, elements),  2)
+  expect_equal(ebc_PLR(detectedH1, trueH1, m = total), 2)
+  expect_equal(ebc_NLR(detectedH1, trueH1, elements),  1 / 3)
+  expect_equal(ebc_NLR(detectedH1, trueH1, m = total), 1 / 3)
+  expect_equal(ebc_DOR(detectedH1, trueH1, elements),  6)
+  expect_equal(ebc_DOR(detectedH1, trueH1, m = total), 6)
 })
 
 
@@ -41,4 +47,6 @@ test_that("relations between statistics are correct", {
   expect_equal(ebc_F1(detectedH1, trueH1),
                2 / ((1 / ebc_TPR(detectedH1, trueH1)) +
                       1 / ebc_PPV(detectedH1, trueH1)))
+  expect_equal(ebc_DOR(detectedH1, trueH1, letters),
+               ebc_PLR(detectedH1, trueH1, letters) / ebc_NLR(detectedH1, trueH1, letters))
 })

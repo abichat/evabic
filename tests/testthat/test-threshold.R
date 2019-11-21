@@ -34,7 +34,7 @@ th <- mean(df_th$threshold[2:3])
 test_that("values are correct", {
   expect_equivalent(df_th[2, -1],
                     ebc_tidy(detected = pvalues <= th, true = predictors,
-                             m = 7,measures = ebc_allmeasures))
+                             m = 7, measures = ebc_allmeasures))
 })
 
 df_th_wosup <- ebc_tidy_by_threshold(detection_values = pvalues,

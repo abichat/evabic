@@ -33,6 +33,15 @@
 #'   \item{F1}{F1 Score
 #'              \deqn{F1 = \frac{2 TP}{2TP + FP + FN}
 #'                       = \frac{2}{\frac{1}{TPR} + \frac{1}{PPV}}}}
+#'   \item{PLR}{Positive Likelihood Ratio or LR+ or likelihood Ratio for
+#'   Positive Results
+#'              \deqn{LRP = \frac{TPR}{1 - TNR}}}
+#'   \item{NLR}{Negative Likelihood Ratio or LR- or likelihood Ratio for
+#'   Negative Results
+#'              \deqn{LRP = \frac{1 - TPR}{TNR}}}
+#'   \item{DOR}{Diagnostic Odds Ratio
+#'              \deqn{LRP = \frac{\frac{TP}{FP}}{\frac{FN}{TN}}
+#'                        = \frac{PLR}{NLR}}}
 #' }
 #'
 #' @examples
@@ -44,4 +53,5 @@
 ebc_allmeasures <- c("TP", "FP", "FN", "TN",
                      "TPR", "TNR", "PPV", "NPV",
                      "FNR", "FPR", "FDR", "FOR",
-                     "ACC", "BACC", "F1")
+                     "ACC", "BACC", "F1",
+                     "PLR", "NLR", "DOR")
