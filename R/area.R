@@ -24,8 +24,6 @@ area_rect <- function(x, y) {
 #' Compute the Area Under the Curve for a classification.
 #'
 #' @inheritParams ebc_tidy_by_threshold
-#' @param ... Parameters to be passed to \code{\link{ebc_tidy_by_threshold}}.
-#' Do not use a \code{measures} argument.
 #'
 #' @return A numeric.
 #' @export
@@ -45,10 +43,12 @@ area_rect <- function(x, y) {
 #' model <- lm(Y ~ ., data = df_lm)
 #' pvalues <- summary(model)$coefficients[-1, 4]
 #' ebc_AUC(pvalues, predictors, m = 7)
-ebc_AUC <- function(detection_values, true, all,
-                    m = length(all), ...){
+ebc_AUC <- function(detection_values, true, all, m = length(all),
+                    direction = c("<", ">", "<=", ">=")) {
+  direction <- match.arg(direction)
   df_roc <- ebc_tidy_by_threshold(detection_values, true, m = m,
-                                  measures = c("TPR", "FPR"), ...)
+                                  measures = c("TPR", "FPR"),
+                                  direction = direction)
   area_rect(df_roc$FPR, df_roc$TPR)
 }
 

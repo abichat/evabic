@@ -16,7 +16,7 @@ L <- length(unique(pvalues))
 mymeasures <- c("TN", "TPR", "PPV", "FNR", "FDR", "ACC")
 
 df_th <- ebc_tidy_by_threshold(detection_values = pvalues, true = predictors,
-                               m = 7, sup_threshold = 0, measures = mymeasures)
+                               m = 7, measures = mymeasures)
 
 
 test_that("output has the correct format", {
@@ -27,38 +27,24 @@ test_that("output has the correct format", {
 
 
 df_th <- ebc_tidy_by_threshold(detection_values = pvalues, true = predictors,
-                               m = 7, sup_threshold = 0,
-                               measures = ebc_allmeasures)
+                               m = 7, measures = ebc_allmeasures,
+                               direction = "<")
 th <- mean(df_th$threshold[2:3])
 
 test_that("values are correct", {
-  expect_equivalent(df_th[2, -1],
-                    ebc_tidy(detected = pvalues <= th, true = predictors,
+  expect_equivalent(df_th[3, -1],
+                    ebc_tidy(detected = pvalues < th, true = predictors,
                              m = 7, measures = ebc_allmeasures))
 })
 
-df_th_wosup <- ebc_tidy_by_threshold(detection_values = pvalues,
-                                     true = predictors, m = 7)
-df_th_wosup_rev <- ebc_tidy_by_threshold(detection_values = pvalues,
-                                         true = predictors, m = 7,
-                                         direction = "geq")
-
-test_that("if instructions work", {
-  expect_equal(nrow(df_th_wosup), L + 1)
-  expect_equal(nrow(df_th_wosup_rev), L + 1)
-  expect_equivalent(df_th_wosup$threshold[2:(L+1)], sort(pvalues))
-  expect_equivalent(df_th_wosup_rev$threshold[1:L], sort(pvalues))
-})
-
-
-values_letters <- runif(26)
+n_letters <- length(letters)
+values_letters <- runif(n_letters)
 names(values_letters) <- letters
 true <- sample(letters, 10)
 df_all <- ebc_tidy_by_threshold(detection_values = values_letters, true = true,
-                                m = 26,  measures = ebc_allmeasures,
-                                direction = "leq", sup_threshold = 0)
+                                m = n_letters,  measures = ebc_allmeasures)
 
-test_that("relationshifts betweens values are correct", {
+test_that("relationships betweens values are correct", {
   expect_equal(df_all$TPR, 1 - df_all$FNR)
   expect_equal(df_all$TNR, 1 - df_all$FPR)
   expect_equal(df_all$PPV, 1 - df_all$FDR)
@@ -67,5 +53,35 @@ test_that("relationshifts betweens values are correct", {
   expect_equal(df_all$F1[!is.nan(HM)], HM[!is.nan(HM)])
   expect_equal(df_all$DOR, df_all$PLR / df_all$NLR)
 })
+
+
+df_all_leq <-
+  ebc_tidy_by_threshold(detection_values = values_letters, true = true,
+                        m = n_letters, measures = ebc_allmeasures,
+                        direction = "<=")
+df_all_geq <-
+  ebc_tidy_by_threshold(detection_values = values_letters, true = true,
+                        m = n_letters, measures = ebc_allmeasures,
+                        direction = ">=")
+df_all_g <-
+  ebc_tidy_by_threshold(detection_values = values_letters, true = true,
+                        m = n_letters, measures = ebc_allmeasures,
+                        direction = ">")
+
+test_that("directions give the correct output", {
+  expect_equal(df_all[, -1], df_all_leq[, -1])
+  expect_equal(df_all$threshold[-(n_letters + 1)], df_all_leq$threshold[-1])
+  expect_equal(df_all_g[, -1], df_all_geq[, -1])
+  expect_equal(df_all_g$threshold[-1], df_all_geq$threshold[-(n_letters + 1)])
+})
+
+test_that("all or nothing is detected at +/-Inf", {
+  expect_equivalent(df_all[1, c("TPR", "TNR")], c(0, 1))
+  expect_equivalent(df_all[n_letters + 1, c("TPR", "TNR")], c(1, 0))
+  expect_equivalent(df_all_g[1, c("TPR", "TNR")], c(1, 0))
+  expect_equivalent(df_all_g[n_letters + 1, c("TPR", "TNR")], c(0, 1))
+})
+
+
 
 

@@ -4,7 +4,13 @@
 \alias{ebc_AUC}
 \title{Area under the curve}
 \usage{
-ebc_AUC(detection_values, true, all, m = length(all), ...)
+ebc_AUC(
+  detection_values,
+  true,
+  all,
+  m = length(all),
+  direction = c("<", ">", "<=", ">=")
+)
 }
 \arguments{
 \item{detection_values}{Values corresponding to elements that are detected.
@@ -16,8 +22,9 @@ Must be named.}
 
 \item{m}{Total number of elements.}
 
-\item{...}{Parameters to be passed to \code{\link{ebc_tidy_by_threshold}}.
-Do not use a \code{measures} argument.}
+\item{direction}{With \code{<} (default), detected elements are those
+which are strictly less than the threshold. Could be change to \code{">"},
+\code{<=} or \code{>=}.}
 }
 \value{
 A numeric.

@@ -10,8 +10,7 @@ ebc_tidy_by_threshold(
   all,
   m = length(all),
   measures = c("TPR", "FPR", "FDR", "ACC", "F1"),
-  direction = c("leq", "geq"),
-  sup_threshold
+  direction = c("<", ">", "<=", ">=")
 )
 }
 \arguments{
@@ -26,12 +25,9 @@ Must be named.}
 
 \item{measures}{Desired measures of performance.}
 
-\item{direction}{With \code{"leq"} (default), detected elements are on the
-left of the threshold. They are on the right with \code{"geq"}.}
-
-\item{sup_threshold}{Supplementary threshold to include. By default include
-one supplementary threshold on the left or right depend on \code{direction}.
-Set to \code{NULL} to do not add any supplementary threshold.}
+\item{direction}{With \code{<} (default), detected elements are those
+which are strictly less than the threshold. Could be change to \code{">"},
+\code{<=} or \code{>=}.}
 }
 \value{
 A dataframe with one column called threshold and other corresponding
@@ -58,5 +54,5 @@ df_lm <- data.frame(X1 = X1, X2 = X2, X3 = X3,
                     Y  = X1 - X2 + 3 * X3 + rnorm(50))
 model <- lm(Y ~ ., data = df_lm)
 pvalues <- summary(model)$coefficients[-1, 4]
-ebc_tidy_by_threshold(pvalues, predictors, m = 7, sup_threshold = 0)
+ebc_tidy_by_threshold(pvalues, predictors, m = 7)
 }

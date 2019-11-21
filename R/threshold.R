@@ -8,11 +8,9 @@
 #' @param detection_values Values corresponding to elements that are detected.
 #' Must be named.
 #' @inheritParams ebc_tidy
-#' @param direction With \code{"leq"} (default), detected elements are on the
-#' left of the threshold. They are on the right with \code{"geq"}.
-#' @param sup_threshold Supplementary threshold to include. By default include
-#' one supplementary threshold on the left or right depend on \code{direction}.
-#' Set to \code{NULL} to do not add any supplementary threshold.
+#' @param direction With \code{<} (default), detected elements are those
+#' which are strictly less than the threshold. Could be change to \code{">"},
+#' \code{<=} or \code{>=}.
 #'
 #' @return A dataframe with one column called threshold and other corresponding
 #' to those specified in \code{measures}.
@@ -32,32 +30,31 @@
 #'                     Y  = X1 - X2 + 3 * X3 + rnorm(50))
 #' model <- lm(Y ~ ., data = df_lm)
 #' pvalues <- summary(model)$coefficients[-1, 4]
-#' ebc_tidy_by_threshold(pvalues, predictors, m = 7, sup_threshold = 0)
+#' ebc_tidy_by_threshold(pvalues, predictors, m = 7)
 ebc_tidy_by_threshold <- function(detection_values, true, all,
                           m = length(all),
                           measures = c("TPR", "FPR", "FDR", "ACC", "F1"),
-                          direction = c("leq", "geq"), sup_threshold) {
+                          direction = c("<", ">", "<=", ">=")) {
 
   direction <- match.arg(direction)
   thresholds <- unname(sort(unique(detection_values)))
 
-  if (direction == "leq") {
-    if (missing(sup_threshold)) {
-      sup_threshold <- thresholds[1] - (thresholds[2] - thresholds[1]) / 10
-    }
-    thresholds <- sort(c(sup_threshold, thresholds))
+  if (direction == "<") {
+    thresholds <- c(thresholds, +Inf)
+    list_logical <- lapply(thresholds, function(x) detection_values < x)
+  } else if (direction == ">") {
+    thresholds <- c(-Inf, thresholds)
+    list_logical <- lapply(thresholds, function(x) detection_values > x)
+  } else if (direction == "<=") {
+    thresholds <- c(-Inf, thresholds)
     list_logical <- lapply(thresholds, function(x) detection_values <= x)
-  } else {
-    if (missing(sup_threshold)) {
-      n <- length(thresholds)
-      sup_threshold <- thresholds[n] + (thresholds[n] - thresholds[n - 1]) / 10
-    }
-    thresholds <- sort(c(thresholds, sup_threshold))
+  } else if (direction == ">=") {
+    thresholds <- c(thresholds, +Inf)
     list_logical <- lapply(thresholds, function(x) detection_values >= x)
   }
 
-  list_measures <- lapply(list_logical, ebc_tidy,
-                          true = true, m = m, measures = measures)
+  list_measures <- lapply(list_logical, ebc_tidy, true = true,
+                          m = m, measures = measures)
 
   df_measures <- Reduce(rbind, list_measures)
   df_measures <- cbind(data.frame(threshold = thresholds), df_measures)
