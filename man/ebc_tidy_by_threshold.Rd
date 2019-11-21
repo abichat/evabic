@@ -24,7 +24,9 @@ Must be named.}
 
 \item{m}{Total number of element.}
 
-\item{sup_threshold}{Supplementary threshold to include. Set to null to}
+\item{sup_threshold}{Supplementary threshold to include. By default include
+one supplementary threshold on the left or right depend on \code{direction}.
+Set to \code{NULL} to do not add any supplementary threshold.}
 
 \item{measures}{Desired measures of performance.}
 

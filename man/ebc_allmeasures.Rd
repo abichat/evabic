@@ -19,7 +19,7 @@ Available measures in \code{evabic}
 \item{FP}{False Positive}
 \item{FN}{False Negative}
 \item{TN}{True Negative}
-\item{TPR}{True Positive Rate or Sensitivity or Recall
+\item{TPR}{True Positive Rate or Sensitivity or Recall or Power
 \deqn{TPR = \frac{TP}{TP + FN} = 1 - FNR}}
 \item{TNR}{True Negative Rate or Specificity
 \deqn{TNR = \frac{TN}{FP + TN} =  1 - FPR}}
@@ -27,9 +27,9 @@ Available measures in \code{evabic}
 \deqn{PPV = \frac{TP}{TP + FP} = 1 - FDR}}
 \item{NPV}{Negative Predictive Value
 \deqn{NPV = \frac{TN}{TN + FN} = 1 - FOR}}
-\item{FNR}{False Negative Rate or Miss Rate
-\deqn{FNR = \frac{FN}{FN + TP} = 1 - TPR}}
-\item{FPR}{False Positive Rate or Fall-out
+\item{FNR}{False Negative Rate or Type II Error Rate or Miss Rate
+\deqn{FNR = \frac{FN}{TP + FN} = 1 - TPR}}
+\item{FPR}{False Positive Rate or Type I Errors Rate or Fall-out
 \deqn{FPR = \frac{FP}{FP + TN} = 1 - TNR}}
 \item{FDR}{False Discovery Rate
 \deqn{FDR = \frac{FP}{FP + TP} = 1 - PPV}}

@@ -6,7 +6,9 @@
 #' @param detection_values Values corresponding to elements that are detected.
 #' Must be named.
 #' @inheritParams ebc_tidy
-#' @param sup_threshold Supplementary threshold to include. Set to null to
+#' @param sup_threshold Supplementary threshold to include. By default include
+#' one supplementary threshold on the left or right depend on \code{direction}.
+#' Set to \code{NULL} to do not add any supplementary threshold.
 #' @param direction With \code{"leq"} (default), detected elements are on the
 #' left of the threshold. They are on the right with \code{"geq"}.
 #'
