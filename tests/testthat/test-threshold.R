@@ -50,3 +50,19 @@ test_that("if instructions work", {
   expect_equivalent(df_th_wosup_rev$threshold[1:L], sort(pvalues))
 })
 
+
+values_letters <- runif(26)
+names(values_letters) <- letters
+true <- sample(letters, 10)
+df_all <- ebc_tidy_by_threshold(detection_values = values_letters, true = true,
+                                m = 26,  measures = ebc_allmeasures,
+                                direction = "leq", sup_threshold = 0)
+
+test_that("relationshifts betweens values are correct", {
+  expect_equal(df_all$TPR, 1 - df_all$FNR)
+  expect_equal(df_all$TNR, 1 - df_all$FPR)
+  expect_equal(df_all$PPV, 1 - df_all$FDR)
+  expect_equal(df_all$NPV,1 - df_all$FOR)
+  HM <- 2 / ((1 / df_all$TPR) + (1 / df_all$PPV))
+  expect_equal(df_all$F1[!is.nan(HM)], HM[!is.nan(HM)])
+})

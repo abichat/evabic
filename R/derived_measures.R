@@ -66,7 +66,7 @@ ebc_FPR <- function(detected, true, all, m = length(all)){
 ebc_FDR <- function(detected, true){
   detected <- nl2c(detected)
   true <- nl2c(true)
-  ebc_FP(detected, true) / max(length(detected), 1)
+  ebc_FP(detected, true) / length(detected)
 }
 
 #' @rdname ebc_TPR
