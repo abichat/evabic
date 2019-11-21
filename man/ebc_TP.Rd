@@ -22,7 +22,7 @@ ebc_TN(detected, true, all, m = length(all))
 
 \item{all}{Vector of all elements.}
 
-\item{m}{Total number of element.}
+\item{m}{Total number of elements.}
 }
 \value{
 An integer.

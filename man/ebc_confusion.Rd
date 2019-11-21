@@ -13,7 +13,7 @@ ebc_confusion(detected, true, all, m = length(all), prop = FALSE)
 
 \item{all}{Vector of all elements.}
 
-\item{m}{Total number of element.}
+\item{m}{Total number of elements.}
 
 \item{prop}{Logical, default to \code{FALSE}. Should the matrix sum to one?}
 }
@@ -21,7 +21,7 @@ ebc_confusion(detected, true, all, m = length(all), prop = FALSE)
 A 2*2 named matrix.
 }
 \description{
-Compute the four components of the confusion matrix
+Compute the the confusion matrix
 }
 \details{
 See \code{\link{ebc_allmeasures}} for the description of the measures.

@@ -5,7 +5,7 @@ evabic <a href='https://abichat.github.io/evabic'><img src='man/figures/logo.png
 <!-- badges: start -->
 [![license](https://img.shields.io/badge/license-GPL--3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0.en.html)
 [![lifecycle](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
-[![packageversion](https://img.shields.io/badge/package%20version-0.0.0.9004-orange.svg)](commits/master)
+[![packageversion](https://img.shields.io/badge/package%20version-0.0.0.9005-orange.svg)](commits/master)
 [![Travis build
 status](https://travis-ci.org/abichat/evabic.svg?branch=master)](https://travis-ci.org/abichat/evabic)
 [![AppVeyor build
@@ -14,7 +14,7 @@ status](https://ci.appveyor.com/api/projects/status/github/abichat/evabic?branch
 coverage](https://codecov.io/gh/abichat/evabic/branch/master/graph/badge.svg)](https://codecov.io/gh/abichat/evabic?branch=master)
 [![Codacy
 Badge](https://api.codacy.com/project/badge/Grade/c32dcc4c1c3f40a5950e1c10ea6dfb18)](https://www.codacy.com/app/abichat/evabic?utm_source=github.com&utm_medium=referral&utm_content=abichat/evabic&utm_campaign=Badge_Grade)
-[![Last-changedate](https://img.shields.io/badge/last%20change-2019--11--20-yellowgreen.svg)](/commits/master)
+[![Last-changedate](https://img.shields.io/badge/last%20change-2019--11--21-yellowgreen.svg)](/commits/master)
 [![Documentation](https://img.shields.io/badge/documentation-pkgdown-E91E63.svg)](https://abichat.github.io/evabic/)
 <!-- badges: end -->
 
@@ -34,7 +34,7 @@ You can install the development version from
 Measures
 --------
 
-**evabic** provides handy functions to computes 15 different measures.
+**evabic** provides handy functions to computes 18 different measures.
 Each function begins with `ebc_*`.
 
 Available measures includes True Positive Rate (Sensitivity or Recall),
@@ -42,7 +42,8 @@ True Negative Rate (Specificity), Positive Predictive Value (Precision),
 False Discovery Rate, Accuracy, F1…
 
     evabic::ebc_allmeasures
-    #>  [1] "TP"   "FP"   "FN"   "TN"   "TPR"  "TNR"  "PPV"  "NPV"  "FNR"  "FPR"  "FDR"  "FOR"  "ACC"  "BACC" "F1"
+    #>  [1] "TP"   "FP"   "FN"   "TN"   "TPR"  "TNR"  "PPV"  "NPV"  "FNR"  "FPR"  "FDR"  "FOR"  "ACC"  "BACC" "F1"   "PLR"  "NLR" 
+    #> [18] "DOR"
 
 All measures are computed from confusion matrix:
 
@@ -137,9 +138,9 @@ Note that **evabic** also supports named logicals for `detected` and
     #>         TPR TNR FDR       ACC      BACC  F1
     #> 1 0.6666667   1   0 0.8571429 0.8333333 0.8
 
-Finally, you can ask one row of measures per threshold if you provide
-the vector of p-values (by default, detected elements are on the left of
-the threshold).
+Finally, you can ask for the evolution of measures according to a moving
+threshold if you provide the vector of p-values (by default, detected
+elements are on the left of the threshold).
 
     ebc_tidy_by_threshold(detection_values = pvalues, true = predictors, m = 7, 
                           measures = c("TPR", "TNR", "FDR", "ACC", "BACC", "F1"), 

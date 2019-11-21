@@ -7,7 +7,7 @@
 #' @param detected Vector of elements that are detected.
 #' @param true Vector of element that are supposed to be detected.
 #' @param all Vector of all elements.
-#' @param m Total number of element.
+#' @param m Total number of elements.
 #' @return An integer.
 #' @export
 #'
@@ -54,7 +54,7 @@ ebc_TN <- function(detected, true, all, m = length(all)){
 
 #' Confusion matrix
 #'
-#' Compute the four components of the confusion matrix
+#' Compute the the confusion matrix
 #'
 #' See \code{\link{ebc_allmeasures}} for the description of the measures.
 #'

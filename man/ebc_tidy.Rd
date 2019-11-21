@@ -19,7 +19,7 @@ ebc_tidy(
 
 \item{all}{Vector of all elements.}
 
-\item{m}{Total number of element.}
+\item{m}{Total number of elements.}
 
 \item{measures}{Desired measures of performance.}
 }

@@ -1,19 +1,21 @@
-#' Computes measures by threshold
+#' Measures by threshold
 #'
-#' @details See \code{\link{ebc_allmeasures}} for the available measures and
+#' Computes measures according to a moving threshold
+#'
+#' See \code{\link{ebc_allmeasures}} for the available measures and
 #' their descriptions.
 #'
 #' @param detection_values Values corresponding to elements that are detected.
 #' Must be named.
 #' @inheritParams ebc_tidy
+#' @param direction With \code{"leq"} (default), detected elements are on the
+#' left of the threshold. They are on the right with \code{"geq"}.
 #' @param sup_threshold Supplementary threshold to include. By default include
 #' one supplementary threshold on the left or right depend on \code{direction}.
 #' Set to \code{NULL} to do not add any supplementary threshold.
-#' @param direction With \code{"leq"} (default), detected elements are on the
-#' left of the threshold. They are on the right with \code{"geq"}.
 #'
 #' @return A dataframe with one column called threshold and other corresponding
-#' to specified measures.
+#' to those specified in \code{measures}.
 #' @export
 #'
 #' @examples
@@ -32,9 +34,9 @@
 #' pvalues <- summary(model)$coefficients[-1, 4]
 #' ebc_tidy_by_threshold(pvalues, predictors, m = 7, sup_threshold = 0)
 ebc_tidy_by_threshold <- function(detection_values, true, all,
-                          m = length(all), sup_threshold,
+                          m = length(all),
                           measures = c("TPR", "FPR", "FDR", "ACC", "F1"),
-                          direction = c("leq", "geq")) {
+                          direction = c("leq", "geq"), sup_threshold) {
 
   direction <- match.arg(direction)
   thresholds <- unname(sort(unique(detection_values)))

@@ -65,4 +65,7 @@ test_that("relationshifts betweens values are correct", {
   expect_equal(df_all$NPV,1 - df_all$FOR)
   HM <- 2 / ((1 / df_all$TPR) + (1 / df_all$PPV))
   expect_equal(df_all$F1[!is.nan(HM)], HM[!is.nan(HM)])
+  expect_equal(df_all$DOR, df_all$PLR / df_all$NLR)
 })
+
+

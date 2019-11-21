@@ -52,7 +52,7 @@ ebc_DOR(detected, true, all, m = length(all))
 
 \item{all}{Vector of all elements.}
 
-\item{m}{Total number of element.}
+\item{m}{Total number of elements.}
 }
 \value{
 A numeric.
@@ -66,7 +66,7 @@ See \code{\link{ebc_allmeasures}} for the description of the measures.
 \examples{
 ebc_TPR(detected = c("A", "C", "D"), true = c("A", "B", "C"))
 ebc_ACC(detected = c("A", "C", "D"), true = c("A", "B", "C"),
-        all = LETTERS[1:6])
+        all = LETTERS[1:5])
 }
 \seealso{
 \code{\link{ebc_TP}}, \code{\link{ebc_tidy}},

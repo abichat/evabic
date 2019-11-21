@@ -14,7 +14,7 @@
 #' @examples
 #' ebc_TPR(detected = c("A", "C", "D"), true = c("A", "B", "C"))
 #' ebc_ACC(detected = c("A", "C", "D"), true = c("A", "B", "C"),
-#'         all = LETTERS[1:6])
+#'         all = LETTERS[1:5])
 ebc_TPR <- function(detected, true){
   detected <- nl2c(detected)
   true <- nl2c(true)

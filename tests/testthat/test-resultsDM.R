@@ -48,5 +48,6 @@ test_that("relations between statistics are correct", {
                2 / ((1 / ebc_TPR(detectedH1, trueH1)) +
                       1 / ebc_PPV(detectedH1, trueH1)))
   expect_equal(ebc_DOR(detectedH1, trueH1, letters),
-               ebc_PLR(detectedH1, trueH1, letters) / ebc_NLR(detectedH1, trueH1, letters))
+               ebc_PLR(detectedH1, trueH1, letters) /
+                 ebc_NLR(detectedH1, trueH1, letters))
 })

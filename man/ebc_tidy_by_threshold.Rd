@@ -2,16 +2,16 @@
 % Please edit documentation in R/threshold.R
 \name{ebc_tidy_by_threshold}
 \alias{ebc_tidy_by_threshold}
-\title{Computes measures by threshold}
+\title{Measures by threshold}
 \usage{
 ebc_tidy_by_threshold(
   detection_values,
   true,
   all,
   m = length(all),
-  sup_threshold,
   measures = c("TPR", "FPR", "FDR", "ACC", "F1"),
-  direction = c("leq", "geq")
+  direction = c("leq", "geq"),
+  sup_threshold
 )
 }
 \arguments{
@@ -22,23 +22,23 @@ Must be named.}
 
 \item{all}{Vector of all elements.}
 
-\item{m}{Total number of element.}
-
-\item{sup_threshold}{Supplementary threshold to include. By default include
-one supplementary threshold on the left or right depend on \code{direction}.
-Set to \code{NULL} to do not add any supplementary threshold.}
+\item{m}{Total number of elements.}
 
 \item{measures}{Desired measures of performance.}
 
 \item{direction}{With \code{"leq"} (default), detected elements are on the
 left of the threshold. They are on the right with \code{"geq"}.}
+
+\item{sup_threshold}{Supplementary threshold to include. By default include
+one supplementary threshold on the left or right depend on \code{direction}.
+Set to \code{NULL} to do not add any supplementary threshold.}
 }
 \value{
 A dataframe with one column called threshold and other corresponding
-to specified measures.
+to those specified in \code{measures}.
 }
 \description{
-Computes measures by threshold
+Computes measures according to a moving threshold
 }
 \details{
 See \code{\link{ebc_allmeasures}} for the available measures and
