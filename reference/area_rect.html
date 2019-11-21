@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Confusion matrix — ebc_confusion • evabic</title>
+<title>Area Under the Curve — area_rect • evabic</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -42,8 +42,8 @@
 
 
 
-<meta property="og:title" content="Confusion matrix — ebc_confusion" />
-<meta property="og:description" content="Compute the the confusion matrix" />
+<meta property="og:title" content="Area Under the Curve — area_rect" />
+<meta property="og:description" content="Compute area under the curve by using the rectangle's method." />
 <meta property="og:image" content="https://abichat.github.io/evabic/logo.png" />
 <meta name="twitter:card" content="summary" />
 
@@ -126,60 +126,44 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Confusion matrix</h1>
-    <small class="dont-index">Source: <a href='https://github.com/abichat/evabic/blob/master/R/confusion_measures.R'><code>R/confusion_measures.R</code></a></small>
-    <div class="hidden name"><code>ebc_confusion.Rd</code></div>
+    <h1>Area Under the Curve</h1>
+    <small class="dont-index">Source: <a href='https://github.com/abichat/evabic/blob/master/R/area.R'><code>R/area.R</code></a></small>
+    <div class="hidden name"><code>area_rect.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Compute the the confusion matrix</p>
+    <p>Compute area under the curve by using the rectangle's method.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>ebc_confusion</span>(<span class='no'>detected</span>, <span class='no'>true</span>, <span class='no'>all</span>, <span class='kw'>m</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/length.html'>length</a></span>(<span class='no'>all</span>), <span class='kw'>prop</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</pre>
+    <pre class="usage"><span class='fu'>area_rect</span>(<span class='no'>x</span>, <span class='no'>y</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>detected</th>
-      <td><p>Vector of elements that are detected.</p></td>
+      <th>x</th>
+      <td><p>Numeric.</p></td>
     </tr>
     <tr>
-      <th>true</th>
-      <td><p>Vector of element that are supposed to be detected.</p></td>
-    </tr>
-    <tr>
-      <th>all</th>
-      <td><p>Vector of all elements.</p></td>
-    </tr>
-    <tr>
-      <th>m</th>
-      <td><p>Total number of elements.</p></td>
-    </tr>
-    <tr>
-      <th>prop</th>
-      <td><p>Logical, default to <code>FALSE</code>. Should the matrix sum to one?</p></td>
+      <th>y</th>
+      <td><p>Numeric.</p></td>
     </tr>
     </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>A 2*2 named matrix.</p>
-    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
-
-    <p>See <code><a href='ebc_allmeasures.html'>ebc_allmeasures</a></code> for the description of the measures.</p>
+    <p>A numeric.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>ebc_confusion</span>(<span class='kw'>detected</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"A"</span>, <span class='st'>"C"</span>, <span class='st'>"D"</span>), <span class='kw'>true</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"A"</span>, <span class='st'>"B"</span>, <span class='st'>"C"</span>), <span class='kw'>m</span> <span class='kw'>=</span> <span class='fl'>6</span>)</div><div class='output co'>#&gt;                   Condition positive Condition negative
-#&gt; Detected positive                  2                  1
-#&gt; Detected negative                  1                  2</div></pre>
+    <pre class="examples"><div class='input'><span class='no'>x</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>0</span>, <span class='fl'>0</span>, <span class='fl'>0.5</span>, <span class='fl'>1</span>)
+<span class='no'>y</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>0</span>, <span class='fl'>0.5</span>, <span class='fl'>0.5</span>, <span class='fl'>1</span>)
+<span class='fu'><a href='https://rdrr.io/r/graphics/plot.html'>plot</a></span>(<span class='no'>x</span>, <span class='no'>y</span>, <span class='kw'>type</span> <span class='kw'>=</span> <span class='st'>"b"</span>)</div><div class='img'><img src='area_rect-1.png' alt='' width='700' height='433' /></div><div class='input'><span class='kw pkg'>evabic</span><span class='kw ns'>:::</span><span class='fu'><a href='https://rdrr.io/pkg/evabic/man/area_rect.html'>area_rect</a></span>(<span class='no'>x</span>, <span class='no'>y</span>)</div><div class='output co'>#&gt; [1] 0.625</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
       <li><a href="#value">Value</a></li>
-      <li><a href="#details">Details</a></li>
       <li><a href="#examples">Examples</a></li>
     </ul>
 
