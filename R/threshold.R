@@ -1,6 +1,6 @@
 #' Measures by threshold
 #'
-#' Computes measures according to a moving threshold
+#' Computes measures according to a moving threshold.
 #'
 #' See \code{\link{ebc_allmeasures}} for the available measures and
 #' their descriptions.

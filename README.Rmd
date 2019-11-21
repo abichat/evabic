@@ -118,12 +118,12 @@ ebc_tidy(detected = pvalues < 0.05, true = predictors, m = 7,
          measures = c("TPR", "TNR", "FDR", "ACC", "BACC", "F1"))
 ```
 
-Finally, you can ask for the evolution of measures according to a moving threshold if you provide the vector of p-values (by default, detected elements are on the left of the threshold).
+Finally, with `ebc_tidy_by_threshold()`, you can ask for the evolution of measures according to a moving threshold if you provide the vector of p-values (or any score), and `ebc_AUC()` is a wrapper around it to compute the area under the ROC curve. 
 
 ```{r}
 ebc_tidy_by_threshold(detection_values = pvalues, true = predictors, m = 7, 
-                      measures = c("TPR", "TNR", "FDR", "ACC", "BACC", "F1"), 
-                      direction = "leq", sup_threshold = 0)
+                      measures = c("TPR", "FPR", "FDR", "ACC", "BACC", "F1"))
+ebc_AUC(detection_values = pvalues, true = predictors, m = 7)
 ```
 
 

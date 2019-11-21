@@ -38,7 +38,7 @@ A dataframe with one column called threshold and other corresponding
 to those specified in \code{measures}.
 }
 \description{
-Computes measures according to a moving threshold
+Computes measures according to a moving threshold.
 }
 \details{
 See \code{\link{ebc_allmeasures}} for the available measures and

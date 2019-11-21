@@ -22,6 +22,9 @@ library(testthat)
 # use_r("threshold")
 # use_test("threshold")
 
+# use_r("area")
+# use_test("area")
+
 #### Repeated ####
 
 load_all()
@@ -42,6 +45,7 @@ test()
 check()
 goodpractice::gp()
 
+
 #### Less often ####
 
 # pkgdown::template_reference()
@@ -51,7 +55,4 @@ rmarkdown::render("README.Rmd", output_format = "md_document")
 pkgdown::build_site()
 unlink(c("pkgdown/", "docs/"), recursive = TRUE)
 install(upgrade = "never")
-
-
-
 
