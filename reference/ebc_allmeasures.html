@@ -87,7 +87,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">evabic</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.0.9004</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.0.9005</span>
       </span>
     </div>
 
@@ -140,7 +140,7 @@
 
     <h2 class="hasAnchor" id="format"><a class="anchor" href="#format"></a>Format</h2>
 
-    <p>An object of class <code>character</code> of length 15.</p>
+    <p>An object of class <code>character</code> of length 18.</p>
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
     <p><img src='figures/confusionmatrix.png' width="50%" align="middle" /></p><dl class='dl-horizontal'>
@@ -148,7 +148,7 @@
 <dt>FP</dt><dd><p>False Positive</p></dd>
 <dt>FN</dt><dd><p>False Negative</p></dd>
 <dt>TN</dt><dd><p>True Negative</p></dd>
-<dt>TPR</dt><dd><p>True Positive Rate or Sensitivity or Recall
+<dt>TPR</dt><dd><p>True Positive Rate or Sensitivity or Recall or Power
 $$TPR = \frac{TP}{TP + FN} = 1 - FNR$$</p></dd>
 <dt>TNR</dt><dd><p>True Negative Rate or Specificity
 $$TNR = \frac{TN}{FP + TN} =  1 - FPR$$</p></dd>
@@ -156,9 +156,9 @@ $$TNR = \frac{TN}{FP + TN} =  1 - FPR$$</p></dd>
 $$PPV = \frac{TP}{TP + FP} = 1 - FDR$$</p></dd>
 <dt>NPV</dt><dd><p>Negative Predictive Value
 $$NPV = \frac{TN}{TN + FN} = 1 - FOR$$</p></dd>
-<dt>FNR</dt><dd><p>False Negative Rate or Miss Rate
-$$FNR = \frac{FN}{FN + TP} = 1 - TPR$$</p></dd>
-<dt>FPR</dt><dd><p>False Positive Rate or Fall-out
+<dt>FNR</dt><dd><p>False Negative Rate or Type II Error Rate or Miss Rate
+$$FNR = \frac{FN}{TP + FN} = 1 - TPR$$</p></dd>
+<dt>FPR</dt><dd><p>False Positive Rate or Type I Errors Rate or Fall-out
 $$FPR = \frac{FP}{FP + TN} = 1 - TNR$$</p></dd>
 <dt>FDR</dt><dd><p>False Discovery Rate
 $$FDR = \frac{FP}{FP + TP} = 1 - PPV$$</p></dd>
@@ -171,6 +171,15 @@ $$BACC = \frac{\frac{TP}{TP + FN} + \frac{TN}{FP + TN}}{2}$$</p></dd>
 <dt>F1</dt><dd><p>F1 Score
 $$F1 = \frac{2 TP}{2TP + FP + FN}
                       = \frac{2}{\frac{1}{TPR} + \frac{1}{PPV}}$$</p></dd>
+<dt>PLR</dt><dd><p>Positive Likelihood Ratio or LR+ or Likelihood Ratio for
+Positive Results
+$$PLR = \frac{TPR}{1 - TNR}$$</p></dd>
+<dt>NLR</dt><dd><p>Negative Likelihood Ratio or LR- or Likelihood Ratio for
+Negative Results
+$$NLR = \frac{1 - TPR}{TNR}$$</p></dd>
+<dt>DOR</dt><dd><p>Diagnostic Odds Ratio
+$$DOR = \frac{\frac{TP}{FP}}{\frac{FN}{TN}}
+                       = \frac{PLR}{NLR}$$</p></dd>
 
 </dl>
 
@@ -180,7 +189,7 @@ $$F1 = \frac{2 TP}{2TP + FP + FN}
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='no'>ebc_allmeasures</span></div><div class='output co'>#&gt;  [1] "TP"   "FP"   "FN"   "TN"   "TPR"  "TNR"  "PPV"  "NPV"  "FNR"  "FPR" 
-#&gt; [11] "FDR"  "FOR"  "ACC"  "BACC" "F1"  </div><div class='input'>
+#&gt; [11] "FDR"  "FOR"  "ACC"  "BACC" "F1"   "PLR"  "NLR"  "DOR" </div><div class='input'>
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">

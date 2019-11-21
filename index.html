@@ -45,7 +45,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">evabic</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.0.9004</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.0.9005</span>
       </span>
     </div>
 
@@ -100,10 +100,11 @@
 <div id="measures" class="section level2">
 <h2 class="hasAnchor">
 <a href="#measures" class="anchor"></a>Measures</h2>
-<p><strong>evabic</strong> provides handy functions to computes 15 different measures. Each function begins with <code>ebc_*</code>.</p>
+<p><strong>evabic</strong> provides handy functions to computes 18 different measures. Each function begins with <code>ebc_*</code>.</p>
 <p>Available measures includes True Positive Rate (Sensitivity or Recall), True Negative Rate (Specificity), Positive Predictive Value (Precision), False Discovery Rate, Accuracy, F1…</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode R"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1">evabic<span class="op">::</span>ebc_allmeasures</a>
-<a class="sourceLine" id="cb2-2" data-line-number="2"><span class="co">#&gt;  [1] "TP"   "FP"   "FN"   "TN"   "TPR"  "TNR"  "PPV"  "NPV"  "FNR"  "FPR"  "FDR"  "FOR"  "ACC"  "BACC" "F1"</span></a></code></pre></div>
+<a class="sourceLine" id="cb2-2" data-line-number="2"><span class="co">#&gt;  [1] "TP"   "FP"   "FN"   "TN"   "TPR"  "TNR"  "PPV"  "NPV"  "FNR"  "FPR"  "FDR"  "FOR"  "ACC"  "BACC" "F1"   "PLR"  "NLR" </span></a>
+<a class="sourceLine" id="cb2-3" data-line-number="3"><span class="co">#&gt; [18] "DOR"</span></a></code></pre></div>
 <p>All measures are computed from confusion matrix:</p>
 <center>
 <img src="reference/figures/confusionmatrix.png" width="50%">
@@ -179,7 +180,7 @@
 <a class="sourceLine" id="cb8-5" data-line-number="5">         <span class="dt">measures =</span> <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"TPR"</span>, <span class="st">"TNR"</span>, <span class="st">"FDR"</span>, <span class="st">"ACC"</span>, <span class="st">"BACC"</span>, <span class="st">"F1"</span>))</a>
 <a class="sourceLine" id="cb8-6" data-line-number="6"><span class="co">#&gt;         TPR TNR FDR       ACC      BACC  F1</span></a>
 <a class="sourceLine" id="cb8-7" data-line-number="7"><span class="co">#&gt; 1 0.6666667   1   0 0.8571429 0.8333333 0.8</span></a></code></pre></div>
-<p>Finally, you can ask one row of measures per threshold if you provide the vector of p-values (by default, detected elements are on the left of the threshold).</p>
+<p>Finally, you can ask for the evolution of measures according to a moving threshold if you provide the vector of p-values (by default, detected elements are on the left of the threshold).</p>
 <div class="sourceCode" id="cb9"><pre class="sourceCode R"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" data-line-number="1"><span class="kw"><a href="reference/ebc_tidy_by_threshold.html">ebc_tidy_by_threshold</a></span>(<span class="dt">detection_values =</span> pvalues, <span class="dt">true =</span> predictors, <span class="dt">m =</span> <span class="dv">7</span>, </a>
 <a class="sourceLine" id="cb9-2" data-line-number="2">                      <span class="dt">measures =</span> <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"TPR"</span>, <span class="st">"TNR"</span>, <span class="st">"FDR"</span>, <span class="st">"ACC"</span>, <span class="st">"BACC"</span>, <span class="st">"F1"</span>), </a>
 <a class="sourceLine" id="cb9-3" data-line-number="3">                      <span class="dt">direction =</span> <span class="st">"leq"</span>, <span class="dt">sup_threshold =</span> <span class="dv">0</span>)</a>
@@ -226,12 +227,12 @@
 <ul class="list-unstyled">
 <li><a href="https://www.gnu.org/licenses/gpl-3.0.en.html"><img src="https://img.shields.io/badge/license-GPL--3-blue.svg" alt="license"></a></li>
 <li><a href="https://www.tidyverse.org/lifecycle/#experimental"><img src="https://img.shields.io/badge/lifecycle-experimental-orange.svg" alt="lifecycle"></a></li>
-<li><a href="commits/master"><img src="https://img.shields.io/badge/package%20version-0.0.0.9004-orange.svg" alt="packageversion"></a></li>
+<li><a href="commits/master"><img src="https://img.shields.io/badge/package%20version-0.0.0.9005-orange.svg" alt="packageversion"></a></li>
 <li><a href="https://travis-ci.org/abichat/evabic"><img src="https://travis-ci.org/abichat/evabic.svg?branch=master" alt="Travis build status"></a></li>
 <li><a href="https://ci.appveyor.com/project/abichat/evabic"><img src="https://ci.appveyor.com/api/projects/status/github/abichat/evabic?branch=master&amp;svg=true" alt="AppVeyor build status"></a></li>
 <li><a href="https://codecov.io/gh/abichat/evabic?branch=master"><img src="https://codecov.io/gh/abichat/evabic/branch/master/graph/badge.svg" alt="Codecov test coverage"></a></li>
 <li><a href="https://www.codacy.com/app/abichat/evabic?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=abichat/evabic&amp;utm_campaign=Badge_Grade"><img src="https://api.codacy.com/project/badge/Grade/c32dcc4c1c3f40a5950e1c10ea6dfb18" alt="Codacy Badge"></a></li>
-<li><a href="/commits/master"><img src="https://img.shields.io/badge/last%20change-2019--11--20-yellowgreen.svg" alt="Last-changedate"></a></li>
+<li><a href="/commits/master"><img src="https://img.shields.io/badge/last%20change-2019--11--21-yellowgreen.svg" alt="Last-changedate"></a></li>
 <li><a href="https://abichat.github.io/evabic/"><img src="https://img.shields.io/badge/documentation-pkgdown-E91E63.svg" alt="Documentation"></a></li>
 </ul>
 </div>
