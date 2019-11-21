@@ -87,7 +87,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">evabic</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.0.9006</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.0.9007</span>
       </span>
     </div>
 
@@ -141,8 +141,7 @@
   <span class='no'>all</span>,
   <span class='kw'>m</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/length.html'>length</a></span>(<span class='no'>all</span>),
   <span class='kw'>measures</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"TPR"</span>, <span class='st'>"FPR"</span>, <span class='st'>"FDR"</span>, <span class='st'>"ACC"</span>, <span class='st'>"F1"</span>),
-  <span class='kw'>direction</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"leq"</span>, <span class='st'>"geq"</span>),
-  <span class='no'>sup_threshold</span>
+  <span class='kw'>direction</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"&lt;"</span>, <span class='st'>"&gt;"</span>, <span class='st'>"&lt;="</span>, <span class='st'>"&gt;="</span>)
 )</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
@@ -171,14 +170,9 @@ Must be named.</p></td>
     </tr>
     <tr>
       <th>direction</th>
-      <td><p>With <code>"leq"</code> (default), detected elements are on the
-left of the threshold. They are on the right with <code>"geq"</code>.</p></td>
-    </tr>
-    <tr>
-      <th>sup_threshold</th>
-      <td><p>Supplementary threshold to include. By default include
-one supplementary threshold on the left or right depend on <code>direction</code>.
-Set to <code>NULL</code> to do not add any supplementary threshold.</p></td>
+      <td><p>With <code>&lt;</code> (default), detected elements are those
+which are strictly less than the threshold. Could be change to <code>"&gt;"</code>,
+<code>&lt;=</code> or <code>&gt;=</code>.</p></td>
     </tr>
     </table>
 
@@ -205,15 +199,15 @@ their descriptions.</p>
                     <span class='kw'>Y</span>  <span class='kw'>=</span> <span class='no'>X1</span> - <span class='no'>X2</span> + <span class='fl'>3</span> * <span class='no'>X3</span> + <span class='fu'><a href='https://rdrr.io/r/stats/Normal.html'>rnorm</a></span>(<span class='fl'>50</span>))
 <span class='no'>model</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/lm.html'>lm</a></span>(<span class='no'>Y</span> ~ <span class='no'>.</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>df_lm</span>)
 <span class='no'>pvalues</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span>(<span class='no'>model</span>)$<span class='no'>coefficients</span>[-<span class='fl'>1</span>, <span class='fl'>4</span>]
-<span class='fu'>ebc_tidy_by_threshold</span>(<span class='no'>pvalues</span>, <span class='no'>predictors</span>, <span class='kw'>m</span> <span class='kw'>=</span> <span class='fl'>7</span>, <span class='kw'>sup_threshold</span> <span class='kw'>=</span> <span class='fl'>0</span>)</div><div class='output co'>#&gt;     threshold       TPR  FPR       FDR       ACC        F1
-#&gt; 1 0.000000000 0.0000000 0.00       NaN 0.5714286 0.0000000
-#&gt; 2 0.003469737 0.3333333 0.00 0.0000000 0.7142857 0.5000000
-#&gt; 3 0.004366456 0.6666667 0.00 0.0000000 0.8571429 0.8000000
-#&gt; 4 0.173677616 1.0000000 0.00 0.0000000 1.0000000 1.0000000
-#&gt; 5 0.449664443 1.0000000 0.25 0.2500000 0.8571429 0.8571429
-#&gt; 6 0.491828466 1.0000000 0.50 0.4000000 0.7142857 0.7500000
-#&gt; 7 0.581608670 1.0000000 0.75 0.5000000 0.5714286 0.6666667
-#&gt; 8 0.887948400 1.0000000 1.00 0.5714286 0.4285714 0.6000000</div></pre>
+<span class='fu'>ebc_tidy_by_threshold</span>(<span class='no'>pvalues</span>, <span class='no'>predictors</span>, <span class='kw'>m</span> <span class='kw'>=</span> <span class='fl'>7</span>)</div><div class='output co'>#&gt;     threshold       TPR  FPR       FDR       ACC        F1
+#&gt; 1 0.003469737 0.0000000 0.00       NaN 0.5714286 0.0000000
+#&gt; 2 0.004366456 0.3333333 0.00 0.0000000 0.7142857 0.5000000
+#&gt; 3 0.173677616 0.6666667 0.00 0.0000000 0.8571429 0.8000000
+#&gt; 4 0.449664443 1.0000000 0.00 0.0000000 1.0000000 1.0000000
+#&gt; 5 0.491828466 1.0000000 0.25 0.2500000 0.8571429 0.8571429
+#&gt; 6 0.581608670 1.0000000 0.50 0.4000000 0.7142857 0.7500000
+#&gt; 7 0.887948400 1.0000000 0.75 0.5000000 0.5714286 0.6666667
+#&gt; 8         Inf 1.0000000 1.00 0.5714286 0.4285714 0.6000000</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
