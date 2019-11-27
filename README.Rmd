@@ -32,7 +32,7 @@ version <- gsub('-', '.', version)
 [![Documentation](https://img.shields.io/badge/documentation-pkgdown-E91E63.svg)](https://abichat.github.io/evabic/)
 <!-- badges: end -->
 
-**evabic** aims to **eva**luate **bi**nary **c**lassifiers by specifying what is detected as true and what is actually true. It has no dependancies.
+**evabic** aims to **eva**luate **bi**nary **c**lassifiers by specifying what is detected as true and what is actually true. It has no dependencies.
 
 ## Installation
 
@@ -45,15 +45,15 @@ remotes::install_github("abichat/evabic")
 
 ## Measures
 
-__evabic__ provides handy functions to computes `r length(evabic::ebc_allmeasures)` different measures. Each function begins with `ebc_*`.
+__evabic__ provides handy functions to compute `r length(evabic::ebc_allmeasures)` different measures. Each function begins with `ebc_*`.
 
-Available measures includes True Positive Rate (Sensitivity or Recall), True Negative Rate (Specificity), Positive Predictive Value (Precision), False Discovery Rate, Accuracy, F1... 
+Available measures include True Positive Rate (Sensitivity or Recall), True Negative Rate (Specificity), Positive Predictive Value (Precision), False Discovery Rate, Accuracy, F1... 
 
 ```{r allmeasures}
 evabic::ebc_allmeasures
 ```
 
-All measures are computed from confusion matrix:
+All measures are computed from the confusion matrix:
 
 <center>
   <img src="man/figures/confusionmatrix.png" width="50%"/>
@@ -98,14 +98,14 @@ detected_var
 
 Here, we selected two predictors among the three true predictors.
 
-Singles measures are available with `ebc_*()` functions. 
+Single measures are available with `ebc_*()` functions. 
 
 ```{r measures}
 ebc_TPR(detected = detected_var, true = predictors)
 ebc_ACC(detected = detected_var, true = predictors, m = 7) # the total size of the set is 7
 ```
 
-You can also asks for several measures in a single row summary format with `ebc_tidy()`.
+You can also ask for several measures in a single row summary format with `ebc_tidy()`.
 
 ```{r tidy}
 ebc_tidy(detected = detected_var, true = predictors, m = 7, 
