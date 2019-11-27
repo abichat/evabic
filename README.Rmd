@@ -81,8 +81,8 @@ df_lm <- data.frame(X1 = X1, X2 = X2, X3 = X3,
                     X4 = X1 + X2 + X3 + rnorm(50, sd = 0.5),
                     X5 = X1 + 3 * X3 + rnorm(50, sd = 0.5),
                     X6 = X2 - 2 * X3 + rnorm(50, sd = 0.5),
-                    X7 = X1 - X2 + rnorm(50, sd = 2),
-                    Y  = X1 - X2 + 3 * X3 + rnorm(50))
+                    X7 = X1 - 0.2 * X2 + rnorm(50, sd = 2),
+                    Y  = X1 - 0.2 * X2 + 3 * X3 + rnorm(50))
 ```
 
 We use a linear regression to detect the actual predictors (do not select significant variables like this at home, it's a bad way to do so).
@@ -96,6 +96,8 @@ detected_var <- names(pvalues[pvalues < 0.05])
 detected_var
 ```
 
+Here, we selected two predictors among the three true predictors.
+
 Singles measures are available with `ebc_*()` functions. 
 
 ```{r measures}
@@ -107,25 +109,37 @@ You can also asks for several measures in a single row summary format with `ebc_
 
 ```{r tidy}
 ebc_tidy(detected = detected_var, true = predictors, m = 7, 
-         measures = c("TPR", "TNR", "FDR", "ACC", "BACC", "F1"))
+         # you can use `measures = ebc_allmeasures` to compute all measures
+         measures = c("TPR", "TNR", "FDR", "ACC", "BACC", "F1")) 
 ```
 
 Note that **evabic** also supports named logicals for `detected` and `true` arguments.
 
-```{r}
+```{r logical}
 pvalues < 0.05
 ebc_tidy(detected = pvalues < 0.05, true = predictors, m = 7, 
          measures = c("TPR", "TNR", "FDR", "ACC", "BACC", "F1"))
 ```
 
-Finally, with `ebc_tidy_by_threshold()`, you can ask for the evolution of measures according to a moving threshold if you provide the vector of p-values (or any score), and `ebc_AUC()` is a wrapper around it to compute the area under the ROC curve. 
+With `ebc_tidy_by_threshold()`, you can ask for the evolution of measures according to a moving threshold if you provide the vector of p-values (or any score).
 
-```{r}
-ebc_tidy_by_threshold(detection_values = pvalues, true = predictors, m = 7, 
-                      measures = c("TPR", "FPR", "FDR", "ACC", "BACC", "F1"))
-ebc_AUC(detection_values = pvalues, true = predictors, m = 7)
+```{r tidy-by-threshold}
+df_measures <- ebc_tidy_by_threshold(detection_values = pvalues, true = predictors, m = 7, 
+                                     measures = c("TPR", "FPR", "FDR", "ACC", "BACC", "F1"))
+df_measures
 ```
 
+This makes it easy to plot various-threshold curves like ROC curve.
+
+```{r roc}
+plot(df_measures$FPR, df_measures$TPR, type = "b", xlab = "FPR", ylab = "TPR")
+```
+
+And finally, you can ask for the AUC, the area under the ROC curve.
+
+```{r auc}
+ebc_AUC(detection_values = pvalues, true = predictors, m = 7)
+```
 
 
 
