@@ -8,7 +8,7 @@ Authors@R:
            email = "a.bichat@yahoo.fr",
            comment = c(ORCID = "0000-0001-6599-7081"))
 Description: Provides functions to measure the performance of a
-    classifier or predictor.
+    binary classifier.
 License: GPL-3
 URL: https://abichat.github.io/evabix,
     https://github.com/abichat/evabic

@@ -21,3 +21,13 @@ test_that("ebc_AUC() has the right behavior", {
   expect_error(ebc_AUC(detection_values = values_letters, true = true,
                        m = 26, measures = c("FDR", "TPR")))
 })
+
+
+test_that("AUC is the same with different directions", {
+  expect_equal(ebc_AUC(detection_values = values_letters, true = true,
+                       m = 26, direction = "<="), auc)
+  expect_equal(ebc_AUC(detection_values = 1 - values_letters, true = true,
+                       m = 26, direction = ">"), auc)
+  expect_equal(ebc_AUC(detection_values = 1 - values_letters, true = true,
+                       m = 26, direction = ">="), auc)
+})

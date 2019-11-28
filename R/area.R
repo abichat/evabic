@@ -49,6 +49,8 @@ ebc_AUC <- function(detection_values, true, all, m = length(all),
   df_roc <- ebc_tidy_by_threshold(detection_values, true, m = m,
                                   measures = c("TPR", "FPR"),
                                   direction = direction)
+  df_roc <- df_roc[order(df_roc$TPR), ]
+  df_roc <- df_roc[order(df_roc$FPR), ]
   area_rect(df_roc$FPR, df_roc$TPR)
 }
 

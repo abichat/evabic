@@ -16,7 +16,7 @@ status](https://ci.appveyor.com/api/projects/status/github/abichat/evabic?branch
 coverage](https://codecov.io/gh/abichat/evabic/branch/master/graph/badge.svg)](https://codecov.io/gh/abichat/evabic?branch=master)
 [![Codacy
 Badge](https://api.codacy.com/project/badge/Grade/c32dcc4c1c3f40a5950e1c10ea6dfb18)](https://www.codacy.com/app/abichat/evabic?utm_source=github.com&utm_medium=referral&utm_content=abichat/evabic&utm_campaign=Badge_Grade)
-[![Last-changedate](https://img.shields.io/badge/last%20change-2019--11--27-yellowgreen.svg)](/commits/master)
+[![Last-changedate](https://img.shields.io/badge/last%20change-2019--11--28-yellowgreen.svg)](/commits/master)
 [![Documentation](https://img.shields.io/badge/documentation-pkgdown-E91E63.svg)](https://abichat.github.io/evabic/)
 <!-- badges: end -->
 
@@ -45,8 +45,8 @@ False Discovery Rate, Accuracy, F1…
 
 ``` r
 evabic::ebc_allmeasures
-#>  [1] "TP"   "FP"   "FN"   "TN"   "TPR"  "TNR"  "PPV"  "NPV"  "FNR"  "FPR" 
-#> [11] "FDR"  "FOR"  "ACC"  "BACC" "F1"   "PLR"  "NLR"  "DOR"
+#>  [1] "TP"   "FP"   "FN"   "TN"   "TPR"  "TNR"  "PPV"  "NPV"  "FNR"  "FPR"  "FDR"  "FOR"  "ACC"  "BACC" "F1"   "PLR"  "NLR" 
+#> [18] "DOR"
 ```
 
 All measures are computed from the confusion matrix:
@@ -117,10 +117,8 @@ summary(model)
 #> F-statistic: 69.99 on 7 and 42 DF,  p-value: < 2.2e-16
 pvalues <- summary(model)$coefficients[-1, 4]
 pvalues
-#>          X1          X2          X3          X4          X5          X6 
-#> 0.004366456 0.829771754 0.003469737 0.491828466 0.581608670 0.887948400 
-#>          X7 
-#> 0.449664443
+#>          X1          X2          X3          X4          X5          X6          X7 
+#> 0.004366456 0.829771754 0.003469737 0.491828466 0.581608670 0.887948400 0.449664443
 detected_var <- names(pvalues[pvalues < 0.05])
 detected_var
 #> [1] "X1" "X3"
