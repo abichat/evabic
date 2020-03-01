@@ -7,10 +7,12 @@ Authors@R:
            role = c("aut", "cre"),
            email = "a.bichat@yahoo.fr",
            comment = c(ORCID = "0000-0001-6599-7081"))
-Description: Provides functions to measure the performance of a
-    binary classifier.
+Description: Evaluates the performance of binary classifiers.
+    Computes confusion measures (TP, TN, FP, FN), derived measures (TPR,
+    FDR, accuracy, F1, DOR, ..), and area under the curve.  Outputs are
+    well suited for nested dataframes.
 License: GPL-3
-URL: https://abichat.github.io/evabix,
+URL: https://abichat.github.io/evabic,
     https://github.com/abichat/evabic
 BugReports: https://github.com/abichat/evabic/issues
 Suggests: 

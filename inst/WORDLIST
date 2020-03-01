@@ -1,11 +1,12 @@
-ACC
 AppVeyor
-BACC
 changedate
 Codacy
 Codecov
-dependancies
+DOR
 eva
+FN
+FP
+gsub
 https
 img
 io
@@ -13,8 +14,8 @@ lassifiers
 lifecycle
 luate
 packageversion
-PPV
 svg
-TNR
+Sys
+TP
 TPR
 yellowgreen
