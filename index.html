@@ -17,8 +17,10 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/v4-shims.min.css" integrity="sha256-6qHlizsOWFskGlwVOKuns+D1nB6ssZrHQrNj1wGplHc=" crossorigin="anonymous">
 <!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/headroom.min.js" integrity="sha256-DJFC1kqIhelURkuza0AvYal5RxMtpzLjFhsnVIeuk+U=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- pkgdown --><link href="pkgdown.css" rel="stylesheet">
 <script src="pkgdown.js"></script><meta property="og:title" content="Evaluation of Binary Classifiers">
-<meta property="og:description" content="Provides functions to measure the performance of a
-    binary classifier.">
+<meta property="og:description" content="Evaluates the performance of binary classifiers.
+    Computes confusion measures (TP, TN, FP, FN), derived measures (TPR,
+    FDR, accuracy, F1, DOR, ..), and area under the curve.  Outputs are
+    well suited for nested dataframes.">
 <meta property="og:image" content="https://abichat.github.io/evabic/logo.png">
 <meta name="twitter:card" content="summary">
 <!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
@@ -88,7 +90,7 @@
 <a href="#evabic" class="anchor"></a>evabic <a href="https://abichat.github.io/evabic"><img src="reference/figures/logo.png" align="right" height="139"></a>
 </h1></div>
 <!-- badges: start -->
-
+<p><a href="https://www.gnu.org/licenses/gpl-3.0.en.html"><img src="https://img.shields.io/badge/license-GPL--3-blue.svg" alt="license"></a> <a href="https://www.tidyverse.org/lifecycle/#experimental"><img src="https://img.shields.io/badge/lifecycle-experimental-orange.svg" alt="lifecycle"></a> <img src="https://img.shields.io/badge/package%20version-0.0.1-orange.svg" alt="packageversion"><a href="https://travis-ci.org/abichat/evabic"><img src="https://travis-ci.org/abichat/evabic.svg?branch=master" alt="Travis build status"></a> <a href="https://ci.appveyor.com/project/abichat/evabic"><img src="https://ci.appveyor.com/api/projects/status/github/abichat/evabic?branch=master&amp;svg=true" alt="AppVeyor build status"></a> <a href="https://codecov.io/gh/abichat/evabic?branch=master"><img src="https://codecov.io/gh/abichat/evabic/branch/master/graph/badge.svg" alt="Codecov test coverage"></a> <a href="https://www.codacy.com/app/abichat/evabic?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=abichat/evabic&amp;utm_campaign=Badge_Grade"><img src="https://api.codacy.com/project/badge/Grade/c32dcc4c1c3f40a5950e1c10ea6dfb18" alt="Codacy Badge"></a> <img src="https://img.shields.io/badge/last%20change-2020--03--01-yellowgreen.svg" alt="Last-changedate"><a href="https://abichat.github.io/evabic/"><img src="https://img.shields.io/badge/documentation-pkgdown-E91E63.svg" alt="Documentation"></a> <!-- badges: end --></p>
 <p><strong>evabic</strong> aims to <strong>eva</strong>luate <strong>bi</strong>nary <strong>c</strong>lassifiers by specifying what is detected as true and what is actually true. It has no dependencies.</p>
 <div id="installation" class="section level2">
 <h2 class="hasAnchor">
@@ -231,21 +233,7 @@
 </ul>
 </div>
 
-  <div class="dev-status">
-<h2>Dev status</h2>
-<ul class="list-unstyled">
-<li><a href="https://www.gnu.org/licenses/gpl-3.0.en.html"><img src="https://img.shields.io/badge/license-GPL--3-blue.svg" alt="license"></a></li>
-<li><a href="https://www.tidyverse.org/lifecycle/#experimental"><img src="https://img.shields.io/badge/lifecycle-experimental-orange.svg" alt="lifecycle"></a></li>
-<li><a href="commits/master"><img src="https://img.shields.io/badge/package%20version-0.0.1-orange.svg" alt="packageversion"></a></li>
-<li><a href="https://travis-ci.org/abichat/evabic"><img src="https://travis-ci.org/abichat/evabic.svg?branch=master" alt="Travis build status"></a></li>
-<li><a href="https://ci.appveyor.com/project/abichat/evabic"><img src="https://ci.appveyor.com/api/projects/status/github/abichat/evabic?branch=master&amp;svg=true" alt="AppVeyor build status"></a></li>
-<li><a href="https://codecov.io/gh/abichat/evabic?branch=master"><img src="https://codecov.io/gh/abichat/evabic/branch/master/graph/badge.svg" alt="Codecov test coverage"></a></li>
-<li><a href="https://www.codacy.com/app/abichat/evabic?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=abichat/evabic&amp;utm_campaign=Badge_Grade"><img src="https://api.codacy.com/project/badge/Grade/c32dcc4c1c3f40a5950e1c10ea6dfb18" alt="Codacy Badge"></a></li>
-<li><a href="/commits/master"><img src="https://img.shields.io/badge/last%20change-2020--03--01-yellowgreen.svg" alt="Last-changedate"></a></li>
-<li><a href="https://abichat.github.io/evabic/"><img src="https://img.shields.io/badge/documentation-pkgdown-E91E63.svg" alt="Documentation"></a></li>
-</ul>
-</div>
-</div>
+  </div>
 </div>
 
 
