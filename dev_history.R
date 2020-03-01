@@ -25,6 +25,8 @@ library(testthat)
 # use_r("area")
 # use_test("area")
 
+# use_test("previous_outputs")
+
 #### Repeated ####
 
 load_all()
