@@ -27,6 +27,8 @@ library(testthat)
 
 # use_test("previous_outputs")
 
+# use_news_md()
+
 #### Repeated ####
 
 load_all()

@@ -1,6 +1,6 @@
 Package: evabic
 Title: Evaluation of Binary Classifiers
-Version: 0.0.0.9007
+Version: 0.0.1
 Authors@R: 
     person(given = "Antoine",
            family = "Bichat",
