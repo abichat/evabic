@@ -29,6 +29,10 @@ library(testthat)
 
 # use_news_md()
 
+# badgecreatr::badge_lifecycle("maturing")
+# badgecreatr::badge_cran("evabic")
+
+
 #### Repeated ####
 
 load_all()
