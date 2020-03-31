@@ -7,7 +7,7 @@
 
 [![license](https://img.shields.io/badge/license-GPL--3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0.en.html)
 [![lifecycle](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www.tidyverse.org/lifecycle/#maturing)
-[![packageversion](https://img.shields.io/badge/package%20version-0.0.1-orange.svg)](https://github.com/abichat/evabic/blob/master/DESCRIPTION)
+[![packageversion](https://img.shields.io/badge/package%20version-0.0.2-orange.svg)](https://github.com/abichat/evabic/blob/master/DESCRIPTION)
 [![CRAN\_Status\_Badge](https://www.r-pkg.org/badges/version/evabic)](https://cran.r-project.org/package=evabic)
 [![Travis build
 status](https://travis-ci.org/abichat/evabic.svg?branch=master)](https://travis-ci.org/abichat/evabic)
