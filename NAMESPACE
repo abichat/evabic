@@ -2,6 +2,7 @@
 
 export(ebc_ACC)
 export(ebc_AUC)
+export(ebc_AUC_from_measures)
 export(ebc_BACC)
 export(ebc_DOR)
 export(ebc_F1)

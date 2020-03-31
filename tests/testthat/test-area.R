@@ -22,7 +22,6 @@ test_that("ebc_AUC() has the right behavior", {
                        m = 26, measures = c("FDR", "TPR")))
 })
 
-
 test_that("AUC is the same with different directions", {
   expect_equal(ebc_AUC(detection_values = values_letters, true = true,
                        m = 26, direction = "<="), auc)
@@ -30,4 +29,13 @@ test_that("AUC is the same with different directions", {
                        m = 26, direction = ">"), auc)
   expect_equal(ebc_AUC(detection_values = 1 - values_letters, true = true,
                        m = 26, direction = ">="), auc)
+})
+
+test_that("ebc_AUC_from_measures is correct", {
+  df_measures <- ebc_tidy_by_threshold(values_letters, true, m = 26)
+  expect_equal(ebc_AUC_from_measures(df_measures), auc)
+  df_measures$FPR <- NULL
+  expect_error(ebc_AUC_from_measures(df_measures))
+  df_measures$TPR <- NULL
+  expect_error(ebc_AUC_from_measures(df_measures))
 })

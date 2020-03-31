@@ -43,6 +43,9 @@ area_rect <- function(x, y) {
 #' model <- lm(Y ~ ., data = df_lm)
 #' pvalues <- summary(model)$coefficients[-1, 4]
 #' ebc_AUC(pvalues, predictors, m = 7)
+#'
+#' df_measures <- ebc_tidy_by_threshold(pvalues, predictors, m = 7)
+#' ebc_AUC_from_measures(df_measures)
 ebc_AUC <- function(detection_values, true, all, m = length(all),
                     direction = c("<", ">", "<=", ">=")) {
   direction <- match.arg(direction)
@@ -54,3 +57,22 @@ ebc_AUC <- function(detection_values, true, all, m = length(all),
   area_rect(df_roc$FPR, df_roc$TPR)
 }
 
+#' @rdname ebc_AUC
+#'
+#' @param df_measures A dataframe with \code{TPR} and \code{FRP} columns. E.g.
+#' the output of \code{\link{ebc_tidy_by_threshold}}.
+#'
+#' @export
+ebc_AUC_from_measures <- function(df_measures){
+  coln <- colnames(df_measures)
+  if (!"TPR" %in% coln) {
+    stop("df_measures must have a 'TPR' column.")
+  }
+  if (!"FPR" %in% coln) {
+    stop("df_measures must have a 'FPR' column.")
+  }
+  df_measures <- df_measures[c("TPR", "FPR")]
+  df_measures <- df_measures[order(df_measures$TPR), ]
+  df_measures <- df_measures[order(df_measures$FPR), ]
+  area_rect(df_measures$FPR, df_measures$TPR)
+}

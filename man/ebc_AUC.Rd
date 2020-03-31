@@ -2,6 +2,7 @@
 % Please edit documentation in R/area.R
 \name{ebc_AUC}
 \alias{ebc_AUC}
+\alias{ebc_AUC_from_measures}
 \title{Area under the curve}
 \usage{
 ebc_AUC(
@@ -11,6 +12,8 @@ ebc_AUC(
   m = length(all),
   direction = c("<", ">", "<=", ">=")
 )
+
+ebc_AUC_from_measures(df_measures)
 }
 \arguments{
 \item{detection_values}{Values corresponding to elements that are detected.
@@ -25,6 +28,9 @@ Must be named.}
 \item{direction}{With \code{<} (default), detected elements are those
 which are strictly less than the threshold. Could be change to \code{">"},
 \code{<=} or \code{>=}.}
+
+\item{df_measures}{A dataframe with \code{TPR} and \code{FRP} columns. E.g.
+the output of \code{\link{ebc_tidy_by_threshold}}.}
 }
 \value{
 A numeric.
@@ -47,4 +53,7 @@ df_lm <- data.frame(X1 = X1, X2 = X2, X3 = X3,
 model <- lm(Y ~ ., data = df_lm)
 pvalues <- summary(model)$coefficients[-1, 4]
 ebc_AUC(pvalues, predictors, m = 7)
+
+df_measures <- ebc_tidy_by_threshold(pvalues, predictors, m = 7)
+ebc_AUC_from_measures(df_measures)
 }

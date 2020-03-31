@@ -140,6 +140,7 @@ And finally, you can ask for the AUC, the area under the ROC curve.
 
 ```{r auc}
 ebc_AUC(detection_values = pvalues, true = predictors, m = 7)
+ebc_AUC_from_measures(df_measures)
 ```
 
 
