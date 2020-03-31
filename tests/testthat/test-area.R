@@ -35,7 +35,9 @@ test_that("ebc_AUC_from_measures is correct", {
   df_measures <- ebc_tidy_by_threshold(values_letters, true, m = 26)
   expect_equal(ebc_AUC_from_measures(df_measures), auc)
   df_measures$FPR <- NULL
-  expect_error(ebc_AUC_from_measures(df_measures))
+  expect_error(ebc_AUC_from_measures(df_measures),
+               "df_measures must have a 'FPR' column.")
   df_measures$TPR <- NULL
-  expect_error(ebc_AUC_from_measures(df_measures))
+  expect_error(ebc_AUC_from_measures(df_measures),
+               "df_measures must have a 'TPR' column.")
 })
