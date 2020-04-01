@@ -1,16 +1,20 @@
 # R for travis: see documentation at https://docs.travis-ci.com/user/languages/r
 
-language: R
+os: linux
+language: r
 
 cache: packages
 
-matrix:
+jobs:
   include:
+    - os: linux
+      r: release
+    - os: linux
+      r: devel
     - os: osx
       r: release
     - os: osx
+      r: release
       disable_homebrew: true
-    - os: linux
-      r: devel
-    - os: linux
+    - os: windows
       r: release
