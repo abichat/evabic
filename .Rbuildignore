@@ -7,3 +7,4 @@
 ^codecov\.yml$
 ^dev_history\.R$
 ^_pkgdown\.yml$
+^\.github$
