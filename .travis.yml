@@ -16,5 +16,3 @@ jobs:
     - os: osx
       r: release
       disable_homebrew: true
-    - os: windows
-      r: release
