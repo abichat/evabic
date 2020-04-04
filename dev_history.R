@@ -32,6 +32,8 @@ library(testthat)
 # badgecreatr::badge_lifecycle("maturing")
 # badgecreatr::badge_cran("evabic")
 
+# use_github_action("pkgdown")
+
 # use_test("names")
 
 
