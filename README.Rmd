@@ -114,7 +114,7 @@ ebc_tidy(detected = detected_var, true = predictors, m = 7,
          measures = c("TPR", "TNR", "FDR", "ACC", "BACC", "F1")) 
 ```
 
-Note that **evabic** also supports named logicals for `detected` and `true` arguments.
+Note that **evabic** also supports named logicals for `detected` and `true` arguments, but they must be named (see the `add_names()` function if needed).
 
 ```{r logical}
 pvalues < 0.05

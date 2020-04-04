@@ -19,6 +19,8 @@ navbar:
     - text: Description of measures
       href: reference/ebc_allmeasures.html
   right:
+    - icon: fas fa-newspaper-o fa-lg
+      href: news/index.html
     - icon: fab fa-github fa-lg
       href: https://github.com/abichat/evabic
 
@@ -39,3 +41,7 @@ reference:
   - '`ebc_confusion`'
   - '`ebc_tidy`'
   - '`ebc_tidy_by_threshold`'
+- title: Others
+  desc: ~
+  contents:
+  - '`add_names`'
