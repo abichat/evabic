@@ -68,6 +68,12 @@
       </ul>
 <ul class="nav navbar-nav navbar-right">
 <li>
+  <a href="news/index.html">
+    <span class="fas fa fas fa-newspaper-o fa-lg"></span>
+     
+  </a>
+</li>
+<li>
   <a href="https://github.com/abichat/evabic">
     <span class="fab fa fab fa-github fa-lg"></span>
      
@@ -103,10 +109,10 @@
 <h2 class="hasAnchor">
 <a href="#measures" class="anchor"></a>Measures</h2>
 <p><strong>evabic</strong> provides handy functions to compute 18 different measures. Each function begins with <code>ebc_*</code>.</p>
-<p>Available measures include True Positive Rate (Sensitivity or Recall), True Negative Rate (Specificity), Positive Predictive Value (Precision), False Discovery Rate, Accuracy, F1…</p>
+<p>Available measures include True Positive Rate (Sensitivity or Recall), True Negative Rate (Specificity), Positive Predictive Value (Precision), False Discovery Rate, Accuracy, F1â¦</p>
 <div class="sourceCode" id="cb2"><pre class="r"><span class="kw pkg">evabic</span><span class="kw ns">::</span><span class="no"><a href="reference/ebc_allmeasures.html">ebc_allmeasures</a></span>
-<span class="co">#&gt;  [1] "TP"   "FP"   "FN"   "TN"   "TPR"  "TNR"  "PPV"  "NPV"  "FNR"  "FPR"  "FDR"  "FOR" </span>
-<span class="co">#&gt; [13] "ACC"  "BACC" "F1"   "PLR"  "NLR"  "DOR"</span></pre></div>
+<span class="co">#&gt;  [1] "TP"   "FP"   "FN"   "TN"   "TPR"  "TNR"  "PPV"  "NPV"  "FNR"  "FPR"  "FDR" </span>
+<span class="co">#&gt; [12] "FOR"  "ACC"  "BACC" "F1"   "PLR"  "NLR"  "DOR"</span></pre></div>
 <p>All measures are computed from the confusion matrix:</p>
 <center>
 <p><img src="reference/figures/confusionmatrix.png" width="50%"></p>
@@ -115,7 +121,7 @@
 <div id="example" class="section level2">
 <h2 class="hasAnchor">
 <a href="#example" class="anchor"></a>Example</h2>
-<p>Let’s use <strong>evabic</strong> on a toy example.</p>
+<p>Letâs use <strong>evabic</strong> on a toy example.</p>
 <div class="sourceCode" id="cb3"><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">evabic</span>)</pre></div>
 <p>Consider three variables <code>X1</code>, <code>X2</code> and <code>X3</code>, <code>Y</code> a variable predicted by this three variables, and 4 more conditionally independent variables <code>X4</code> to <code>X7</code>.</p>
 <div class="sourceCode" id="cb4"><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span>(<span class="fl">42</span>)
@@ -130,7 +136,7 @@
                     <span class="kw">X6</span> <span class="kw">=</span> <span class="no">X2</span> - <span class="fl">2</span> * <span class="no">X3</span> + <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span>(<span class="fl">50</span>, <span class="kw">sd</span> <span class="kw">=</span> <span class="fl">0.5</span>),
                     <span class="kw">X7</span> <span class="kw">=</span> <span class="no">X1</span> - <span class="fl">0.2</span> * <span class="no">X2</span> + <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span>(<span class="fl">50</span>, <span class="kw">sd</span> <span class="kw">=</span> <span class="fl">2</span>),
                     <span class="kw">Y</span>  <span class="kw">=</span> <span class="no">X1</span> - <span class="fl">0.2</span> * <span class="no">X2</span> + <span class="fl">3</span> * <span class="no">X3</span> + <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span>(<span class="fl">50</span>))</pre></div>
-<p>We use a linear regression to detect the actual predictors (do not select significant variables like this at home, it’s a bad way to do so).</p>
+<p>We use a linear regression to detect the actual predictors (do not select significant variables like this at home, itâs a bad way to do so).</p>
 <div class="sourceCode" id="cb5"><pre class="r"><span class="no">model</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span>(<span class="no">Y</span> ~ <span class="no">.</span>, <span class="kw">data</span> <span class="kw">=</span> <span class="no">df_lm</span>)
 <span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span>(<span class="no">model</span>)
 <span class="co">#&gt; </span>
@@ -159,8 +165,10 @@
 <span class="co">#&gt; F-statistic: 69.99 on 7 and 42 DF,  p-value: &lt; 2.2e-16</span>
 <span class="no">pvalues</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span>(<span class="no">model</span>)$<span class="no">coefficients</span>[-<span class="fl">1</span>, <span class="fl">4</span>]
 <span class="no">pvalues</span>
-<span class="co">#&gt;          X1          X2          X3          X4          X5          X6          X7 </span>
-<span class="co">#&gt; 0.004366456 0.829771754 0.003469737 0.491828466 0.581608670 0.887948400 0.449664443</span>
+<span class="co">#&gt;          X1          X2          X3          X4          X5          X6 </span>
+<span class="co">#&gt; 0.004366456 0.829771754 0.003469737 0.491828466 0.581608670 0.887948400 </span>
+<span class="co">#&gt;          X7 </span>
+<span class="co">#&gt; 0.449664443</span>
 <span class="no">detected_var</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span>(<span class="no">pvalues</span>[<span class="no">pvalues</span> <span class="kw">&lt;</span> <span class="fl">0.05</span>])
 <span class="no">detected_var</span>
 <span class="co">#&gt; [1] "X1" "X3"</span></pre></div>
@@ -176,7 +184,7 @@
          <span class="kw">measures</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"TPR"</span>, <span class="st">"TNR"</span>, <span class="st">"FDR"</span>, <span class="st">"ACC"</span>, <span class="st">"BACC"</span>, <span class="st">"F1"</span>))
 <span class="co">#&gt;         TPR TNR FDR       ACC      BACC  F1</span>
 <span class="co">#&gt; 1 0.6666667   1   0 0.8571429 0.8333333 0.8</span></pre></div>
-<p>Note that <strong>evabic</strong> also supports named logicals for <code>detected</code> and <code>true</code> arguments.</p>
+<p>Note that <strong>evabic</strong> also supports named logicals for <code>detected</code> and <code>true</code> arguments, but they must be named (see the <code><a href="reference/add_names.html">add_names()</a></code> function if needed).</p>
 <div class="sourceCode" id="cb8"><pre class="r"><span class="no">pvalues</span> <span class="kw">&lt;</span> <span class="fl">0.05</span>
 <span class="co">#&gt;    X1    X2    X3    X4    X5    X6    X7 </span>
 <span class="co">#&gt;  TRUE FALSE  TRUE FALSE FALSE FALSE FALSE</span>
@@ -247,7 +255,7 @@
 <li><a href="https://ci.appveyor.com/project/abichat/evabic"><img src="https://ci.appveyor.com/api/projects/status/github/abichat/evabic?branch=master&amp;svg=true" alt="AppVeyor build status"></a></li>
 <li><a href="https://codecov.io/gh/abichat/evabic?branch=master"><img src="https://codecov.io/gh/abichat/evabic/branch/master/graph/badge.svg" alt="Codecov test coverage"></a></li>
 <li><a href="https://www.codacy.com/app/abichat/evabic?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=abichat/evabic&amp;utm_campaign=Badge_Grade"><img src="https://api.codacy.com/project/badge/Grade/c32dcc4c1c3f40a5950e1c10ea6dfb18" alt="Codacy Badge"></a></li>
-<li><a href="https://github.com/abichat/evabic/commits/master"><img src="https://img.shields.io/badge/last%20change-2020--03--31-yellowgreen.svg" alt="Last-changedate"></a></li>
+<li><a href="https://github.com/abichat/evabic/commits/master"><img src="https://img.shields.io/badge/last%20change-2020--04--04-yellowgreen.svg" alt="Last-changedate"></a></li>
 <li><a href="https://abichat.github.io/evabic/"><img src="https://img.shields.io/badge/documentation-pkgdown-E91E63.svg" alt="Documentation"></a></li>
 </ul>
 </div>
