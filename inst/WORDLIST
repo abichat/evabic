@@ -1,12 +1,11 @@
-AppVeyor
-changedate
 Codacy
 Codecov
 DOR
-ebc
-eva
 FN
 FP
+TP
+TPR
+eva
 https
 img
 io
@@ -15,6 +14,3 @@ lifecycle
 luate
 packageversion
 svg
-TP
-TPR
-yellowgreen

@@ -16,7 +16,6 @@ URL: https://abichat.github.io/evabic,
     https://github.com/abichat/evabic
 BugReports: https://github.com/abichat/evabic/issues
 Suggests: 
-    spelling,
     testthat (>= 2.1.0)
 Encoding: UTF-8
 Language: en-US
