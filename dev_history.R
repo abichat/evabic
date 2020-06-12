@@ -36,6 +36,11 @@ library(testthat)
 
 # use_test("names")
 
+# use_github_action_check_standard()
+# use_github_action_check_release(save_as = "R-CMD-check-dev.yaml")
+
+# badger::badge_last_commit()
+
 
 #### Repeated ####
 
@@ -50,7 +55,7 @@ use_tidy_description()
 spell_check()
 # spelling::update_wordlist()
 
-run_examples()
+run_examples(fresh = TRUE)
 
 test()
 

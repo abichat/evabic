@@ -9,16 +9,14 @@
 [![lifecycle](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www.tidyverse.org/lifecycle/#maturing)
 [![packageversion](https://img.shields.io/badge/package%20version-0.0.2-orange.svg)](https://github.com/abichat/evabic/blob/master/DESCRIPTION)
 [![CRAN\_Status\_Badge](https://www.r-pkg.org/badges/version/evabic)](https://cran.r-project.org/package=evabic)
-[![Travis build
-status](https://travis-ci.org/abichat/evabic.svg?branch=master)](https://travis-ci.org/abichat/evabic)
-[![AppVeyor build
-status](https://ci.appveyor.com/api/projects/status/github/abichat/evabic?branch=master&svg=true)](https://ci.appveyor.com/project/abichat/evabic)
 [![Codecov test
 coverage](https://codecov.io/gh/abichat/evabic/branch/master/graph/badge.svg)](https://codecov.io/gh/abichat/evabic?branch=master)
 [![Codacy
 Badge](https://api.codacy.com/project/badge/Grade/c32dcc4c1c3f40a5950e1c10ea6dfb18)](https://www.codacy.com/app/abichat/evabic?utm_source=github.com&utm_medium=referral&utm_content=abichat/evabic&utm_campaign=Badge_Grade)
-[![Last-changedate](https://img.shields.io/badge/last%20change-2020--04--04-yellowgreen.svg)](https://github.com/abichat/evabic/commits/master)
+[![R build
+status](https://github.com/abichat/evabic/workflows/R-CMD-check/badge.svg)](https://github.com/abichat/evabic/actions)
 [![Documentation](https://img.shields.io/badge/documentation-pkgdown-E91E63.svg)](https://abichat.github.io/evabic/)
+[![last-commit](https://img.shields.io/github/last-commit/abichat/evabic.svg)](https://github.com/abichat/evabic/commits/master)
 <!-- badges: end -->
 
 **evabic** aims to **eva**luate **bi**nary **c**lassifiers by specifying
@@ -46,8 +44,8 @@ False Discovery Rate, Accuracy, F1…
 
 ``` r
 evabic::ebc_allmeasures
-#>  [1] "TP"   "FP"   "FN"   "TN"   "TPR"  "TNR"  "PPV"  "NPV"  "FNR"  "FPR"  "FDR" 
-#> [12] "FOR"  "ACC"  "BACC" "F1"   "PLR"  "NLR"  "DOR"
+#>  [1] "TP"   "FP"   "FN"   "TN"   "TPR"  "TNR"  "PPV"  "NPV"  "FNR"  "FPR" 
+#> [11] "FDR"  "FOR"  "ACC"  "BACC" "F1"   "PLR"  "NLR"  "DOR"
 ```
 
 All measures are computed from the confusion matrix:

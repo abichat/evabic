@@ -4,7 +4,9 @@
 \name{ebc_allmeasures}
 \alias{ebc_allmeasures}
 \title{Available measures}
-\format{An object of class \code{character} of length 18.}
+\format{
+An object of class \code{character} of length 18.
+}
 \usage{
 ebc_allmeasures
 }
