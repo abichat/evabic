@@ -109,10 +109,10 @@
 <h2 class="hasAnchor">
 <a href="#measures" class="anchor"></a>Measures</h2>
 <p><strong>evabic</strong> provides handy functions to compute 18 different measures. Each function begins with <code>ebc_*</code>.</p>
-<p>Available measures include True Positive Rate (Sensitivity or Recall), True Negative Rate (Specificity), Positive Predictive Value (Precision), False Discovery Rate, Accuracy, F1â¦</p>
+<p>Available measures include True Positive Rate (Sensitivity or Recall), True Negative Rate (Specificity), Positive Predictive Value (Precision), False Discovery Rate, Accuracy, F1…</p>
 <div class="sourceCode" id="cb2"><pre class="r"><span class="kw pkg">evabic</span><span class="kw ns">::</span><span class="no"><a href="reference/ebc_allmeasures.html">ebc_allmeasures</a></span>
-<span class="co">#&gt;  [1] "TP"   "FP"   "FN"   "TN"   "TPR"  "TNR"  "PPV"  "NPV"  "FNR"  "FPR"  "FDR" </span>
-<span class="co">#&gt; [12] "FOR"  "ACC"  "BACC" "F1"   "PLR"  "NLR"  "DOR"</span></pre></div>
+<span class="co">#&gt;  [1] "TP"   "FP"   "FN"   "TN"   "TPR"  "TNR"  "PPV"  "NPV"  "FNR"  "FPR" </span>
+<span class="co">#&gt; [11] "FDR"  "FOR"  "ACC"  "BACC" "F1"   "PLR"  "NLR"  "DOR"</span></pre></div>
 <p>All measures are computed from the confusion matrix:</p>
 <center>
 <p><img src="reference/figures/confusionmatrix.png" width="50%"></p>
@@ -121,7 +121,7 @@
 <div id="example" class="section level2">
 <h2 class="hasAnchor">
 <a href="#example" class="anchor"></a>Example</h2>
-<p>Letâs use <strong>evabic</strong> on a toy example.</p>
+<p>Let’s use <strong>evabic</strong> on a toy example.</p>
 <div class="sourceCode" id="cb3"><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">evabic</span>)</pre></div>
 <p>Consider three variables <code>X1</code>, <code>X2</code> and <code>X3</code>, <code>Y</code> a variable predicted by this three variables, and 4 more conditionally independent variables <code>X4</code> to <code>X7</code>.</p>
 <div class="sourceCode" id="cb4"><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span>(<span class="fl">42</span>)
@@ -136,7 +136,7 @@
                     <span class="kw">X6</span> <span class="kw">=</span> <span class="no">X2</span> - <span class="fl">2</span> * <span class="no">X3</span> + <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span>(<span class="fl">50</span>, <span class="kw">sd</span> <span class="kw">=</span> <span class="fl">0.5</span>),
                     <span class="kw">X7</span> <span class="kw">=</span> <span class="no">X1</span> - <span class="fl">0.2</span> * <span class="no">X2</span> + <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span>(<span class="fl">50</span>, <span class="kw">sd</span> <span class="kw">=</span> <span class="fl">2</span>),
                     <span class="kw">Y</span>  <span class="kw">=</span> <span class="no">X1</span> - <span class="fl">0.2</span> * <span class="no">X2</span> + <span class="fl">3</span> * <span class="no">X3</span> + <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span>(<span class="fl">50</span>))</pre></div>
-<p>We use a linear regression to detect the actual predictors (do not select significant variables like this at home, itâs a bad way to do so).</p>
+<p>We use a linear regression to detect the actual predictors (do not select significant variables like this at home, it’s a bad way to do so).</p>
 <div class="sourceCode" id="cb5"><pre class="r"><span class="no">model</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span>(<span class="no">Y</span> ~ <span class="no">.</span>, <span class="kw">data</span> <span class="kw">=</span> <span class="no">df_lm</span>)
 <span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span>(<span class="no">model</span>)
 <span class="co">#&gt; </span>
@@ -206,7 +206,7 @@
 <span class="co">#&gt; 7 0.887948400 1.0000000 0.75 0.5000000 0.5714286 0.6250000 0.6666667</span>
 <span class="co">#&gt; 8         Inf 1.0000000 1.00 0.5714286 0.4285714 0.5000000 0.6000000</span></pre></div>
 <p>This makes it easy to plot various-threshold curves like ROC curve.</p>
-<div class="sourceCode" id="cb10"><pre class="r"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.html">plot</a></span>(<span class="no">df_measures</span>$<span class="no">FPR</span>, <span class="no">df_measures</span>$<span class="no">TPR</span>, <span class="kw">type</span> <span class="kw">=</span> <span class="st">"b"</span>, <span class="kw">xlab</span> <span class="kw">=</span> <span class="st">"FPR"</span>, <span class="kw">ylab</span> <span class="kw">=</span> <span class="st">"TPR"</span>)</pre></div>
+<div class="sourceCode" id="cb10"><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/plot.html">plot</a></span>(<span class="no">df_measures</span>$<span class="no">FPR</span>, <span class="no">df_measures</span>$<span class="no">TPR</span>, <span class="kw">type</span> <span class="kw">=</span> <span class="st">"b"</span>, <span class="kw">xlab</span> <span class="kw">=</span> <span class="st">"FPR"</span>, <span class="kw">ylab</span> <span class="kw">=</span> <span class="st">"TPR"</span>)</pre></div>
 <p><img src="reference/figures/README-roc-1.png" width="100%"></p>
 <p>And finally, you can ask for the AUC, the area under the ROC curve.</p>
 <div class="sourceCode" id="cb11"><pre class="r"><span class="fu"><a href="reference/ebc_AUC.html">ebc_AUC</a></span>(<span class="kw">detection_values</span> <span class="kw">=</span> <span class="no">pvalues</span>, <span class="kw">true</span> <span class="kw">=</span> <span class="no">predictors</span>, <span class="kw">m</span> <span class="kw">=</span> <span class="fl">7</span>)
@@ -251,12 +251,11 @@
 <li><a href="https://www.tidyverse.org/lifecycle/#maturing"><img src="https://img.shields.io/badge/lifecycle-maturing-blue.svg" alt="lifecycle"></a></li>
 <li><a href="https://github.com/abichat/evabic/blob/master/DESCRIPTION"><img src="https://img.shields.io/badge/package%20version-0.0.2-orange.svg" alt="packageversion"></a></li>
 <li><a href="https://cran.r-project.org/package=evabic"><img src="https://www.r-pkg.org/badges/version/evabic" alt="CRAN_Status_Badge"></a></li>
-<li><a href="https://travis-ci.org/abichat/evabic"><img src="https://travis-ci.org/abichat/evabic.svg?branch=master" alt="Travis build status"></a></li>
-<li><a href="https://ci.appveyor.com/project/abichat/evabic"><img src="https://ci.appveyor.com/api/projects/status/github/abichat/evabic?branch=master&amp;svg=true" alt="AppVeyor build status"></a></li>
 <li><a href="https://codecov.io/gh/abichat/evabic?branch=master"><img src="https://codecov.io/gh/abichat/evabic/branch/master/graph/badge.svg" alt="Codecov test coverage"></a></li>
 <li><a href="https://www.codacy.com/app/abichat/evabic?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=abichat/evabic&amp;utm_campaign=Badge_Grade"><img src="https://api.codacy.com/project/badge/Grade/c32dcc4c1c3f40a5950e1c10ea6dfb18" alt="Codacy Badge"></a></li>
-<li><a href="https://github.com/abichat/evabic/commits/master"><img src="https://img.shields.io/badge/last%20change-2020--04--04-yellowgreen.svg" alt="Last-changedate"></a></li>
+<li><a href="https://github.com/abichat/evabic/actions"><img src="https://github.com/abichat/evabic/workflows/R-CMD-check/badge.svg" alt="R build status"></a></li>
 <li><a href="https://abichat.github.io/evabic/"><img src="https://img.shields.io/badge/documentation-pkgdown-E91E63.svg" alt="Documentation"></a></li>
+<li><a href="https://github.com/abichat/evabic/commits/master"><img src="https://img.shields.io/github/last-commit/abichat/evabic.svg" alt="last-commit"></a></li>
 </ul>
 </div>
 </div>
@@ -268,7 +267,7 @@
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.0.9000.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.9000.</p>
 </div>
 
       </footer>
