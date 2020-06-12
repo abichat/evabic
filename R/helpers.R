@@ -10,8 +10,9 @@
 #' x <- c(a = TRUE, b = FALSE, c = FALSE, d = TRUE)
 #' evabic:::nl2c(x)
 #'
-nl2c <- function(x){
-  if(is.logical(x)) {
+nl2c <- function(x) {
+  if (is.logical(x)) {
+    stopifnot(!is.null(names(x)))
     return(names(x)[x])
   } else {
     return(x)
