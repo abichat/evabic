@@ -55,7 +55,7 @@ use_tidy_description()
 spell_check()
 # spelling::update_wordlist()
 
-run_examples(fresh = TRUE)
+run_examples(fresh = TRUE); unlink("Rplots.pdf")
 
 test()
 

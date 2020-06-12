@@ -76,10 +76,10 @@ test_that("directions give the correct output", {
 })
 
 test_that("all or nothing is detected at +/-Inf", {
-  expect_equivalent(df_all[1, c("TPR", "TNR")], c(0, 1))
-  expect_equivalent(df_all[n_letters + 1, c("TPR", "TNR")], c(1, 0))
-  expect_equivalent(df_all_g[1, c("TPR", "TNR")], c(1, 0))
-  expect_equivalent(df_all_g[n_letters + 1, c("TPR", "TNR")], c(0, 1))
+  expect_equivalent(as.numeric(df_all[1, c("TPR", "TNR")]), c(0, 1))
+  expect_equivalent(as.numeric(df_all[n_letters + 1, c("TPR", "TNR")]), c(1, 0))
+  expect_equivalent(as.numeric(df_all_g[1, c("TPR", "TNR")]), c(1, 0))
+  expect_equivalent(as.numeric(df_all_g[n_letters + 1, c("TPR", "TNR")]), c(0, 1))
 })
 
 
