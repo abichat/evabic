@@ -12,7 +12,10 @@
 #'
 nl2c <- function(x) {
   if (is.logical(x)) {
-    stopifnot(!is.null(names(x)))
+    if (is.null(names(x))) {
+      stop("You need names for your logical vector. ",
+           "Consider using 'evabic::add_names'.")
+      }
     return(names(x)[x])
   } else {
     return(x)
