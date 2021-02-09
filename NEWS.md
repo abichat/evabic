@@ -1,3 +1,7 @@
+# evabic 0.0.4
+
+* Clear error message when using `nl2c()` with a unnamed logical vector.
+
 # evabic 0.0.3
 
 * Functions error if logical `detected` or `true` do not have names. 
