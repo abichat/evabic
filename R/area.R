@@ -7,6 +7,8 @@
 #'
 #' @return A numeric.
 #'
+#' @keywords internal
+#'
 #' @examples
 #' x <- c(0, 0, 0.5, 1)
 #' y <- c(0, 0.5, 0.5, 1)

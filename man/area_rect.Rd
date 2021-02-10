@@ -23,3 +23,4 @@ y <- c(0, 0.5, 0.5, 1)
 plot(x, y, type = "b")
 evabic:::area_rect(x, y)
 }
+\keyword{internal}

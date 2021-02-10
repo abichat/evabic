@@ -20,3 +20,4 @@ x <- c(a = TRUE, b = FALSE, c = FALSE, d = TRUE)
 evabic:::nl2c(x)
 
 }
+\keyword{internal}
