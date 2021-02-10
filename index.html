@@ -47,7 +47,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">evabic</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.3</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.4</span>
       </span>
     </div>
 
@@ -55,7 +55,7 @@
       <ul class="nav navbar-nav">
 <li>
   <a href="index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
+    <span class="fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -69,13 +69,13 @@
 <ul class="nav navbar-nav navbar-right">
 <li>
   <a href="news/index.html">
-    <span class="fas fa fas fa-newspaper-o fa-lg"></span>
+    <span class="fas fa-newspaper-o fa-lg"></span>
      
   </a>
 </li>
 <li>
   <a href="https://github.com/abichat/evabic">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -102,17 +102,19 @@
 <h2 class="hasAnchor">
 <a href="#installation" class="anchor"></a>Installation</h2>
 <p>You can install the development version from <a href="https://github.com/">GitHub</a> with:</p>
-<div class="sourceCode" id="cb1"><pre class="r"><span class="co"># install.packages("remotes")</span>
-<span class="kw pkg">remotes</span><span class="kw ns">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html">install_github</a></span>(<span class="st">"abichat/evabic"</span>)</pre></div>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># install.packages("remotes")</span>
+<span class="fu">remotes</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html">install_github</a></span><span class="op">(</span><span class="st">"abichat/evabic"</span><span class="op">)</span></code></pre></div>
 </div>
 <div id="measures" class="section level2">
 <h2 class="hasAnchor">
 <a href="#measures" class="anchor"></a>Measures</h2>
 <p><strong>evabic</strong> provides handy functions to compute 18 different measures. Each function begins with <code>ebc_*</code>.</p>
 <p>Available measures include True Positive Rate (Sensitivity or Recall), True Negative Rate (Specificity), Positive Predictive Value (Precision), False Discovery Rate, Accuracy, F1…</p>
-<div class="sourceCode" id="cb2"><pre class="r"><span class="kw pkg">evabic</span><span class="kw ns">::</span><span class="no"><a href="reference/ebc_allmeasures.html">ebc_allmeasures</a></span>
-<span class="co">#&gt;  [1] "TP"   "FP"   "FN"   "TN"   "TPR"  "TNR"  "PPV"  "NPV"  "FNR"  "FPR" </span>
-<span class="co">#&gt; [11] "FDR"  "FOR"  "ACC"  "BACC" "F1"   "PLR"  "NLR"  "DOR"</span></pre></div>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu">evabic</span><span class="fu">::</span><span class="va"><a href="reference/ebc_allmeasures.html">ebc_allmeasures</a></span>
+<span class="co">#&gt;  [1] "TP"   "FP"   "FN"   "TN"   "TPR"  "TNR"  "PPV"  "NPV"  "FNR"  "FPR"  "FDR"  "FOR" </span>
+<span class="co">#&gt; [13] "ACC"  "BACC" "F1"   "PLR"  "NLR"  "DOR"</span></code></pre></div>
 <p>All measures are computed from the confusion matrix:</p>
 <center>
 <p><img src="reference/figures/confusionmatrix.png" width="50%"></p>
@@ -122,23 +124,26 @@
 <h2 class="hasAnchor">
 <a href="#example" class="anchor"></a>Example</h2>
 <p>Let’s use <strong>evabic</strong> on a toy example.</p>
-<div class="sourceCode" id="cb3"><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">evabic</span>)</pre></div>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://abichat.github.io/evabic">evabic</a></span><span class="op">)</span></code></pre></div>
 <p>Consider three variables <code>X1</code>, <code>X2</code> and <code>X3</code>, <code>Y</code> a variable predicted by this three variables, and 4 more conditionally independent variables <code>X4</code> to <code>X7</code>.</p>
-<div class="sourceCode" id="cb4"><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span>(<span class="fl">42</span>)
-<span class="no">X1</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span>(<span class="fl">50</span>)
-<span class="no">X2</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span>(<span class="fl">50</span>)
-<span class="no">X3</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span>(<span class="fl">50</span>)
-<span class="no">predictors</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span>(<span class="st">"X"</span>, <span class="fl">1</span>:<span class="fl">3</span>)
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">42</span><span class="op">)</span>
+<span class="va">X1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="fl">50</span><span class="op">)</span>
+<span class="va">X2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="fl">50</span><span class="op">)</span>
+<span class="va">X3</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="fl">50</span><span class="op">)</span>
+<span class="va">predictors</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span><span class="op">(</span><span class="st">"X"</span>, <span class="fl">1</span><span class="op">:</span><span class="fl">3</span><span class="op">)</span>
 
-<span class="no">df_lm</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span>(<span class="kw">X1</span> <span class="kw">=</span> <span class="no">X1</span>, <span class="kw">X2</span> <span class="kw">=</span> <span class="no">X2</span>, <span class="kw">X3</span> <span class="kw">=</span> <span class="no">X3</span>,
-                    <span class="kw">X4</span> <span class="kw">=</span> <span class="no">X1</span> + <span class="no">X2</span> + <span class="no">X3</span> + <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span>(<span class="fl">50</span>, <span class="kw">sd</span> <span class="kw">=</span> <span class="fl">0.5</span>),
-                    <span class="kw">X5</span> <span class="kw">=</span> <span class="no">X1</span> + <span class="fl">3</span> * <span class="no">X3</span> + <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span>(<span class="fl">50</span>, <span class="kw">sd</span> <span class="kw">=</span> <span class="fl">0.5</span>),
-                    <span class="kw">X6</span> <span class="kw">=</span> <span class="no">X2</span> - <span class="fl">2</span> * <span class="no">X3</span> + <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span>(<span class="fl">50</span>, <span class="kw">sd</span> <span class="kw">=</span> <span class="fl">0.5</span>),
-                    <span class="kw">X7</span> <span class="kw">=</span> <span class="no">X1</span> - <span class="fl">0.2</span> * <span class="no">X2</span> + <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span>(<span class="fl">50</span>, <span class="kw">sd</span> <span class="kw">=</span> <span class="fl">2</span>),
-                    <span class="kw">Y</span>  <span class="kw">=</span> <span class="no">X1</span> - <span class="fl">0.2</span> * <span class="no">X2</span> + <span class="fl">3</span> * <span class="no">X3</span> + <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span>(<span class="fl">50</span>))</pre></div>
+<span class="va">df_lm</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>X1 <span class="op">=</span> <span class="va">X1</span>, X2 <span class="op">=</span> <span class="va">X2</span>, X3 <span class="op">=</span> <span class="va">X3</span>, 
+                    X4 <span class="op">=</span> <span class="va">X1</span> <span class="op">+</span> <span class="va">X2</span> <span class="op">+</span> <span class="va">X3</span> <span class="op">+</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="fl">50</span>, sd <span class="op">=</span> <span class="fl">0.5</span><span class="op">)</span>,
+                    X5 <span class="op">=</span> <span class="va">X1</span> <span class="op">+</span> <span class="fl">3</span> <span class="op">*</span> <span class="va">X3</span> <span class="op">+</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="fl">50</span>, sd <span class="op">=</span> <span class="fl">0.5</span><span class="op">)</span>,
+                    X6 <span class="op">=</span> <span class="va">X2</span> <span class="op">-</span> <span class="fl">2</span> <span class="op">*</span> <span class="va">X3</span> <span class="op">+</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="fl">50</span>, sd <span class="op">=</span> <span class="fl">0.5</span><span class="op">)</span>,
+                    X7 <span class="op">=</span> <span class="va">X1</span> <span class="op">-</span> <span class="fl">0.2</span> <span class="op">*</span> <span class="va">X2</span> <span class="op">+</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="fl">50</span>, sd <span class="op">=</span> <span class="fl">2</span><span class="op">)</span>,
+                    Y  <span class="op">=</span> <span class="va">X1</span> <span class="op">-</span> <span class="fl">0.2</span> <span class="op">*</span> <span class="va">X2</span> <span class="op">+</span> <span class="fl">3</span> <span class="op">*</span> <span class="va">X3</span> <span class="op">+</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="fl">50</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 <p>We use a linear regression to detect the actual predictors (do not select significant variables like this at home, it’s a bad way to do so).</p>
-<div class="sourceCode" id="cb5"><pre class="r"><span class="no">model</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span>(<span class="no">Y</span> ~ <span class="no">.</span>, <span class="kw">data</span> <span class="kw">=</span> <span class="no">df_lm</span>)
-<span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span>(<span class="no">model</span>)
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">model</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">Y</span> <span class="op">~</span> <span class="va">.</span>, data <span class="op">=</span> <span class="va">df_lm</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">model</span><span class="op">)</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; Call:</span>
 <span class="co">#&gt; lm(formula = Y ~ ., data = df_lm)</span>
@@ -163,39 +168,41 @@
 <span class="co">#&gt; Residual standard error: 1.005 on 42 degrees of freedom</span>
 <span class="co">#&gt; Multiple R-squared:  0.921,  Adjusted R-squared:  0.9079 </span>
 <span class="co">#&gt; F-statistic: 69.99 on 7 and 42 DF,  p-value: &lt; 2.2e-16</span>
-<span class="no">pvalues</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span>(<span class="no">model</span>)$<span class="no">coefficients</span>[-<span class="fl">1</span>, <span class="fl">4</span>]
-<span class="no">pvalues</span>
-<span class="co">#&gt;          X1          X2          X3          X4          X5          X6 </span>
-<span class="co">#&gt; 0.004366456 0.829771754 0.003469737 0.491828466 0.581608670 0.887948400 </span>
-<span class="co">#&gt;          X7 </span>
-<span class="co">#&gt; 0.449664443</span>
-<span class="no">detected_var</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span>(<span class="no">pvalues</span>[<span class="no">pvalues</span> <span class="kw">&lt;</span> <span class="fl">0.05</span>])
-<span class="no">detected_var</span>
-<span class="co">#&gt; [1] "X1" "X3"</span></pre></div>
+<span class="va">pvalues</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">model</span><span class="op">)</span><span class="op">$</span><span class="va">coefficients</span><span class="op">[</span><span class="op">-</span><span class="fl">1</span>, <span class="fl">4</span><span class="op">]</span>
+<span class="va">pvalues</span>
+<span class="co">#&gt;          X1          X2          X3          X4          X5          X6          X7 </span>
+<span class="co">#&gt; 0.004366456 0.829771754 0.003469737 0.491828466 0.581608670 0.887948400 0.449664443</span>
+<span class="va">detected_var</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op">(</span><span class="va">pvalues</span><span class="op">[</span><span class="va">pvalues</span> <span class="op">&lt;</span> <span class="fl">0.05</span><span class="op">]</span><span class="op">)</span>
+<span class="va">detected_var</span>
+<span class="co">#&gt; [1] "X1" "X3"</span></code></pre></div>
 <p>Here, we selected two predictors among the three true predictors.</p>
 <p>Single measures are available with <code>ebc_*()</code> functions.</p>
-<div class="sourceCode" id="cb6"><pre class="r"><span class="fu"><a href="reference/ebc_TPR.html">ebc_TPR</a></span>(<span class="kw">detected</span> <span class="kw">=</span> <span class="no">detected_var</span>, <span class="kw">true</span> <span class="kw">=</span> <span class="no">predictors</span>)
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="reference/ebc_TPR.html">ebc_TPR</a></span><span class="op">(</span>detected <span class="op">=</span> <span class="va">detected_var</span>, true <span class="op">=</span> <span class="va">predictors</span><span class="op">)</span>
 <span class="co">#&gt; [1] 0.6666667</span>
-<span class="fu"><a href="reference/ebc_TPR.html">ebc_ACC</a></span>(<span class="kw">detected</span> <span class="kw">=</span> <span class="no">detected_var</span>, <span class="kw">true</span> <span class="kw">=</span> <span class="no">predictors</span>, <span class="kw">m</span> <span class="kw">=</span> <span class="fl">7</span>) <span class="co"># the total size of the set is 7</span>
-<span class="co">#&gt; [1] 0.8571429</span></pre></div>
+<span class="fu"><a href="reference/ebc_TPR.html">ebc_ACC</a></span><span class="op">(</span>detected <span class="op">=</span> <span class="va">detected_var</span>, true <span class="op">=</span> <span class="va">predictors</span>, m <span class="op">=</span> <span class="fl">7</span><span class="op">)</span> <span class="co"># the total size of the set is 7</span>
+<span class="co">#&gt; [1] 0.8571429</span></code></pre></div>
 <p>You can also ask for several measures in a single row summary format with <code><a href="reference/ebc_tidy.html">ebc_tidy()</a></code>.</p>
-<div class="sourceCode" id="cb7"><pre class="r"><span class="fu"><a href="reference/ebc_tidy.html">ebc_tidy</a></span>(<span class="kw">detected</span> <span class="kw">=</span> <span class="no">detected_var</span>, <span class="kw">true</span> <span class="kw">=</span> <span class="no">predictors</span>, <span class="kw">m</span> <span class="kw">=</span> <span class="fl">7</span>,
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="reference/ebc_tidy.html">ebc_tidy</a></span><span class="op">(</span>detected <span class="op">=</span> <span class="va">detected_var</span>, true <span class="op">=</span> <span class="va">predictors</span>, m <span class="op">=</span> <span class="fl">7</span>, 
          <span class="co"># you can use `measures = ebc_allmeasures` to compute all measures</span>
-         <span class="kw">measures</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"TPR"</span>, <span class="st">"TNR"</span>, <span class="st">"FDR"</span>, <span class="st">"ACC"</span>, <span class="st">"BACC"</span>, <span class="st">"F1"</span>))
+         measures <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"TPR"</span>, <span class="st">"TNR"</span>, <span class="st">"FDR"</span>, <span class="st">"ACC"</span>, <span class="st">"BACC"</span>, <span class="st">"F1"</span><span class="op">)</span><span class="op">)</span> 
 <span class="co">#&gt;         TPR TNR FDR       ACC      BACC  F1</span>
-<span class="co">#&gt; 1 0.6666667   1   0 0.8571429 0.8333333 0.8</span></pre></div>
+<span class="co">#&gt; 1 0.6666667   1   0 0.8571429 0.8333333 0.8</span></code></pre></div>
 <p>Note that <strong>evabic</strong> also supports named logicals for <code>detected</code> and <code>true</code> arguments, but they must be named (see the <code><a href="reference/add_names.html">add_names()</a></code> function if needed).</p>
-<div class="sourceCode" id="cb8"><pre class="r"><span class="no">pvalues</span> <span class="kw">&lt;</span> <span class="fl">0.05</span>
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">pvalues</span> <span class="op">&lt;</span> <span class="fl">0.05</span>
 <span class="co">#&gt;    X1    X2    X3    X4    X5    X6    X7 </span>
 <span class="co">#&gt;  TRUE FALSE  TRUE FALSE FALSE FALSE FALSE</span>
-<span class="fu"><a href="reference/ebc_tidy.html">ebc_tidy</a></span>(<span class="kw">detected</span> <span class="kw">=</span> <span class="no">pvalues</span> <span class="kw">&lt;</span> <span class="fl">0.05</span>, <span class="kw">true</span> <span class="kw">=</span> <span class="no">predictors</span>, <span class="kw">m</span> <span class="kw">=</span> <span class="fl">7</span>,
-         <span class="kw">measures</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"TPR"</span>, <span class="st">"TNR"</span>, <span class="st">"FDR"</span>, <span class="st">"ACC"</span>, <span class="st">"BACC"</span>, <span class="st">"F1"</span>))
+<span class="fu"><a href="reference/ebc_tidy.html">ebc_tidy</a></span><span class="op">(</span>detected <span class="op">=</span> <span class="va">pvalues</span> <span class="op">&lt;</span> <span class="fl">0.05</span>, true <span class="op">=</span> <span class="va">predictors</span>, m <span class="op">=</span> <span class="fl">7</span>, 
+         measures <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"TPR"</span>, <span class="st">"TNR"</span>, <span class="st">"FDR"</span>, <span class="st">"ACC"</span>, <span class="st">"BACC"</span>, <span class="st">"F1"</span><span class="op">)</span><span class="op">)</span>
 <span class="co">#&gt;         TPR TNR FDR       ACC      BACC  F1</span>
-<span class="co">#&gt; 1 0.6666667   1   0 0.8571429 0.8333333 0.8</span></pre></div>
+<span class="co">#&gt; 1 0.6666667   1   0 0.8571429 0.8333333 0.8</span></code></pre></div>
 <p>With <code><a href="reference/ebc_tidy_by_threshold.html">ebc_tidy_by_threshold()</a></code>, you can ask for the evolution of measures according to a moving threshold if you provide the vector of p-values (or any score).</p>
-<div class="sourceCode" id="cb9"><pre class="r"><span class="no">df_measures</span> <span class="kw">&lt;-</span> <span class="fu"><a href="reference/ebc_tidy_by_threshold.html">ebc_tidy_by_threshold</a></span>(<span class="kw">detection_values</span> <span class="kw">=</span> <span class="no">pvalues</span>, <span class="kw">true</span> <span class="kw">=</span> <span class="no">predictors</span>, <span class="kw">m</span> <span class="kw">=</span> <span class="fl">7</span>,
-                                     <span class="kw">measures</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"TPR"</span>, <span class="st">"FPR"</span>, <span class="st">"FDR"</span>, <span class="st">"ACC"</span>, <span class="st">"BACC"</span>, <span class="st">"F1"</span>))
-<span class="no">df_measures</span>
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">df_measures</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/ebc_tidy_by_threshold.html">ebc_tidy_by_threshold</a></span><span class="op">(</span>detection_values <span class="op">=</span> <span class="va">pvalues</span>, true <span class="op">=</span> <span class="va">predictors</span>, m <span class="op">=</span> <span class="fl">7</span>, 
+                                     measures <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"TPR"</span>, <span class="st">"FPR"</span>, <span class="st">"FDR"</span>, <span class="st">"ACC"</span>, <span class="st">"BACC"</span>, <span class="st">"F1"</span><span class="op">)</span><span class="op">)</span>
+<span class="va">df_measures</span>
 <span class="co">#&gt;     threshold       TPR  FPR       FDR       ACC      BACC        F1</span>
 <span class="co">#&gt; 1 0.003469737 0.0000000 0.00       NaN 0.5714286 0.5000000 0.0000000</span>
 <span class="co">#&gt; 2 0.004366456 0.3333333 0.00 0.0000000 0.7142857 0.6666667 0.5000000</span>
@@ -204,15 +211,17 @@
 <span class="co">#&gt; 5 0.581608670 0.6666667 0.50 0.5000000 0.5714286 0.5833333 0.5714286</span>
 <span class="co">#&gt; 6 0.829771754 0.6666667 0.75 0.6000000 0.4285714 0.4583333 0.5000000</span>
 <span class="co">#&gt; 7 0.887948400 1.0000000 0.75 0.5000000 0.5714286 0.6250000 0.6666667</span>
-<span class="co">#&gt; 8         Inf 1.0000000 1.00 0.5714286 0.4285714 0.5000000 0.6000000</span></pre></div>
+<span class="co">#&gt; 8         Inf 1.0000000 1.00 0.5714286 0.4285714 0.5000000 0.6000000</span></code></pre></div>
 <p>This makes it easy to plot various-threshold curves like ROC curve.</p>
-<div class="sourceCode" id="cb10"><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/plot.html">plot</a></span>(<span class="no">df_measures</span>$<span class="no">FPR</span>, <span class="no">df_measures</span>$<span class="no">TPR</span>, <span class="kw">type</span> <span class="kw">=</span> <span class="st">"b"</span>, <span class="kw">xlab</span> <span class="kw">=</span> <span class="st">"FPR"</span>, <span class="kw">ylab</span> <span class="kw">=</span> <span class="st">"TPR"</span>)</pre></div>
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">df_measures</span><span class="op">$</span><span class="va">FPR</span>, <span class="va">df_measures</span><span class="op">$</span><span class="va">TPR</span>, type <span class="op">=</span> <span class="st">"b"</span>, xlab <span class="op">=</span> <span class="st">"FPR"</span>, ylab <span class="op">=</span> <span class="st">"TPR"</span><span class="op">)</span></code></pre></div>
 <p><img src="reference/figures/README-roc-1.png" width="100%"></p>
 <p>And finally, you can ask for the AUC, the area under the ROC curve.</p>
-<div class="sourceCode" id="cb11"><pre class="r"><span class="fu"><a href="reference/ebc_AUC.html">ebc_AUC</a></span>(<span class="kw">detection_values</span> <span class="kw">=</span> <span class="no">pvalues</span>, <span class="kw">true</span> <span class="kw">=</span> <span class="no">predictors</span>, <span class="kw">m</span> <span class="kw">=</span> <span class="fl">7</span>)
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="reference/ebc_AUC.html">ebc_AUC</a></span><span class="op">(</span>detection_values <span class="op">=</span> <span class="va">pvalues</span>, true <span class="op">=</span> <span class="va">predictors</span>, m <span class="op">=</span> <span class="fl">7</span><span class="op">)</span>
 <span class="co">#&gt; [1] 0.75</span>
-<span class="fu"><a href="reference/ebc_AUC.html">ebc_AUC_from_measures</a></span>(<span class="no">df_measures</span>)
-<span class="co">#&gt; [1] 0.75</span></pre></div>
+<span class="fu"><a href="reference/ebc_AUC.html">ebc_AUC_from_measures</a></span><span class="op">(</span><span class="va">df_measures</span><span class="op">)</span>
+<span class="co">#&gt; [1] 0.75</span></code></pre></div>
 </div>
 </div>
   </div>
@@ -249,7 +258,7 @@
 <ul class="list-unstyled">
 <li><a href="https://www.gnu.org/licenses/gpl-3.0.en.html"><img src="https://img.shields.io/badge/license-GPL--3-blue.svg" alt="license"></a></li>
 <li><a href="https://www.tidyverse.org/lifecycle/#maturing"><img src="https://img.shields.io/badge/lifecycle-maturing-blue.svg" alt="lifecycle"></a></li>
-<li><a href="https://github.com/abichat/evabic/blob/master/DESCRIPTION"><img src="https://img.shields.io/badge/package%20version-0.0.3-orange.svg" alt="packageversion"></a></li>
+<li><a href="https://github.com/abichat/evabic/blob/master/DESCRIPTION"><img src="https://img.shields.io/badge/package%20version-0.0.4-orange.svg" alt="packageversion"></a></li>
 <li><a href="https://cran.r-project.org/package=evabic"><img src="https://www.r-pkg.org/badges/version/evabic" alt="CRAN_Status_Badge"></a></li>
 <li><a href="https://codecov.io/gh/abichat/evabic?branch=master"><img src="https://codecov.io/gh/abichat/evabic/branch/master/graph/badge.svg" alt="Codecov test coverage"></a></li>
 <li><a href="https://www.codacy.com/app/abichat/evabic?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=abichat/evabic&amp;utm_campaign=Badge_Grade"><img src="https://api.codacy.com/project/badge/Grade/c32dcc4c1c3f40a5950e1c10ea6dfb18" alt="Codacy Badge"></a></li>
@@ -267,7 +276,7 @@
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.9000.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.9000.</p>
 </div>
 
       </footer>
