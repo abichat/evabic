@@ -1,3 +1,9 @@
+# evabic 0.1.0
+
+* Doc update to fix HTML5 issues for CRAN check.
+
+* Considered as stable.
+
 # evabic 0.0.4
 
 * Clear error message when using `nl2c()` with a unnamed logical vector.

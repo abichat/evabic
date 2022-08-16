@@ -47,7 +47,7 @@ library(testthat)
 load_all()
 
 document()
-attachment::att_to_description()
+attachment::att_amend_desc()
 use_tidy_description()
 
 # covr::package_coverage()

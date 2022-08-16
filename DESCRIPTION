@@ -1,24 +1,19 @@
 Package: evabic
 Title: Evaluation of Binary Classifiers
-Version: 0.0.4
+Version: 0.1.0
 Authors@R: 
-    person(given = "Antoine",
-           family = "Bichat",
-           role = c("aut", "cre"),
-           email = "a.bichat@yahoo.fr",
+    person("Antoine", "Bichat", , "a.bichat@yahoo.fr", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0001-6599-7081"))
-Description: Evaluates the performance of binary classifiers.
-    Computes confusion measures (TP, TN, FP, FN), derived measures (TPR,
-    FDR, accuracy, F1, DOR, ..), and area under the curve.  Outputs are
-    well suited for nested dataframes.
+Description: Evaluates the performance of binary classifiers.  Computes
+    confusion measures (TP, TN, FP, FN), derived measures (TPR, FDR,
+    accuracy, F1, DOR, ..), and area under the curve.  Outputs are well
+    suited for nested dataframes.
 License: GPL-3
-URL: https://abichat.github.io/evabic,
-    https://github.com/abichat/evabic
+URL: https://abichat.github.io/evabic, https://github.com/abichat/evabic
 BugReports: https://github.com/abichat/evabic/issues
 Suggests: 
     testthat (>= 2.1.0)
 Encoding: UTF-8
 Language: en-US
-LazyData: true
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.1.0
+RoxygenNote: 7.2.1
