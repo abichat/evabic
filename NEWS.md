@@ -1,5 +1,9 @@
 # evabic 0.1.0
 
+* Update links for CRAN.
+
+# evabic 0.1.0
+
 * Doc update to fix HTML5 issues for CRAN check.
 
 * Considered as stable.
