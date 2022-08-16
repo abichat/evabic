@@ -7,8 +7,8 @@
 
 [![license](https://img.shields.io/badge/license-GPL--3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0.en.html)
 [![lifecycle](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www.tidyverse.org/lifecycle/#maturing)
-[![packageversion](https://img.shields.io/badge/package%20version-0.0.4-orange.svg)](https://github.com/abichat/evabic/blob/master/DESCRIPTION)
-[![CRAN\_Status\_Badge](https://www.r-pkg.org/badges/version/evabic)](https://cran.r-project.org/package=evabic)
+[![packageversion](https://img.shields.io/badge/package%20version-0.0.4.9000-orange.svg)](https://github.com/abichat/evabic/blob/master/DESCRIPTION)
+[![CRAN_Status_Badge](https://www.r-pkg.org/badges/version/evabic)](https://cran.r-project.org/package=evabic)
 [![Codecov test
 coverage](https://codecov.io/gh/abichat/evabic/branch/master/graph/badge.svg)](https://codecov.io/gh/abichat/evabic?branch=master)
 [![Codacy
@@ -44,16 +44,14 @@ False Discovery Rate, Accuracy, F1…
 
 ``` r
 evabic::ebc_allmeasures
-#>  [1] "TP"   "FP"   "FN"   "TN"   "TPR"  "TNR"  "PPV"  "NPV"  "FNR"  "FPR"  "FDR"  "FOR" 
-#> [13] "ACC"  "BACC" "F1"   "PLR"  "NLR"  "DOR"
+#>  [1] "TP"   "FP"   "FN"   "TN"   "TPR"  "TNR"  "PPV"  "NPV"  "FNR"  "FPR"  "FDR" 
+#> [12] "FOR"  "ACC"  "BACC" "F1"   "PLR"  "NLR"  "DOR"
 ```
 
 All measures are computed from the confusion matrix:
 
 <center>
-
 <img src="man/figures/confusionmatrix.png" width="50%"/>
-
 </center>
 
 ## Example
@@ -161,8 +159,7 @@ ebc_tidy(detected = pvalues < 0.05, true = predictors, m = 7,
 
 With `ebc_tidy_by_threshold()`, you can ask for the evolution of
 measures according to a moving threshold if you provide the vector of
-p-values (or any
-score).
+p-values (or any score).
 
 ``` r
 df_measures <- ebc_tidy_by_threshold(detection_values = pvalues, true = predictors, m = 7, 
@@ -179,8 +176,7 @@ df_measures
 #> 8         Inf 1.0000000 1.00 0.5714286 0.4285714 0.5000000 0.6000000
 ```
 
-This makes it easy to plot various-threshold curves like ROC
-curve.
+This makes it easy to plot various-threshold curves like ROC curve.
 
 ``` r
 plot(df_measures$FPR, df_measures$TPR, type = "b", xlab = "FPR", ylab = "TPR")
