@@ -1,13 +1,13 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# evabic <a href='https://abichat.github.io/evabic'><img src='man/figures/logo.png' style="float:right" height="139" /></a>
+# evabic <a href='https://abichat.github.io/evabic/'><img src='man/figures/logo.png' style="float:right" height="139" /></a>
 
 <!-- badges: start -->
 
 [![license](https://img.shields.io/badge/license-GPL--3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0.en.html)
-[![lifecycle](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://www.tidyverse.org/lifecycle/#stable)
-[![packageversion](https://img.shields.io/badge/package%20version-0.1.0-orange.svg)](https://github.com/abichat/evabic/blob/master/DESCRIPTION)
+[![lifecycle](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://lifecycle.r-lib.org/articles/stages.html#stable)
+[![packageversion](https://img.shields.io/badge/package%20version-0.1.1-orange.svg)](https://github.com/abichat/evabic/blob/master/DESCRIPTION)
 [![CRAN_Status_Badge](https://www.r-pkg.org/badges/version/evabic)](https://cran.r-project.org/package=evabic)
 [![R-CMD-check](https://github.com/abichat/evabic/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/abichat/evabic/actions/workflows/R-CMD-check.yaml)
 [![Documentation](https://img.shields.io/badge/documentation-pkgdown-E91E63.svg)](https://abichat.github.io/evabic/)
