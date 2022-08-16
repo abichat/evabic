@@ -1,6 +1,8 @@
-# evabic 0.0.4.9000
+# evabic 0.1.0
 
 * Doc update to fix HTML5 issues for CRAN check.
+
+* Considered as stable.
 
 # evabic 0.0.4
 

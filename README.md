@@ -6,8 +6,8 @@
 <!-- badges: start -->
 
 [![license](https://img.shields.io/badge/license-GPL--3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0.en.html)
-[![lifecycle](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www.tidyverse.org/lifecycle/#maturing)
-[![packageversion](https://img.shields.io/badge/package%20version-0.0.4.9000-orange.svg)](https://github.com/abichat/evabic/blob/master/DESCRIPTION)
+[![lifecycle](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://www.tidyverse.org/lifecycle/#stable)
+[![packageversion](https://img.shields.io/badge/package%20version-0.1.0-orange.svg)](https://github.com/abichat/evabic/blob/master/DESCRIPTION)
 [![CRAN_Status_Badge](https://www.r-pkg.org/badges/version/evabic)](https://cran.r-project.org/package=evabic)
 [![R-CMD-check](https://github.com/abichat/evabic/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/abichat/evabic/actions/workflows/R-CMD-check.yaml)
 [![Documentation](https://img.shields.io/badge/documentation-pkgdown-E91E63.svg)](https://abichat.github.io/evabic/)
@@ -39,8 +39,8 @@ False Discovery Rate, Accuracy, F1…
 
 ``` r
 evabic::ebc_allmeasures
-#>  [1] "TP"   "FP"   "FN"   "TN"   "TPR"  "TNR"  "PPV"  "NPV"  "FNR"  "FPR" 
-#> [11] "FDR"  "FOR"  "ACC"  "BACC" "F1"   "PLR"  "NLR"  "DOR"
+#>  [1] "TP"   "FP"   "FN"   "TN"   "TPR"  "TNR"  "PPV"  "NPV"  "FNR"  "FPR"  "FDR" 
+#> [12] "FOR"  "ACC"  "BACC" "F1"   "PLR"  "NLR"  "DOR"
 ```
 
 All measures are computed from the confusion matrix:
