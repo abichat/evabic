@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# evabic <a href='https://abichat.github.io/evabic'><img src='man/figures/logo.png' align="right" height="139" /></a>
+# evabic <a href='https://abichat.github.io/evabic'><img src='man/figures/logo.png' style="float:right" height="139" /></a>
 
 <!-- badges: start -->
 
