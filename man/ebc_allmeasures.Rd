@@ -14,8 +14,8 @@ ebc_allmeasures
 Available measures in \code{evabic}
 }
 \details{
-\if{html}{\figure{confusionmatrix.png}{options: width="50\%"
-style="float:middle"}}
+\if{html}{\figure{confusionmatrix.png}{options:
+style="width: 50\%; float: middle;"}}
 \if{latex}{\figure{confusionmatrix.png}{options: width=15cm}}
 \describe{
 \item{TP}{True Positive}
