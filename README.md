@@ -5,13 +5,9 @@
 
 <!-- badges: start -->
 
-[![license](https://img.shields.io/badge/license-GPL--3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0.en.html)
-[![lifecycle](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://lifecycle.r-lib.org/articles/stages.html#stable)
-[![packageversion](https://img.shields.io/badge/package%20version-0.1.1.9000-orange.svg)](https://github.com/abichat/evabic/blob/master/DESCRIPTION)
-[![CRAN_Status_Badge](https://www.r-pkg.org/badges/version/evabic)](https://cran.r-project.org/package=evabic)
+[![packageversion](https://img.shields.io/badge/version-0.1.1.9000-orange.svg)](https://github.com/abichat/evabic/)
 [![R-CMD-check](https://github.com/abichat/evabic/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/abichat/evabic/actions/workflows/R-CMD-check.yaml)
-[![Documentation](https://img.shields.io/badge/documentation-pkgdown-E91E63.svg)](https://abichat.github.io/evabic/)
-[![last-commit](https://img.shields.io/github/last-commit/abichat/evabic.svg)](https://github.com/abichat/evabic/commits/master)
+[![CRAN_Status_Badge](https://www.r-pkg.org/badges/version/evabic)](https://cran.r-project.org/package=evabic)
 <!-- badges: end -->
 
 **evabic** aims to **eva**luate **bi**nary **c**lassifiers by specifying
@@ -20,12 +16,13 @@ dependencies.
 
 ## Installation
 
-You can install the development version from
-[GitHub](https://github.com/) with:
+You can install **evabic** from CRAN using `install.packages("evabic")`.
+Alternatively you can grab the development version from
+[GitHub](https://github.com//abichat/evabic/) with:
 
 ``` r
-# install.packages("remotes")
-remotes::install_github("abichat/evabic")
+# install.packages("pak")
+pak::pak("abichat/evabic")
 ```
 
 ## Measures
