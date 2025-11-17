@@ -72,8 +72,8 @@ goodpractice::gp()
 install(upgrade = "never")
 devtools::build_readme()
 
+pkgdown::check_pkgdown()
 pkgdown::build_site()
-unlink(c("pkgdown/", "docs/"), recursive = TRUE)
 install(upgrade = "never")
 
 build(manual = TRUE)
