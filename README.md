@@ -7,7 +7,7 @@
 
 [![license](https://img.shields.io/badge/license-GPL--3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0.en.html)
 [![lifecycle](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://lifecycle.r-lib.org/articles/stages.html#stable)
-[![packageversion](https://img.shields.io/badge/package%20version-0.1.1-orange.svg)](https://github.com/abichat/evabic/blob/master/DESCRIPTION)
+[![packageversion](https://img.shields.io/badge/package%20version-0.1.1.9000-orange.svg)](https://github.com/abichat/evabic/blob/master/DESCRIPTION)
 [![CRAN_Status_Badge](https://www.r-pkg.org/badges/version/evabic)](https://cran.r-project.org/package=evabic)
 [![R-CMD-check](https://github.com/abichat/evabic/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/abichat/evabic/actions/workflows/R-CMD-check.yaml)
 [![Documentation](https://img.shields.io/badge/documentation-pkgdown-E91E63.svg)](https://abichat.github.io/evabic/)
@@ -39,13 +39,14 @@ False Discovery Rate, Accuracy, F1…
 
 ``` r
 evabic::ebc_allmeasures
-#>  [1] "TP"   "FP"   "FN"   "TN"   "TPR"  "TNR"  "PPV"  "NPV"  "FNR"  "FPR"  "FDR" 
-#> [12] "FOR"  "ACC"  "BACC" "F1"   "PLR"  "NLR"  "DOR"
+#>  [1] "TP"   "FP"   "FN"   "TN"   "TPR"  "TNR"  "PPV"  "NPV"  "FNR"  "FPR"  "FDR"  "FOR" 
+#> [13] "ACC"  "BACC" "F1"   "PLR"  "NLR"  "DOR"
 ```
 
 All measures are computed from the confusion matrix:
 
 <center>
+
 <img src="man/figures/confusionmatrix.png" width="50%"/>
 </center>
 
@@ -109,10 +110,8 @@ summary(model)
 #> F-statistic: 69.99 on 7 and 42 DF,  p-value: < 2.2e-16
 pvalues <- summary(model)$coefficients[-1, 4]
 pvalues
-#>          X1          X2          X3          X4          X5          X6 
-#> 0.004366456 0.829771754 0.003469737 0.491828466 0.581608670 0.887948400 
-#>          X7 
-#> 0.449664443
+#>          X1          X2          X3          X4          X5          X6          X7 
+#> 0.004366456 0.829771754 0.003469737 0.491828466 0.581608670 0.887948400 0.449664443
 detected_var <- names(pvalues[pvalues < 0.05])
 detected_var
 #> [1] "X1" "X3"
