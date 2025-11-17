@@ -8,3 +8,5 @@
 ^dev_history\.R$
 ^_pkgdown\.yml$
 ^\.github$
+^[.]?air[.]toml$
+^\.vscode$

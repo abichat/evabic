@@ -51,8 +51,23 @@
 #' @references
 #' \url{https://en.wikipedia.org/wiki/Evaluation_of_binary_classifiers}
 #' @export
-ebc_allmeasures <- c("TP", "FP", "FN", "TN",
-                     "TPR", "TNR", "PPV", "NPV",
-                     "FNR", "FPR", "FDR", "FOR",
-                     "ACC", "BACC", "F1",
-                     "PLR", "NLR", "DOR")
+ebc_allmeasures <- c(
+  "TP",
+  "FP",
+  "FN",
+  "TN",
+  "TPR",
+  "TNR",
+  "PPV",
+  "NPV",
+  "FNR",
+  "FPR",
+  "FDR",
+  "FOR",
+  "ACC",
+  "BACC",
+  "F1",
+  "PLR",
+  "NLR",
+  "DOR"
+)

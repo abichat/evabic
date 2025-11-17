@@ -15,9 +15,11 @@
 nl2c <- function(x) {
   if (is.logical(x)) {
     if (is.null(names(x))) {
-      stop("You need names for your logical vector. ",
-           "Consider using 'evabic::add_names'.")
-      }
+      stop(
+        "You need names for your logical vector. ",
+        "Consider using 'evabic::add_names'."
+      )
+    }
     return(names(x)[x])
   } else {
     return(x)
@@ -32,7 +34,7 @@ nl2c <- function(x) {
 #'
 #' @keywords internal
 #'
-rep_0 <- function(n){
+rep_0 <- function(n) {
   paste(rep(0, n), collapse = "")
 }
 
@@ -50,9 +52,8 @@ rep_0 <- function(n){
 #'
 #' @examples
 #' add_names(month.name)
-add_names <- function(x, names = NULL, prefix = "x"){
-
-  if(is.null(names)){
+add_names <- function(x, names = NULL, prefix = "x") {
+  if (is.null(names)) {
     l <- length(x)
     v <- seq_len(l)
     nbr0 <- floor(log(l, base = 10)) - floor(log(v, base = 10))

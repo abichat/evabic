@@ -41,6 +41,7 @@ library(testthat)
 
 # badger::badge_last_commit()
 
+# use_air()
 
 #### Repeated ####
 
@@ -55,7 +56,8 @@ use_tidy_description()
 spell_check()
 # spelling::update_wordlist()
 
-run_examples(fresh = TRUE); unlink("Rplots.pdf")
+run_examples(fresh = TRUE)
+unlink("Rplots.pdf")
 
 test()
 
@@ -75,4 +77,3 @@ unlink(c("pkgdown/", "docs/"), recursive = TRUE)
 install(upgrade = "never")
 
 build(manual = TRUE)
-
