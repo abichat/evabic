@@ -1,54 +1,20 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://abichat.github.io/evabic/404.html</loc>
-  </url>
-  <url>
-    <loc>https://abichat.github.io/evabic/LICENSE.html</loc>
-  </url>
-  <url>
-    <loc>https://abichat.github.io/evabic/authors.html</loc>
-  </url>
-  <url>
-    <loc>https://abichat.github.io/evabic/index.html</loc>
-  </url>
-  <url>
-    <loc>https://abichat.github.io/evabic/news/index.html</loc>
-  </url>
-  <url>
-    <loc>https://abichat.github.io/evabic/reference/add_names.html</loc>
-  </url>
-  <url>
-    <loc>https://abichat.github.io/evabic/reference/area_rect.html</loc>
-  </url>
-  <url>
-    <loc>https://abichat.github.io/evabic/reference/ebc_AUC.html</loc>
-  </url>
-  <url>
-    <loc>https://abichat.github.io/evabic/reference/ebc_TP.html</loc>
-  </url>
-  <url>
-    <loc>https://abichat.github.io/evabic/reference/ebc_TPR.html</loc>
-  </url>
-  <url>
-    <loc>https://abichat.github.io/evabic/reference/ebc_allmeasures.html</loc>
-  </url>
-  <url>
-    <loc>https://abichat.github.io/evabic/reference/ebc_confusion.html</loc>
-  </url>
-  <url>
-    <loc>https://abichat.github.io/evabic/reference/ebc_tidy.html</loc>
-  </url>
-  <url>
-    <loc>https://abichat.github.io/evabic/reference/ebc_tidy_by_threshold.html</loc>
-  </url>
-  <url>
-    <loc>https://abichat.github.io/evabic/reference/index.html</loc>
-  </url>
-  <url>
-    <loc>https://abichat.github.io/evabic/reference/nl2c.html</loc>
-  </url>
-  <url>
-    <loc>https://abichat.github.io/evabic/reference/rep_0.html</loc>
-  </url>
+<urlset xmlns = 'http://www.sitemaps.org/schemas/sitemap/0.9'>
+<url><loc>https://abichat.github.io/evabic/404.html</loc></url>
+<url><loc>https://abichat.github.io/evabic/LICENSE.html</loc></url>
+<url><loc>https://abichat.github.io/evabic/authors.html</loc></url>
+<url><loc>https://abichat.github.io/evabic/index.html</loc></url>
+<url><loc>https://abichat.github.io/evabic/news/index.html</loc></url>
+<url><loc>https://abichat.github.io/evabic/reference/add_names.html</loc></url>
+<url><loc>https://abichat.github.io/evabic/reference/area_rect.html</loc></url>
+<url><loc>https://abichat.github.io/evabic/reference/ebc_AUC.html</loc></url>
+<url><loc>https://abichat.github.io/evabic/reference/ebc_TP.html</loc></url>
+<url><loc>https://abichat.github.io/evabic/reference/ebc_TPR.html</loc></url>
+<url><loc>https://abichat.github.io/evabic/reference/ebc_allmeasures.html</loc></url>
+<url><loc>https://abichat.github.io/evabic/reference/ebc_confusion.html</loc></url>
+<url><loc>https://abichat.github.io/evabic/reference/ebc_tidy.html</loc></url>
+<url><loc>https://abichat.github.io/evabic/reference/ebc_tidy_by_threshold.html</loc></url>
+<url><loc>https://abichat.github.io/evabic/reference/index.html</loc></url>
+<url><loc>https://abichat.github.io/evabic/reference/nl2c.html</loc></url>
+<url><loc>https://abichat.github.io/evabic/reference/rep_0.html</loc></url>
 </urlset>
+
