@@ -2,7 +2,7 @@
 
 * Upkeep.
 
-# evabic 0.1.0
+# evabic 0.1.1
 
 * Update links for CRAN.
 
