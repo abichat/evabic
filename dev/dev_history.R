@@ -69,8 +69,8 @@ goodpractice::gp()
 
 # pkgdown::template_reference()
 
-install(upgrade = "never")
 devtools::build_readme()
+install(upgrade = "never")
 
 pkgdown::check_pkgdown()
 pkgdown::build_site()
