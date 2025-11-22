@@ -1,5 +1,6 @@
 # evabic 0.1.2.9000
 
+* Fix CRAN note and equation rendering in pkgdown.
 
 # evabic 0.1.2
 
