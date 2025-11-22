@@ -21,7 +21,7 @@
 #' ebc_TN(detected = c("A", "C", "D"), true = c("A", "B", "C"),
 #'        all = LETTERS[1:6])
 #' ebc_TN(detected = c("A", "C", "D"), true = c("A", "B", "C"), m = 6)
-ebc_TP <- function(detected, true){
+ebc_TP <- function(detected, true) {
   detected <- nl2c(detected)
   true <- nl2c(true)
   length(intersect(detected, true))
@@ -29,7 +29,7 @@ ebc_TP <- function(detected, true){
 
 #' @rdname ebc_TP
 #' @export
-ebc_FP <- function(detected, true){
+ebc_FP <- function(detected, true) {
   detected <- nl2c(detected)
   true <- nl2c(true)
   length(setdiff(detected, true))
@@ -37,7 +37,7 @@ ebc_FP <- function(detected, true){
 
 #' @rdname ebc_TP
 #' @export
-ebc_FN <- function(detected, true){
+ebc_FN <- function(detected, true) {
   detected <- nl2c(detected)
   true <- nl2c(true)
   length(setdiff(true, detected))
@@ -45,7 +45,7 @@ ebc_FN <- function(detected, true){
 
 #' @rdname ebc_TP
 #' @export
-ebc_TN <- function(detected, true, all, m = length(all)){
+ebc_TN <- function(detected, true, all, m = length(all)) {
   detected <- nl2c(detected)
   true <- nl2c(true)
   m - length(union(detected, true))
@@ -66,15 +66,24 @@ ebc_TN <- function(detected, true, all, m = length(all)){
 #'
 #' @examples
 #' ebc_confusion(detected = c("A", "C", "D"), true = c("A", "B", "C"), m = 6)
-ebc_confusion <- function(detected, true, all, m = length(all), prop = FALSE){
+ebc_confusion <- function(detected, true, all, m = length(all), prop = FALSE) {
   detected <- nl2c(detected)
   true <- nl2c(true)
-  cm <- matrix(c(ebc_TP(detected, true), ebc_FN(detected, true),
-                 ebc_FP(detected, true), ebc_TN(detected, true, m = m)),
-               nrow = 2, ncol = 2, byrow = FALSE,
-               dimnames = list(c("Detected positive", "Detected negative"),
-                               c("Condition positive", "Condition negative"))
+  cm <- matrix(
+    c(
+      ebc_TP(detected, true),
+      ebc_FN(detected, true),
+      ebc_FP(detected, true),
+      ebc_TN(detected, true, m = m)
+    ),
+    nrow = 2,
+    ncol = 2,
+    byrow = FALSE,
+    dimnames = list(
+      c("Detected positive", "Detected negative"),
+      c("Condition positive", "Condition negative")
     )
+  )
   if (prop) {
     return(cm / sum(cm))
   } else {

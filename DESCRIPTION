@@ -1,6 +1,6 @@
 Package: evabic
 Title: Evaluation of Binary Classifiers
-Version: 0.1.1
+Version: 0.1.2
 Authors@R: 
     person("Antoine", "Bichat", , "antoine.bichat@proton.me", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0001-6599-7081"))
@@ -16,4 +16,4 @@ Suggests:
 Encoding: UTF-8
 Language: en-US
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.2.1
+RoxygenNote: 7.3.3

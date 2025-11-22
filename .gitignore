@@ -2,3 +2,6 @@
 .RData
 .Rproj.user
 .DS_Store
+docs/
+pkgdown/
+/.quarto/

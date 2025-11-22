@@ -31,11 +31,14 @@
 #' model <- lm(Y ~ ., data = df_lm)
 #' pvalues <- summary(model)$coefficients[-1, 4]
 #' ebc_tidy_by_threshold(pvalues, predictors, m = 7)
-ebc_tidy_by_threshold <- function(detection_values, true, all,
-                          m = length(all),
-                          measures = c("TPR", "FPR", "FDR", "ACC", "F1"),
-                          direction = c("<", ">", "<=", ">=")) {
-
+ebc_tidy_by_threshold <- function(
+  detection_values,
+  true,
+  all,
+  m = length(all),
+  measures = c("TPR", "FPR", "FDR", "ACC", "F1"),
+  direction = c("<", ">", "<=", ">=")
+) {
   direction <- match.arg(direction)
   thresholds <- unname(sort(unique(detection_values)))
 
@@ -53,8 +56,13 @@ ebc_tidy_by_threshold <- function(detection_values, true, all,
     list_logical <- lapply(thresholds, function(x) detection_values >= x)
   }
 
-  list_measures <- lapply(list_logical, ebc_tidy, true = true,
-                          m = m, measures = measures)
+  list_measures <- lapply(
+    list_logical,
+    ebc_tidy,
+    true = true,
+    m = m,
+    measures = measures
+  )
 
   df_measures <- Reduce(rbind, list_measures)
   df_measures <- cbind(data.frame(threshold = thresholds), df_measures)

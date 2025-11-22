@@ -48,12 +48,21 @@ area_rect <- function(x, y) {
 #'
 #' df_measures <- ebc_tidy_by_threshold(pvalues, predictors, m = 7)
 #' ebc_AUC_from_measures(df_measures)
-ebc_AUC <- function(detection_values, true, all, m = length(all),
-                    direction = c("<", ">", "<=", ">=")) {
+ebc_AUC <- function(
+  detection_values,
+  true,
+  all,
+  m = length(all),
+  direction = c("<", ">", "<=", ">=")
+) {
   direction <- match.arg(direction)
-  df_roc <- ebc_tidy_by_threshold(detection_values, true, m = m,
-                                  measures = c("TPR", "FPR"),
-                                  direction = direction)
+  df_roc <- ebc_tidy_by_threshold(
+    detection_values,
+    true,
+    m = m,
+    measures = c("TPR", "FPR"),
+    direction = direction
+  )
   df_roc <- df_roc[order(df_roc$TPR), ]
   df_roc <- df_roc[order(df_roc$FPR), ]
   area_rect(df_roc$FPR, df_roc$TPR)
@@ -65,7 +74,7 @@ ebc_AUC <- function(detection_values, true, all, m = length(all),
 #' the output of \code{\link{ebc_tidy_by_threshold}}.
 #'
 #' @export
-ebc_AUC_from_measures <- function(df_measures){
+ebc_AUC_from_measures <- function(df_measures) {
   coln <- colnames(df_measures)
   if (!"TPR" %in% coln) {
     stop("df_measures must have a 'TPR' column.")

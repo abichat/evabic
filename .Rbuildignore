@@ -5,6 +5,10 @@
 ^\.travis\.yml$
 ^appveyor\.yml$
 ^codecov\.yml$
-^dev_history\.R$
 ^_pkgdown\.yml$
 ^\.github$
+^[.]?air[.]toml$
+^\.vscode$
+^dev$
+^docs$
+^pkgdown$

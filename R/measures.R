@@ -3,8 +3,8 @@
 #' Available measures in \code{evabic}
 #'
 #' @details
-#' \if{html}{\figure{confusionmatrix.png}{options: width="50\%"
-#' style="float:middle"}}
+#' \if{html}{\figure{confusionmatrix.png}{options:
+#' style="width: 50%; float: middle;"}}
 #' \if{latex}{\figure{confusionmatrix.png}{options: width=15cm}}
 #' \describe{
 #'   \item{TP}{True Positive}
@@ -51,8 +51,23 @@
 #' @references
 #' \url{https://en.wikipedia.org/wiki/Evaluation_of_binary_classifiers}
 #' @export
-ebc_allmeasures <- c("TP", "FP", "FN", "TN",
-                     "TPR", "TNR", "PPV", "NPV",
-                     "FNR", "FPR", "FDR", "FOR",
-                     "ACC", "BACC", "F1",
-                     "PLR", "NLR", "DOR")
+ebc_allmeasures <- c(
+  "TP",
+  "FP",
+  "FN",
+  "TN",
+  "TPR",
+  "TNR",
+  "PPV",
+  "NPV",
+  "FNR",
+  "FPR",
+  "FDR",
+  "FOR",
+  "ACC",
+  "BACC",
+  "F1",
+  "PLR",
+  "NLR",
+  "DOR"
+)

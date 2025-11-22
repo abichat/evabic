@@ -1,17 +1,13 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# evabic <a href='https://abichat.github.io/evabic/'><img src='man/figures/logo.png' style="float:right" height="139" /></a>
+# evabic <a href='https://abichat.github.io/evabic/'><img src='man/figures/logo.png' align="right" height="139" /></a>
 
 <!-- badges: start -->
 
-[![license](https://img.shields.io/badge/license-GPL--3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0.en.html)
-[![lifecycle](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://lifecycle.r-lib.org/articles/stages.html#stable)
-[![packageversion](https://img.shields.io/badge/package%20version-0.1.1-orange.svg)](https://github.com/abichat/evabic/blob/master/DESCRIPTION)
-[![CRAN_Status_Badge](https://www.r-pkg.org/badges/version/evabic)](https://cran.r-project.org/package=evabic)
+[![packageversion](https://img.shields.io/badge/version-0.1.2-orange.svg)](https://github.com/abichat/evabic/)
 [![R-CMD-check](https://github.com/abichat/evabic/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/abichat/evabic/actions/workflows/R-CMD-check.yaml)
-[![Documentation](https://img.shields.io/badge/documentation-pkgdown-E91E63.svg)](https://abichat.github.io/evabic/)
-[![last-commit](https://img.shields.io/github/last-commit/abichat/evabic.svg)](https://github.com/abichat/evabic/commits/master)
+[![CRAN_Status_Badge](https://www.r-pkg.org/badges/version/evabic)](https://cran.r-project.org/package=evabic)
 <!-- badges: end -->
 
 **evabic** aims to **eva**luate **bi**nary **c**lassifiers by specifying
@@ -20,12 +16,13 @@ dependencies.
 
 ## Installation
 
-You can install the development version from
-[GitHub](https://github.com/) with:
+You can install **evabic** from CRAN using `install.packages("evabic")`.
+Alternatively you can grab the development version from
+[GitHub](https://github.com//abichat/evabic/) with:
 
 ``` r
-# install.packages("remotes")
-remotes::install_github("abichat/evabic")
+# install.packages("pak")
+pak::pak("abichat/evabic")
 ```
 
 ## Measures
@@ -39,13 +36,14 @@ False Discovery Rate, Accuracy, F1…
 
 ``` r
 evabic::ebc_allmeasures
-#>  [1] "TP"   "FP"   "FN"   "TN"   "TPR"  "TNR"  "PPV"  "NPV"  "FNR"  "FPR"  "FDR" 
-#> [12] "FOR"  "ACC"  "BACC" "F1"   "PLR"  "NLR"  "DOR"
+#>  [1] "TP"   "FP"   "FN"   "TN"   "TPR"  "TNR"  "PPV"  "NPV"  "FNR"  "FPR" 
+#> [11] "FDR"  "FOR"  "ACC"  "BACC" "F1"   "PLR"  "NLR"  "DOR"
 ```
 
 All measures are computed from the confusion matrix:
 
 <center>
+
 <img src="man/figures/confusionmatrix.png" width="50%"/>
 </center>
 
@@ -68,12 +66,16 @@ X2 <- rnorm(50)
 X3 <- rnorm(50)
 predictors <- paste0("X", 1:3)
 
-df_lm <- data.frame(X1 = X1, X2 = X2, X3 = X3, 
-                    X4 = X1 + X2 + X3 + rnorm(50, sd = 0.5),
-                    X5 = X1 + 3 * X3 + rnorm(50, sd = 0.5),
-                    X6 = X2 - 2 * X3 + rnorm(50, sd = 0.5),
-                    X7 = X1 - 0.2 * X2 + rnorm(50, sd = 2),
-                    Y  = X1 - 0.2 * X2 + 3 * X3 + rnorm(50))
+df_lm <- data.frame(
+  X1 = X1,
+  X2 = X2,
+  X3 = X3,
+  X4 = X1 + X2 + X3 + rnorm(50, sd = 0.5),
+  X5 = X1 + 3 * X3 + rnorm(50, sd = 0.5),
+  X6 = X2 - 2 * X3 + rnorm(50, sd = 0.5),
+  X7 = X1 - 0.2 * X2 + rnorm(50, sd = 2),
+  Y = X1 - 0.2 * X2 + 3 * X3 + rnorm(50)
+)
 ```
 
 We use a linear regression to detect the actual predictors (do not
@@ -133,9 +135,13 @@ You can also ask for several measures in a single row summary format
 with `ebc_tidy()`.
 
 ``` r
-ebc_tidy(detected = detected_var, true = predictors, m = 7, 
-         # you can use `measures = ebc_allmeasures` to compute all measures
-         measures = c("TPR", "TNR", "FDR", "ACC", "BACC", "F1")) 
+ebc_tidy(
+  detected = detected_var,
+  true = predictors,
+  m = 7,
+  # you can use `measures = ebc_allmeasures` to compute all measures
+  measures = c("TPR", "TNR", "FDR", "ACC", "BACC", "F1")
+)
 #>         TPR TNR FDR       ACC      BACC  F1
 #> 1 0.6666667   1   0 0.8571429 0.8333333 0.8
 ```
@@ -148,8 +154,12 @@ if needed).
 pvalues < 0.05
 #>    X1    X2    X3    X4    X5    X6    X7 
 #>  TRUE FALSE  TRUE FALSE FALSE FALSE FALSE
-ebc_tidy(detected = pvalues < 0.05, true = predictors, m = 7, 
-         measures = c("TPR", "TNR", "FDR", "ACC", "BACC", "F1"))
+ebc_tidy(
+  detected = pvalues < 0.05,
+  true = predictors,
+  m = 7,
+  measures = c("TPR", "TNR", "FDR", "ACC", "BACC", "F1")
+)
 #>         TPR TNR FDR       ACC      BACC  F1
 #> 1 0.6666667   1   0 0.8571429 0.8333333 0.8
 ```
@@ -159,8 +169,12 @@ measures according to a moving threshold if you provide the vector of
 p-values (or any score).
 
 ``` r
-df_measures <- ebc_tidy_by_threshold(detection_values = pvalues, true = predictors, m = 7, 
-                                     measures = c("TPR", "FPR", "FDR", "ACC", "BACC", "F1"))
+df_measures <- ebc_tidy_by_threshold(
+  detection_values = pvalues,
+  true = predictors,
+  m = 7,
+  measures = c("TPR", "FPR", "FDR", "ACC", "BACC", "F1")
+)
 df_measures
 #>     threshold       TPR  FPR       FDR       ACC      BACC        F1
 #> 1 0.003469737 0.0000000 0.00       NaN 0.5714286 0.5000000 0.0000000
@@ -176,7 +190,13 @@ df_measures
 This makes it easy to plot various-threshold curves like ROC curve.
 
 ``` r
-plot(df_measures$FPR, df_measures$TPR, type = "b", xlab = "FPR", ylab = "TPR")
+plot(
+  df_measures$FPR,
+  df_measures$TPR,
+  type = "b",
+  xlab = "FPR",
+  ylab = "TPR"
+)
 ```
 
 <img src="man/figures/README-roc-1.png" width="100%" />

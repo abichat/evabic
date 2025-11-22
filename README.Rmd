@@ -13,32 +13,28 @@ knitr::opts_chunk$set(
 )
 ```
 
-# evabic <a href='https://abichat.github.io/evabic/'><img src='man/figures/logo.png' style="float:right" height="139" /></a>
+# evabic <a href='https://abichat.github.io/evabic/'><img src='man/figures/logo.png' align="right" height="139" /></a>
 
 ```{r, echo = FALSE}
-version <- as.vector(read.dcf('DESCRIPTION')[, 'Version'])                                                              
+version <- as.vector(read.dcf('DESCRIPTION')[, 'Version'])
 version <- gsub('-', '.', version)
 ```
 
 <!-- badges: start -->
-[![license](https://img.shields.io/badge/license-GPL--3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0.en.html)
-[![lifecycle](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://lifecycle.r-lib.org/articles/stages.html#stable)
-[![packageversion](https://img.shields.io/badge/package%20version-`r version`-orange.svg)](https://github.com/abichat/evabic/blob/master/DESCRIPTION)
-[![CRAN_Status_Badge](https://www.r-pkg.org/badges/version/evabic)](https://cran.r-project.org/package=evabic)
+[![packageversion](https://img.shields.io/badge/version-`r version`-orange.svg)](https://github.com/abichat/evabic/)
 [![R-CMD-check](https://github.com/abichat/evabic/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/abichat/evabic/actions/workflows/R-CMD-check.yaml)
-[![Documentation](https://img.shields.io/badge/documentation-pkgdown-E91E63.svg)](https://abichat.github.io/evabic/) 
-[![last-commit](https://img.shields.io/github/last-commit/abichat/evabic.svg)](https://github.com/abichat/evabic/commits/master)
+[![CRAN_Status_Badge](https://www.r-pkg.org/badges/version/evabic)](https://cran.r-project.org/package=evabic)
 <!-- badges: end -->
 
 **evabic** aims to **eva**luate **bi**nary **c**lassifiers by specifying what is detected as true and what is actually true. It has no dependencies.
 
 ## Installation
 
-You can install the development version from [GitHub](https://github.com/) with:
+You can install **evabic** from CRAN using `install.packages("evabic")`. Alternatively you can grab the development version from [GitHub](https://github.com//abichat/evabic/) with:
 
 ``` r
-# install.packages("remotes")
-remotes::install_github("abichat/evabic")
+# install.packages("pak")
+pak::pak("abichat/evabic")
 ```
 
 ## Measures
@@ -75,12 +71,16 @@ X2 <- rnorm(50)
 X3 <- rnorm(50)
 predictors <- paste0("X", 1:3)
 
-df_lm <- data.frame(X1 = X1, X2 = X2, X3 = X3, 
-                    X4 = X1 + X2 + X3 + rnorm(50, sd = 0.5),
-                    X5 = X1 + 3 * X3 + rnorm(50, sd = 0.5),
-                    X6 = X2 - 2 * X3 + rnorm(50, sd = 0.5),
-                    X7 = X1 - 0.2 * X2 + rnorm(50, sd = 2),
-                    Y  = X1 - 0.2 * X2 + 3 * X3 + rnorm(50))
+df_lm <- data.frame(
+  X1 = X1,
+  X2 = X2,
+  X3 = X3,
+  X4 = X1 + X2 + X3 + rnorm(50, sd = 0.5),
+  X5 = X1 + 3 * X3 + rnorm(50, sd = 0.5),
+  X6 = X2 - 2 * X3 + rnorm(50, sd = 0.5),
+  X7 = X1 - 0.2 * X2 + rnorm(50, sd = 2),
+  Y = X1 - 0.2 * X2 + 3 * X3 + rnorm(50)
+)
 ```
 
 We use a linear regression to detect the actual predictors (do not select significant variables like this at home, it's a bad way to do so).
@@ -106,31 +106,49 @@ ebc_ACC(detected = detected_var, true = predictors, m = 7) # the total size of t
 You can also ask for several measures in a single row summary format with `ebc_tidy()`.
 
 ```{r tidy}
-ebc_tidy(detected = detected_var, true = predictors, m = 7, 
-         # you can use `measures = ebc_allmeasures` to compute all measures
-         measures = c("TPR", "TNR", "FDR", "ACC", "BACC", "F1")) 
+ebc_tidy(
+  detected = detected_var,
+  true = predictors,
+  m = 7,
+  # you can use `measures = ebc_allmeasures` to compute all measures
+  measures = c("TPR", "TNR", "FDR", "ACC", "BACC", "F1")
+)
 ```
 
 Note that **evabic** also supports named logicals for `detected` and `true` arguments, but they must be named (see the `add_names()` function if needed).
 
 ```{r logical}
 pvalues < 0.05
-ebc_tidy(detected = pvalues < 0.05, true = predictors, m = 7, 
-         measures = c("TPR", "TNR", "FDR", "ACC", "BACC", "F1"))
+ebc_tidy(
+  detected = pvalues < 0.05,
+  true = predictors,
+  m = 7,
+  measures = c("TPR", "TNR", "FDR", "ACC", "BACC", "F1")
+)
 ```
 
 With `ebc_tidy_by_threshold()`, you can ask for the evolution of measures according to a moving threshold if you provide the vector of p-values (or any score).
 
 ```{r tidy-by-threshold}
-df_measures <- ebc_tidy_by_threshold(detection_values = pvalues, true = predictors, m = 7, 
-                                     measures = c("TPR", "FPR", "FDR", "ACC", "BACC", "F1"))
+df_measures <- ebc_tidy_by_threshold(
+  detection_values = pvalues,
+  true = predictors,
+  m = 7,
+  measures = c("TPR", "FPR", "FDR", "ACC", "BACC", "F1")
+)
 df_measures
 ```
 
 This makes it easy to plot various-threshold curves like ROC curve.
 
 ```{r roc}
-plot(df_measures$FPR, df_measures$TPR, type = "b", xlab = "FPR", ylab = "TPR")
+plot(
+  df_measures$FPR,
+  df_measures$TPR,
+  type = "b",
+  xlab = "FPR",
+  ylab = "TPR"
+)
 ```
 
 And finally, you can ask for the AUC, the area under the ROC curve.

@@ -3,7 +3,7 @@ context("Results for confusion matrix statistics")
 
 elements <- 1:10
 total <- length(elements)
-detectedH1 <- c(1:4, 8,9)
+detectedH1 <- c(1:4, 8, 9)
 trueH1 <- 1:5
 
 test_that("confusion measures are correct for numeric", {
@@ -75,6 +75,3 @@ test_that("confusion measures are correct for mixed types", {
   expect_equal(ebc_TN(detectedH1_fct, trueH1_lgl, elements_str), 3)
   expect_equal(ebc_TN(detectedH1_fct, trueH1_str, m = total), 3)
 })
-
-
-

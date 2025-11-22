@@ -19,4 +19,3 @@ test_that("adding names works", {
   expect_equal(nchar(names(z)), rep(nchar(names(z)[1]), length(y)))
   expect_equal(sort(names(z)), names(z))
 })
-
