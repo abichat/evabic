@@ -1,5 +1,9 @@
 # Changelog
 
+## evabic 0.1.3
+
+- Fix CRAN note and equation rendering in pkgdown.
+
 ## evabic 0.1.2
 
 - Upkeep.

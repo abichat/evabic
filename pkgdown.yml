@@ -2,7 +2,7 @@ pandoc: 3.1.11
 pkgdown: 2.2.0
 pkgdown_sha: ~
 articles: {}
-last_built: 2025-11-22T07:35Z
+last_built: 2025-11-23T09:37Z
 urls:
   reference: https://abichat.github.io/evabic/reference
   article: https://abichat.github.io/evabic/articles
