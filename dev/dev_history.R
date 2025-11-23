@@ -1,5 +1,4 @@
 library(devtools)
-library(usethis)
 library(testthat)
 
 #### One time ####
@@ -74,6 +73,5 @@ install(upgrade = "never")
 
 pkgdown::check_pkgdown()
 pkgdown::build_site()
-install(upgrade = "never")
 
-build(manual = TRUE)
+# build()

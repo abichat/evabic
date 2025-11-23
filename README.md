@@ -5,7 +5,7 @@
 
 <!-- badges: start -->
 
-[![packageversion](https://img.shields.io/badge/version-0.1.2-orange.svg)](https://github.com/abichat/evabic/)
+[![packageversion](https://img.shields.io/badge/version-0.1.3-orange.svg)](https://github.com/abichat/evabic/)
 [![R-CMD-check](https://github.com/abichat/evabic/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/abichat/evabic/actions/workflows/R-CMD-check.yaml)
 [![CRAN_Status_Badge](https://www.r-pkg.org/badges/version/evabic)](https://cran.r-project.org/package=evabic)
 <!-- badges: end -->
