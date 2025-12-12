@@ -1,4 +1,6 @@
-# evabic 0.1.3.9000
+# evabic 0.1.4
+
+* Fix CRAN note.
 
 # evabic 0.1.3
 
