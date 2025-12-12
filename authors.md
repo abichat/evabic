@@ -8,15 +8,15 @@
 ## Citation
 
 Source:
-[`DESCRIPTION`](https://github.com/abichat/evabic/blob/v0.1.3/DESCRIPTION)
+[`DESCRIPTION`](https://github.com/abichat/evabic/blob/master/DESCRIPTION)
 
 Bichat A (2025). *evabic: Evaluation of Binary Classifiers*. R package
-version 0.1.3, <https://abichat.github.io/evabic/>.
+version 0.1.4, <https://abichat.github.io/evabic/>.
 
     @Manual{,
       title = {evabic: Evaluation of Binary Classifiers},
       author = {Antoine Bichat},
       year = {2025},
-      note = {R package version 0.1.3},
+      note = {R package version 0.1.4},
       url = {https://abichat.github.io/evabic/},
     }
