@@ -8,7 +8,7 @@
 ## Citation
 
 Source:
-[`DESCRIPTION`](https://github.com/abichat/evabic/blob/master/DESCRIPTION)
+[`DESCRIPTION`](https://github.com/abichat/evabic/blob/v0.1.4/DESCRIPTION)
 
 Bichat A (2025). *evabic: Evaluation of Binary Classifiers*. R package
 version 0.1.4, <https://abichat.github.io/evabic/>.
