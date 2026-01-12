@@ -2,6 +2,8 @@
 
 ## evabic 0.1.4
 
+CRAN release: 2025-12-12
+
 - Fix CRAN note.
 
 ## evabic 0.1.3
